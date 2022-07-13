@@ -1,0 +1,9 @@
+* ChanMo's Blog
+
+** [[./Defi.org][Defi Platform Compare]]
+
+Top Defi platform compare.
+
+** [[./Blockchain.org][BlockChain Development Tooltips]]
+
+Truffle, Brownie, Vyper, etc.

@@ -1,0 +1,9 @@
+* Defi
+
+| Platform | Contract Languages       | Description          |
+|----------+--------------------------+----------------------|
+| uniswap  | v1:vyper, v2,v3:solidity | largest dex platform |
+| curve    | vyper                    | simple, effective    |
+
+
+

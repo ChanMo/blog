@@ -1,0 +1,57 @@
+* BlockChain Development
+
+** Opensource
+
+Popular projects, to learn, or copy
+
+*** Uniswap
+
+Top liquidity pools platform, [[https://docs.uniswap.org/][doc]]
+
+[[https://github.com/Uniswap/v1-contracts][v1 uniswap contracts]]
+
+Development tools:
+
+- vyper
+- pytest
+- eth_tester
+
+
+*** Curve
+
+[[~/Images/Logo/curve.svg]]
+
+Liquidity Pools Platform, [[https://curve.readthedocs.io/][doc]]
+
+Development Architecture
+
+- vyper
+- brownie
+
+** Ethereum
+
+Languages, Tools, Frameworks, Packages...
+
+*** Common
+
+- solidity
+- @openzepplin
+
+*** Python
+
+**** Basic Package
+
+- web3py
+- eth_tester
+
+**** Framework
+
+- Brownie
+- Ape
+
+**** Languages
+
+- Vyper
+
+
+*** Javascript
