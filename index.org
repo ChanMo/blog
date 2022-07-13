@@ -1,4 +1,8 @@
-* ChanMo's Blog
+#+TITLE: ChanMo's Blog
+#+OPTIONS: toc:nil
+#+DESCRIPTION: chanmo's development blog
+#+KEYWORDS: chanmo, blockchain, linux, opensource, python, javascript, react
+
 
 ** [[./Defi.org][Defi Platform Compare]]
 

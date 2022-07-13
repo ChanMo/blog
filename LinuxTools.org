@@ -1,0 +1,14 @@
+* Linux Command Tools Recommend
+
+** trans
+
+#+BEGIN_SRC
+  $ trans :zh hello
+#+END_SRC
+
+
+** proxychains4
+
+#+BEGIN_SRC
+  $ proxychains4 youtube-dl https://youtube.com/demo/
+#+END_SRC
