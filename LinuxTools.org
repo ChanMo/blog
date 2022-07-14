@@ -1,4 +1,7 @@
-* Linux Command Tools Recommend
+#+TITLE: Linux Command Tools Recommend
+#+KEYWORDS: ChanMo, Linux, trans, translate, dict, proxychain, proxy, websocket
+#+DESCRIPTION: Linux Command Tools Recommand
+#+LINK-HOME: /
 
 ** trans
 

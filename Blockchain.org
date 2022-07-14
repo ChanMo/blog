@@ -1,4 +1,6 @@
-* BlockChain Development
+#+TITLE: BlockChain Development
+#+DESCRIPTION: All about of blockchain develop
+#+KEYWORDS: blockchain, ethereum, nft, defi, web3
 
 ** Opensource
 

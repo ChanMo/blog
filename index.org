@@ -1,7 +1,12 @@
 #+TITLE: ChanMo's Blog
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil html-postamble:nil
 #+DESCRIPTION: chanmo's development blog
 #+KEYWORDS: chanmo, blockchain, linux, opensource, python, javascript, react
+
+
+** [[./LinuxTools.org][Linux Tools Recommand]]
+
+Very usagefull command tools
 
 
 ** [[./Defi.org][Defi Platform Compare]]
