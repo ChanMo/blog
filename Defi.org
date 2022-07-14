@@ -1,7 +1,7 @@
 #+TITLE: Defi
 #+DESCRIPTION: Top defi platforms analysis for development
 #+KEYWORDS: defi, ethereum, dex, uniswap, stableswap, curve, laquidity pools
-
+#+HTML_LINK_HOME: /blog
 
 | Platform | Contract Languages       | Description          |
 |----------+--------------------------+----------------------|
