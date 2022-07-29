@@ -4,6 +4,10 @@
 #+KEYWORDS: chanmo, blockchain, linux, opensource, python, javascript, react
 
 
+** Update Toc by LibreOffice from command line
+
+update 'table of contents' by libreoffice from command line
+
 ** [[./LinuxTools.org][Linux Tools Recommand]]
 
 Very usagefull command tools

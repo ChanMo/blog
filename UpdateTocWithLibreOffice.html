@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-29 五 16:12 -->
+<!-- 2022-07-29 五 16:11 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ChanMo's Blog</title>
+<title>Update Toc with LibreOffice Command</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="chanmo's development blog" />
-<meta name="keywords" content="chanmo, blockchain, linux, opensource, python, javascript, react" />
+<meta name="description" content="update 'table of contents' by libreoffice from command line" />
+<meta name="keywords" content="libreoffice, soffice, basic, macro, toc" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -197,46 +197,75 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
 </head>
 <body>
-<div id="content" class="content">
-<h1 class="title">ChanMo's Blog</h1>
-
-
-<div id="outline-container-orgc8d74c5" class="outline-2">
-<h2 id="orgc8d74c5"><span class="section-number-2">1.</span> Update Toc by LibreOffice from command line</h2>
-<div class="outline-text-2" id="text-1">
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="/blog"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">Update Toc with LibreOffice Command</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb731d09">1. Create Macro Module</a></li>
+<li><a href="#org6cb08b5">2. Run Command</a></li>
+</ul>
+</div>
+</div>
 <p>
-update 'table of contents' by libreoffice from command line
+TOC is Table of Contents
 </p>
+
+<div id="outline-container-orgb731d09" class="outline-2">
+<h2 id="orgb731d09"><span class="section-number-2">1.</span> Create Macro Module</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-basic">REM  *****  BASIC  *****
+
+ Option Explicit
+
+ Sub UpdateIndexes(path As String)
+     '''Update indexes, such as for the table of contents''' 
+     Dim doc As Object
+     Dim args()
+
+     doc = StarDesktop.loadComponentFromUrl(convertToUrl(path), "_default", 0, args())
+
+     Dim i As Integer
+
+     With doc ' Only process Writer documents
+	 If .supportsService("com.sun.star.text.GenericTextDocument") Then
+	     For i = 0 To .getDocumentIndexes().count - 1
+		 .getDocumentIndexes().getByIndex(i).update()
+	     Next i
+	 End If
+     End With ' ThisComponent
+
+     doc.store()
+     doc.close(True)
+
+ End Sub ' UpdateIndexes  
+</pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgb215fbe" class="outline-2">
-<h2 id="orgb215fbe"><span class="section-number-2">2.</span> <a href="./LinuxTools.html">Linux Tools Recommand</a></h2>
+
+<div id="outline-container-org6cb08b5" class="outline-2">
+<h2 id="org6cb08b5"><span class="section-number-2">2.</span> Run Command</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Very usagefull command tools
+#+BNGIN<sub>SRC</sub> bash
+$ soffice &#x2013;headless "macro:///Standard.YourModuleName.UpdateIndex(/path/to/file.odt)"
+#+END<sub>SRC</sub>
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-org0c8f2cb" class="outline-2">
-<h2 id="org0c8f2cb"><span class="section-number-2">3.</span> <a href="./Defi.html">Defi Platform Compare</a></h2>
-<div class="outline-text-2" id="text-3">
-<p>
-Top Defi platform compare.
-</p>
 </div>
-</div>
-
-<div id="outline-container-org5fa5a65" class="outline-2">
-<h2 id="org5fa5a65"><span class="section-number-2">4.</span> <a href="./Blockchain.html">BlockChain Development Tooltips</a></h2>
-<div class="outline-text-2" id="text-4">
-<p>
-Truffle, Brownie, Vyper, etc.
-</p>
-</div>
-</div>
+<div id="postamble" class="status">
+<p class="author">Author: ChanMo</p>
+<p class="date">Created: 2022-07-29 五 16:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
