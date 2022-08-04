@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-08-04 四 10:59 -->
+<!-- 2022-08-04 四 10:55 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ChanMo's Blog</title>
+<title>Brownie with django</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="chanmo's development blog" />
-<meta name="keywords" content="chanmo, blockchain, linux, opensource, python, javascript, react" />
+<meta name="description" content="how to integrate eth-brownie with django" />
+<meta name="keywords" content="eth, brownie, django, python, web3, vyper, solidity, nft" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -197,60 +197,230 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
 </head>
 <body>
-<div id="content" class="content">
-<h1 class="title">ChanMo's Blog</h1>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="/blog"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">Brownie with django</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb56518d">1. Create New Django Project</a></li>
+<li><a href="#org9f7baf3">2. Create Brownie Directory</a></li>
+<li><a href="#org854089c">3. Config Network</a>
+<ul>
+<li><a href="#orgdcd052b">3.1. Use Default Development Network</a></li>
+<li><a href="#orgcc2cad1">3.2. Use Infura</a></li>
+</ul>
+</li>
+<li><a href="#org01591a0">4. Import Account</a></li>
+<li><a href="#org8be1255">5. Update Django</a></li>
+<li><a href="#orge431758">6. Run Django</a></li>
+<li><a href="#orga5a6bcb">7. Integrate With Contract</a></li>
+<li><a href="#org2ca62cc">8. Use Celery</a></li>
+<li><a href="#org3289f4d">9. Use Next.js</a></li>
+<li><a href="#org41e8b69">10. Use Docker</a></li>
+</ul>
+</div>
+</div>
 
-
-<div id="outline-container-org2039277" class="outline-2">
-<h2 id="org2039277"><span class="section-number-2">1.</span> How to Integrate Brownie with Django</h2>
+<div id="outline-container-orgb56518d" class="outline-2">
+<h2 id="orgb56518d"><span class="section-number-2">1.</span> Create New Django Project</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-how to integrate eth-brownie in your django project, how to interact with contract
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-08-04 四&gt;</span></span>
-</p>
+<pre class="example">
+$ mkdir demo_site
+$ virtualenv env
+$ source env/bin/activate
+$ pip install Django
+$ django-admin startproject server
+</pre>
 </div>
 </div>
 
 
-<div id="outline-container-org2525d3f" class="outline-2">
-<h2 id="org2525d3f"><span class="section-number-2">2.</span> <a href="./UpdateTocWithLibreOffice.html">Update Toc by LibreOffice from command line</a></h2>
+<div id="outline-container-org9f7baf3" class="outline-2">
+<h2 id="org9f7baf3"><span class="section-number-2">2.</span> Create Brownie Directory</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-update 'table of contents' by libreoffice from command line
-</p>
+<pre class="example">
+$ cd server
+$ pip install eth-brownie
+$ brownie bake token
+</pre>
 </div>
 </div>
 
-<div id="outline-container-org798a58f" class="outline-2">
-<h2 id="org798a58f"><span class="section-number-2">3.</span> <a href="./LinuxTools.html">Linux Tools Recommand</a></h2>
+<div id="outline-container-org854089c" class="outline-2">
+<h2 id="org854089c"><span class="section-number-2">3.</span> Config Network</h2>
 <div class="outline-text-2" id="text-3">
-<p>
-Very usagefull command tools
-</p>
+</div>
+<div id="outline-container-orgdcd052b" class="outline-3">
+<h3 id="orgdcd052b"><span class="section-number-3">3.1.</span> Use Default Development Network</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+$ ganache-cli -d
+</pre>
 </div>
 </div>
 
+<div id="outline-container-orgcc2cad1" class="outline-3">
+<h3 id="orgcc2cad1"><span class="section-number-3">3.2.</span> Use Infura</h3>
+<div class="outline-text-3" id="text-3-2">
+<pre class="example">
+$ export WEB3_INFURA_PROJECT_ID=YourProjectID
+</pre>
+</div>
+</div>
+</div>
 
-<div id="outline-container-org5d09b8c" class="outline-2">
-<h2 id="org5d09b8c"><span class="section-number-2">4.</span> <a href="./Defi.html">Defi Platform Compare</a></h2>
+<div id="outline-container-org01591a0" class="outline-2">
+<h2 id="org01591a0"><span class="section-number-2">4.</span> Import Account</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-Top Defi platform compare.
+If use development network, can skip this step.
+</p>
+
+<pre class="example">
+$ brownie accounts new master # master is your account nickname
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8be1255" class="outline-2">
+<h2 id="org8be1255"><span class="section-number-2">5.</span> Update Django</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+open file <code>server/__init__.py</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">from brownie import project, network
+
+p = project.load('token', name='MyProject')
+p.load_config()
+
+# if use live network
+network.connect('rinkeby')
+network.accounts.load('master', 'ACCOUNT_PASSWORD') # account nickname and password
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge431758" class="outline-2">
+<h2 id="orge431758"><span class="section-number-2">6.</span> Run Django</h2>
+<div class="outline-text-2" id="text-6">
+<pre class="example">
+$ ./manage.py runserver
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orga5a6bcb" class="outline-2">
+<h2 id="orga5a6bcb"><span class="section-number-2">7.</span> Integrate With Contract</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+You do do this by `./manage.py shell` or in python file
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">from brownie import project, accounts
+
+erc721 = project.MyProject.ERC721 # Your contract name
+tx = erc721.deploy({'from':accounts[0]})
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ca62cc" class="outline-2">
+<h2 id="org2ca62cc"><span class="section-number-2">8.</span> Use Celery</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Because blockchain has high network delay, you should use celery do some longtime tasks
 </p>
 </div>
 </div>
 
-<div id="outline-container-org7598cbe" class="outline-2">
-<h2 id="org7598cbe"><span class="section-number-2">5.</span> <a href="./Blockchain.html">BlockChain Development Tooltips</a></h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org3289f4d" class="outline-2">
+<h2 id="org3289f4d"><span class="section-number-2">9.</span> Use Next.js</h2>
+<div class="outline-text-2" id="text-9">
 <p>
-Truffle, Brownie, Vyper, etc.
+Next.js is a very popular js framework.
 </p>
 </div>
 </div>
+
+<div id="outline-container-org41e8b69" class="outline-2">
+<h2 id="org41e8b69"><span class="section-number-2">10.</span> Use Docker</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+<pre class="src src-yaml">version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000" 
+
+  server: &amp;base
+    build: ./server
+    volumes:
+      - ./server:/app
+      - ./server/static:/app/static
+      - ./server/media:/app/media
+      - ./.brownie:/root/.brownie
+      - ./.solcx/:/root/.solcx
+      - ./.vvm:/root/.vvm
+    depends_on:
+      - rabbitmq
+      - postgres
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: "server.production"
+      WEB3_INFURA_PROJECT_ID: ""
+    command: gunicorn server.wsgi:application -w 2 -b :8000
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ""
+
+  celery:
+    &lt;&lt;: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server worker -l INFO
+
+  celery_beat:
+    &lt;&lt;: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server beat -l INFO
+
+
+  rabbitmq:
+    image: rabbitmq
+    restart: always
+    volumes:
+      - ./mq:/var/lib/rabbitmq
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: ChanMo</p>
+<p class="date">Created: 2022-08-04 四 10:55</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

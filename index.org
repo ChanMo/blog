@@ -4,6 +4,13 @@
 #+KEYWORDS: chanmo, blockchain, linux, opensource, python, javascript, react
 
 
+** How to Integrate Brownie with Django
+
+how to integrate eth-brownie in your django project, how to interact with contract
+
+<2022-08-04 四>
+
+
 ** [[./UpdateTocWithLibreOffice.org][Update Toc by LibreOffice from command line]]
 
 update 'table of contents' by libreoffice from command line

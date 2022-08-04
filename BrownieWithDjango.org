@@ -1,0 +1,146 @@
+#+title: Brownie with django
+#+keywords: eth, brownie, django, python, web3, vyper, solidity, nft
+#+description: how to integrate eth-brownie with django
+#+HTML_LINK_HOME: /blog
+
+** Create New Django Project
+
+#+BEGIN_SRC
+  $ mkdir demo_site
+  $ virtualenv env
+  $ source env/bin/activate
+  $ pip install Django
+  $ django-admin startproject server
+#+END_SRC
+
+
+** Create Brownie Directory
+
+#+BEGIN_SRC
+  $ cd server
+  $ pip install eth-brownie
+  $ brownie bake token
+#+END_SRC
+
+** Config Network
+
+*** Use Default Development Network
+
+#+BEGIN_SRC
+  $ ganache-cli -d
+#+END_SRC
+
+*** Use Infura
+
+#+BEGIN_SRC
+  $ export WEB3_INFURA_PROJECT_ID=YourProjectID
+#+END_SRC
+
+** Import Account
+
+If use development network, can skip this step.
+
+#+BEGIN_SRC
+  $ brownie accounts new master # master is your account nickname
+#+END_SRC
+
+** Update Django
+
+open file ~server/__init__.py~
+
+#+BEGIN_SRC python
+    from brownie import project, network
+
+    p = project.load('token', name='MyProject')
+    p.load_config()
+
+    # if use live network
+    network.connect('rinkeby')
+    network.accounts.load('master', 'ACCOUNT_PASSWORD') # account nickname and password
+#+END_SRC
+
+** Run Django
+
+#+BEGIN_SRC
+  $ ./manage.py runserver
+#+END_SRC
+
+
+** Integrate With Contract
+
+You do do this by `./manage.py shell` or in python file
+
+#+BEGIN_SRC python
+  from brownie import project, accounts
+
+  erc721 = project.MyProject.ERC721 # Your contract name
+  tx = erc721.deploy({'from':accounts[0]})
+#+END_SRC
+
+** Use Celery
+
+Because blockchain has high network delay, you should use celery do some longtime tasks
+
+** Use Next.js
+
+Next.js is a very popular js framework.
+
+** Use Docker
+
+#+BEGIN_SRC yaml
+version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000" 
+
+  server: &base
+    build: ./server
+    volumes:
+      - ./server:/app
+      - ./server/static:/app/static
+      - ./server/media:/app/media
+      - ./.brownie:/root/.brownie
+      - ./.solcx/:/root/.solcx
+      - ./.vvm:/root/.vvm
+    depends_on:
+      - rabbitmq
+      - postgres
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: "server.production"
+      WEB3_INFURA_PROJECT_ID: ""
+    command: gunicorn server.wsgi:application -w 2 -b :8000
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ""
+
+  celery:
+    <<: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server worker -l INFO
+
+  celery_beat:
+    <<: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server beat -l INFO
+
+
+  rabbitmq:
+    image: rabbitmq
+    restart: always
+    volumes:
+      - ./mq:/var/lib/rabbitmq
+  
+#+END_SRC
