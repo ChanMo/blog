@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-29 五 16:11 -->
+<!-- 2022-08-04 四 11:05 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Update Toc with LibreOffice Command</title>
@@ -207,8 +207,8 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb731d09">1. Create Macro Module</a></li>
-<li><a href="#org6cb08b5">2. Run Command</a></li>
+<li><a href="#org293741f">1. Create Macro Module</a></li>
+<li><a href="#orgd44740e">2. Run Command</a></li>
 </ul>
 </div>
 </div>
@@ -216,8 +216,8 @@
 TOC is Table of Contents
 </p>
 
-<div id="outline-container-orgb731d09" class="outline-2">
-<h2 id="orgb731d09"><span class="section-number-2">1.</span> Create Macro Module</h2>
+<div id="outline-container-org293741f" class="outline-2">
+<h2 id="org293741f"><span class="section-number-2">1.</span> Create Macro Module</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-basic">REM  *****  BASIC  *****
@@ -251,20 +251,19 @@ TOC is Table of Contents
 </div>
 
 
-<div id="outline-container-org6cb08b5" class="outline-2">
-<h2 id="org6cb08b5"><span class="section-number-2">2.</span> Run Command</h2>
+<div id="outline-container-orgd44740e" class="outline-2">
+<h2 id="orgd44740e"><span class="section-number-2">2.</span> Run Command</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-#+BNGIN<sub>SRC</sub> bash
-$ soffice &#x2013;headless "macro:///Standard.YourModuleName.UpdateIndex(/path/to/file.odt)"
-#+END<sub>SRC</sub>
-</p>
+<div class="org-src-container">
+<pre class="src src-bash">$ soffice --headless "macro:///Standard.YourModuleName.UpdateIndex(/path/to/file.odt)"
+</pre>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2022-07-29 五 16:11</p>
+<p class="date">Created: 2022-08-04 四 11:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

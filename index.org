@@ -3,8 +3,10 @@
 #+DESCRIPTION: chanmo's development blog
 #+KEYWORDS: chanmo, blockchain, linux, opensource, python, javascript, react
 
+[[https://github.com/ChanMo/][Github]]
 
-** How to Integrate Brownie with Django
+
+** [[./BrownieWithDjango.org][How to Integrate Brownie with Django]]
 
 how to integrate eth-brownie in your django project, how to interact with contract
 
@@ -15,15 +17,23 @@ how to integrate eth-brownie in your django project, how to interact with contra
 
 update 'table of contents' by libreoffice from command line
 
+<2022-07-29 五>
+
 ** [[./LinuxTools.org][Linux Tools Recommand]]
 
 Very usagefull command tools
+
+<2022-07-14 四>
 
 
 ** [[./Defi.org][Defi Platform Compare]]
 
 Top Defi platform compare.
 
+<2022-07-14 四>
+
 ** [[./Blockchain.org][BlockChain Development Tooltips]]
 
 Truffle, Brownie, Vyper, etc.
+
+<2022-07-14 四>

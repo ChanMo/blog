@@ -38,6 +38,6 @@ REM  *****  BASIC  *****
 
 ** Run Command
 
-#+BNGIN_SRC bash
+#+BEGIN_SRC bash
 $ soffice --headless "macro:///Standard.YourModuleName.UpdateIndex(/path/to/file.odt)"
 #+END_SRC
