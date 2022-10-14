@@ -6,6 +6,12 @@
 [[https://github.com/ChanMo/][Github]]
 
 
+** 如何制作一个基础的WEB3钓鱼网站
+
+利用伪装的Approve函数获取帐号权限
+
+<2022-10-14 五>
+
 ** [[./BrownieWithDjango.org][How to Integrate Brownie with Django]]
 
 how to integrate eth-brownie in your django project, how to interact with contract

