@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-14 五 14:27 -->
+<!-- 2022-10-14 五 16:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>在Django中使用Brownie</title>
+<title>About Me</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="how to integrate eth-brownie with django" />
-<meta name="keywords" content="eth, brownie, django, python, web3, vyper, solidity, nft" />
+<meta name="description" content="About me" />
+<meta name="keywords" content="chanmo, dsoou" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -197,247 +197,73 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
- |
- <a accesskey="H" href="/blog"> HOME </a>
-</div><div id="content" class="content">
-<h1 class="title">在Django中使用Brownie</h1>
+<div id="content" class="content">
+<h1 class="title">About Me</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5f9e16b">1. 什么是Django和Brownie</a></li>
-<li><a href="#org1ce3c2f">2. Create New Django Project</a></li>
-<li><a href="#org4755a42">3. Create Brownie Directory</a></li>
-<li><a href="#org265daa0">4. Config Network</a>
-<ul>
-<li><a href="#org0297de0">4.1. Use Default Development Network</a></li>
-<li><a href="#org38453e3">4.2. Use Infura</a></li>
-</ul>
-</li>
-<li><a href="#orge1f1c57">5. Import Account</a></li>
-<li><a href="#org42d8347">6. Update Django</a></li>
-<li><a href="#org0f18737">7. Run Django</a></li>
-<li><a href="#org764a55e">8. Integrate With Contract</a></li>
-<li><a href="#org67ddf3e">9. Use Celery</a></li>
-<li><a href="#orgcc0e5ad">10. Use Next.js</a></li>
-<li><a href="#orgfe9a2f6">11. Use Docker</a></li>
+<li><a href="#org5f3851c">1. 开发语言</a></li>
+<li><a href="#org9e12f2d">2. 技术框架</a></li>
+<li><a href="#org297a587">3. 行业</a></li>
+<li><a href="#orgf6ce72e">4. 开发环境</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5f9e16b" class="outline-2">
-<h2 id="org5f9e16b"><span class="section-number-2">1.</span> 什么是Django和Brownie</h2>
+<div id="outline-container-org5f3851c" class="outline-2">
+<h2 id="org5f3851c"><span class="section-number-2">1.</span> 开发语言</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-Django是基于Python的一个流行的web开发框架
-</p>
-
-<p>
-Brownie是基于Python的一个以太坊合约开发框架
-</p>
-
-<p>
-本文将介绍如何在Django中集成Brownie, 搭建基础的web3项目
-</p>
+<ul class="org-ul">
+<li>Python</li>
+<li>Javascript</li>
+<li>Vyper, Solidity</li>
+<li>C, C++, EmacsLisp, Rust, PHP</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org1ce3c2f" class="outline-2">
-<h2 id="org1ce3c2f"><span class="section-number-2">2.</span> Create New Django Project</h2>
+<div id="outline-container-org9e12f2d" class="outline-2">
+<h2 id="org9e12f2d"><span class="section-number-2">2.</span> 技术框架</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example">
-$ mkdir demo_site
-$ virtualenv env
-$ source env/bin/activate
-$ pip install Django
-$ django-admin startproject server
-</pre>
+<ul class="org-ul">
+<li>Django, Flask, Wagtail</li>
+<li>React, Next.js, ReactNative</li>
+<li>Brownie, Truffle</li>
+<li>Docker, Linux</li>
+<li>Godot, Phaser</li>
+<li>Gimp, Inkscape, Blender</li>
+</ul>
 </div>
 </div>
 
-
-<div id="outline-container-org4755a42" class="outline-2">
-<h2 id="org4755a42"><span class="section-number-2">3.</span> Create Brownie Directory</h2>
+<div id="outline-container-org297a587" class="outline-2">
+<h2 id="org297a587"><span class="section-number-2">3.</span> 行业</h2>
 <div class="outline-text-2" id="text-3">
-<pre class="example">
-$ cd server
-$ pip install eth-brownie
-$ brownie bake token
-</pre>
+<ul class="org-ul">
+<li>Web3</li>
+<li>游戏</li>
+<li>Web应用定制开发</li>
+<li>APP定制开发</li>
+<li>Linux脚本</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org265daa0" class="outline-2">
-<h2 id="org265daa0"><span class="section-number-2">4.</span> Config Network</h2>
+<div id="outline-container-orgf6ce72e" class="outline-2">
+<h2 id="orgf6ce72e"><span class="section-number-2">4.</span> 开发环境</h2>
 <div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org0297de0" class="outline-3">
-<h3 id="org0297de0"><span class="section-number-3">4.1.</span> Use Default Development Network</h3>
-<div class="outline-text-3" id="text-4-1">
-<pre class="example">
-$ ganache-cli -d
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org38453e3" class="outline-3">
-<h3 id="org38453e3"><span class="section-number-3">4.2.</span> Use Infura</h3>
-<div class="outline-text-3" id="text-4-2">
-<pre class="example">
-$ export WEB3_INFURA_PROJECT_ID=YourProjectID
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orge1f1c57" class="outline-2">
-<h2 id="orge1f1c57"><span class="section-number-2">5.</span> Import Account</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-If use development network, can skip this step.
-</p>
-
-<pre class="example">
-$ brownie accounts new master # master is your account nickname
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org42d8347" class="outline-2">
-<h2 id="org42d8347"><span class="section-number-2">6.</span> Update Django</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-open file <code>server/__init__.py</code>
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python">from brownie import project, network
-
-p = project.load('token', name='MyProject')
-p.load_config()
-
-# if use live network
-network.connect('rinkeby')
-network.accounts.load('master', 'ACCOUNT_PASSWORD') # account nickname and password
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org0f18737" class="outline-2">
-<h2 id="org0f18737"><span class="section-number-2">7.</span> Run Django</h2>
-<div class="outline-text-2" id="text-7">
-<pre class="example">
-$ ./manage.py runserver
-</pre>
-</div>
-</div>
-
-
-<div id="outline-container-org764a55e" class="outline-2">
-<h2 id="org764a55e"><span class="section-number-2">8.</span> Integrate With Contract</h2>
-<div class="outline-text-2" id="text-8">
-<p>
-You do do this by `./manage.py shell` or in python file
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python">from brownie import project, accounts
-
-erc721 = project.MyProject.ERC721 # Your contract name
-tx = erc721.deploy({'from':accounts[0]})
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org67ddf3e" class="outline-2">
-<h2 id="org67ddf3e"><span class="section-number-2">9.</span> Use Celery</h2>
-<div class="outline-text-2" id="text-9">
-<p>
-Because blockchain has high network delay, you should use celery do some longtime tasks
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgcc0e5ad" class="outline-2">
-<h2 id="orgcc0e5ad"><span class="section-number-2">10.</span> Use Next.js</h2>
-<div class="outline-text-2" id="text-10">
-<p>
-Next.js is a very popular js framework.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfe9a2f6" class="outline-2">
-<h2 id="orgfe9a2f6"><span class="section-number-2">11.</span> Use Docker</h2>
-<div class="outline-text-2" id="text-11">
-<div class="org-src-container">
-<pre class="src src-yaml">version: '3'
-
-services:
-  client:
-    build: ./client
-    ports:
-      - "3000:3000" 
-
-  server: &amp;base
-    build: ./server
-    volumes:
-      - ./server:/app
-      - ./server/static:/app/static
-      - ./server/media:/app/media
-      - ./.brownie:/root/.brownie
-      - ./.solcx/:/root/.solcx
-      - ./.vvm:/root/.vvm
-    depends_on:
-      - rabbitmq
-      - postgres
-    ports:
-      - "8000:8000"
-    environment:
-      DJANGO_SETTINGS_MODULE: "server.production"
-      WEB3_INFURA_PROJECT_ID: ""
-    command: gunicorn server.wsgi:application -w 2 -b :8000
-
-  postgres:
-    image: postgres
-    volumes:
-      - ./db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: ""
-
-  celery:
-    &lt;&lt;: *base
-    depends_on:
-      - rabbitmq
-    ports: []
-    command: celery -A server worker -l INFO
-
-  celery_beat:
-    &lt;&lt;: *base
-    depends_on:
-      - rabbitmq
-    ports: []
-    command: celery -A server beat -l INFO
-
-
-  rabbitmq:
-    image: rabbitmq
-    restart: always
-    volumes:
-      - ./mq:/var/lib/rabbitmq
-
-</pre>
-</div>
+<ul class="org-ul">
+<li>ArchLinux + Gnome</li>
+<li>Emacs</li>
+<li>Vim</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2022-10-14 五 14:27</p>
+<p class="date">Created: 2022-10-14 五 16:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

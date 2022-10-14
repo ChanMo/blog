@@ -1,0 +1,182 @@
+#+TITLE: 如何在Django中更好的使用React
+#+DESCRIPTION: 在Django中使用React的方法实践
+#+KEYWORDS: Django, React, Vite
+#+HTML_LINK_HOME: /blog
+
+Django是一个非常成熟稳定的web开发框架, 可以快速搭建产品逻辑, 但是当页面非常复杂,
+使用基础的javascript无法满足需要时, 就会考虑使用React, Vue等前端开发框架
+
+如果只是使用CreateReactApp, 或者Next.js时, 开发体验会很好,
+但是可能部署起来会比较麻烦, 一般只能完全做成前后端分离的两套代码,
+
+前后端分离的代码自然是很好, 但是在一些情况下, 会增加开发成本
+
+所以能不能像写django模板那样写react代码?
+使用后端框架强大稳定的路由处理能力, 以及基础的数据渲染能力,
+再加上前端框架的强大的页面交互能力
+
+本文将提供一种可行的参考方案
+
+** 原理介绍
+
+使用django自定义模板标签, 在HTML中渲染Vite的代码
+
+#+BEGIN_SRC
+{% load react_tags %}
+
+{% react_static paper %}
+#+END_SRC
+
+渲染后的结果为
+#+BEGIN_SRC
+<script type="module">
+import RefreshRuntime from "http://localhost:3000/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+<script type="module" src="http://localhost:3000/@vite/client"></script>
+<script type="module" src="http://localhost:3000/backend/lexical/components/paper.jsx"></script>
+#+END_SRC
+
+如此以来, 便可在修改paper.jsx文件时, 页面实现实时刷新, 达到create-react-app的开发效果
+部署的时候, 配置Vite打包路径在static目录下, 打包后会生成manifest.json,
+里面包含了打包后的文件路径信息
+
+在生产环境下, 使用Python读取manifest.json, 并转换为最终的静态文件引入HTML模板
+
+源码地址: [[https://github.com/ChanMo/django-react]]
+
+** 什么是Vite
+
+#+BEGIN_QUOTE
+Vite（法语意为 "快速的"，发音 /vit/，发音同 "veet"）是一种新型前端构建工具，
+能够显著提升前端开发体验。它主要由两部分组成：一个开发服务器，
+它基于 原生 ES 模块 提供了 丰富的内建功能，如速度快到惊人的 模块热更新（HMR）。
+一套构建指令，它使用 Rollup 打包你的代码，并且它是预配置的，
+可输出用于生产环境的高度优化过的静态资源。Vite 意在提供开箱即用的配置，
+同时它的 插件 API 和 JavaScript API 带来了高度的可扩展性，并有完整的类型支持。
+#+END_QUOTE
+
+** 开始使用
+
+*** 下载django-react
+
+#+BEGIN_SRC
+$ git clone https://github.com/ChanMo/django-react react
+#+END_SRC
+
+*** Update Settings.py
+
+#+BEGIN_SRC
+INSTALLED_APPS = [
+...
+'react',
+...
+]  
+#+END_SRC
+
+*** Setup Vite
+
+Create file package.json
+
+#+BEGIN_SRC json
+  {
+    "name": "django-react",
+    "version": "1.0.0",
+    "description": "use react.js in django templates",
+    "main": "index.js",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "ChanMo",
+    "license": "ISC",
+    "devDependencies": {
+      "@vitejs/plugin-react": "^1.2.0",
+      "vite": "^2.8.6"
+    },
+    "dependencies": {
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2"
+    }
+  }  
+#+END_SRC
+
+Create file vite.config.js
+
+#+BEGIN_SRC javascript
+  import { defineConfig } from 'vite'
+  import react from '@vitejs/plugin-react'
+
+  // https://vitejs.dev/config/
+  export default defineConfig({
+    plugins: [react()],
+    build: {
+      outDir: 'backend/static/backend/dist/',
+      manifest: true,
+      rollupOptions: {
+	input: [
+	  'yourreactfile.jsx',
+	]
+      }
+    }
+  })  
+#+END_SRC
+
+Install npm package
+
+#+BEGIN_SRC
+$ npm install
+$ npm run dev
+#+END_SRC
+
+*** Create your jsx file
+
+Example ~backend/components/app.jsx~
+
+#+BEGIN_SRC javascript
+  import React from 'react'
+  import ReactDOM from 'react-dom'
+
+
+  function App(props) {
+    return (
+      <h1>{props.title}</h1>
+    )
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <App {...window.props} />
+    </React.StrictMode>,
+    document.getElementById("app")
+  )  
+#+END_SRC
+
+
+*** Use ReactMixin in your ClassView
+
+#+BEGIN_SRC python
+  from django.views.generic import TemplateView
+  from react.mixins import ReactMixin
+
+
+  class IndexView(ReactMixin, TemplateView):
+      app_root = '/backend/components/app.jsx'
+      def get_props_data(self):
+	  return {
+	      'title': 'Hello'
+	  }
+#+END_SRC
+
+
+*** Visit url in your brower
+
+*** Build JS
+
+Before prepare to deploy, run ~yarn dev~
+

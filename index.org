@@ -1,20 +1,40 @@
-#+TITLE: ChanMo's Blog
+#+TITLE: CHANMO
 #+OPTIONS: toc:nil html-postamble:nil
 #+DESCRIPTION: chanmo's development blog
-#+KEYWORDS: chanmo, blockchain, linux, opensource, python, javascript, react
+#+KEYWORDS: dsoou, chanmo, blockchain, linux, opensource, python, javascript, react
 
-[[https://github.com/ChanMo/][Github]]
+#+BEGIN_EXPORT html
+<div class="buttons">
+<a href="./about.html" class="button is-light">ABOUT</a>
+<a target="_blank" href="https://github.com/ChanMo/" class="button is-light">GITHUB</a>
+</div>
+#+END_EXPORT
 
 
-** 如何制作一个基础的WEB3钓鱼网站
+** [[./FishingByApprove.org][如何制作一个基础的WEB3钓鱼网站]]
 
 利用伪装的Approve函数获取帐号权限
 
 <2022-10-14 五>
 
-** [[./BrownieWithDjango.org][How to Integrate Brownie with Django]]
+** [[./DjangoReact.org][如何在Django中更好的使用React]]
 
-how to integrate eth-brownie in your django project, how to interact with contract
+使用Vite.js让Django和React开发更方便
+
+<2022-10-09 日>
+
+
+** [[./InsertTOCByPython.org][如何使用Python在DOCX中插入TOC]]
+
+在Word中插入目录
+
+<2022-10-09 日>
+
+
+** [[./BrownieWithDjango.org][在Django中使用Brownie]]
+
+how to integrate eth-brownie in your django project,
+how to interact with contract
 
 <2022-08-04 四>
 
@@ -43,3 +63,24 @@ Top Defi platform compare.
 Truffle, Brownie, Vyper, etc.
 
 <2022-07-14 四>
+
+
+** [[./Tex2Png.org][TEX导出为PNG]]
+
+如何在linux中将Tex代码导出为PNG图片
+
+<2022-04-11 一>
+
+
+** [[./PiAsHomeMediaCenter.org][使用树莓派作为家庭影音中心]]
+
+使用树莓派定制家庭影音中心
+
+<2022-03-09 三>
+
+
+** [[./OpenSourceForCompany.org][适合互联网团队的开源系统推荐]]
+
+Nextcloud, Taiga, Wordpress...
+
+<2021-08-09 一>

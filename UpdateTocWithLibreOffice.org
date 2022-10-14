@@ -36,6 +36,15 @@ REM  *****  BASIC  *****
 #+END_SRC
 
 
+** Import Macro
+
+github 地址: [[https://github.com/ChanMo/python-toc]]
+
+#+BEGIN_SRC
+$ mv ~/.config/libreoffice/4/user/basic ~/basic_backup
+$ cp basic ~/.config/libreoffice/4/user/ -r  
+#+END_SRC
+
 ** Run Command
 
 #+BEGIN_SRC bash

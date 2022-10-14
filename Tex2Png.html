@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-14 五 14:27 -->
+<!-- 2022-10-14 五 14:47 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>在Django中使用Brownie</title>
+<title>TEX导出为PNG</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="how to integrate eth-brownie with django" />
-<meta name="keywords" content="eth, brownie, django, python, web3, vyper, solidity, nft" />
+<meta name="description" content="如何在Linux中把TEX代码导出为PNG图片" />
+<meta name="keywords" content="tex, linux, katex, texlive" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -202,242 +202,122 @@
  |
  <a accesskey="H" href="/blog"> HOME </a>
 </div><div id="content" class="content">
-<h1 class="title">在Django中使用Brownie</h1>
+<h1 class="title">TEX导出为PNG</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5f9e16b">1. 什么是Django和Brownie</a></li>
-<li><a href="#org1ce3c2f">2. Create New Django Project</a></li>
-<li><a href="#org4755a42">3. Create Brownie Directory</a></li>
-<li><a href="#org265daa0">4. Config Network</a>
-<ul>
-<li><a href="#org0297de0">4.1. Use Default Development Network</a></li>
-<li><a href="#org38453e3">4.2. Use Infura</a></li>
-</ul>
-</li>
-<li><a href="#orge1f1c57">5. Import Account</a></li>
-<li><a href="#org42d8347">6. Update Django</a></li>
-<li><a href="#org0f18737">7. Run Django</a></li>
-<li><a href="#org764a55e">8. Integrate With Contract</a></li>
-<li><a href="#org67ddf3e">9. Use Celery</a></li>
-<li><a href="#orgcc0e5ad">10. Use Next.js</a></li>
-<li><a href="#orgfe9a2f6">11. Use Docker</a></li>
+<li><a href="#org9264f75">1. 安装TexLive</a></li>
+<li><a href="#orga7055aa">2. 方式一: TEX -&gt; PDF -&gt; PPM -&gt; PNG</a></li>
+<li><a href="#org1375c57">3. 方式二: TEX -&gt; DVI -&gt; SVG &#x2013;&gt; PNG</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5f9e16b" class="outline-2">
-<h2 id="org5f9e16b"><span class="section-number-2">1.</span> 什么是Django和Brownie</h2>
+<div id="outline-container-org9264f75" class="outline-2">
+<h2 id="org9264f75"><span class="section-number-2">1.</span> 安装TexLive</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Django是基于Python的一个流行的web开发框架
+<a href="https://tug.org/texlive/doc.html">https://tug.org/texlive/doc.html</a>
 </p>
 
 <p>
-Brownie是基于Python的一个以太坊合约开发框架
+ArchLinux:
+</p>
+
+<pre class="example">
+$ sudo pacman -S texlive-core
+</pre>
+
+<p>
+<a href="https://wiki.archlinux.org/title/TeX_Live">https://wiki.archlinux.org/title/TeX_Live</a>
 </p>
 
 <p>
-本文将介绍如何在Django中集成Brownie, 搭建基础的web3项目
+Ubuntu:
 </p>
+
+<pre class="example">
+$ sudo apt-get install texlive
+</pre>
 </div>
 </div>
 
-<div id="outline-container-org1ce3c2f" class="outline-2">
-<h2 id="org1ce3c2f"><span class="section-number-2">2.</span> Create New Django Project</h2>
+<div id="outline-container-orga7055aa" class="outline-2">
+<h2 id="orga7055aa"><span class="section-number-2">2.</span> 方式一: TEX -&gt; PDF -&gt; PPM -&gt; PNG</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+Tex转换为PDF
+</p>
 <pre class="example">
-$ mkdir demo_site
-$ virtualenv env
-$ source env/bin/activate
-$ pip install Django
-$ django-admin startproject server
+$ pdflatex input.tex ouput.pdf
 </pre>
+
+<p>
+PDF裁剪为实际大小
+</p>
+<pre class="example">
+$ pdfcrop ouput.pdf ouput_croped.pdf
+</pre>
+
+<p>
+PDF转换为PPM
+</p>
+<pre class="example">
+$ pdftoppm output_croped.pdf output.ppm
+</pre>
+
+<p>
+PPM转换为PNG
+</p>
+<pre class="example">
+$ pnm2png output.ppm ouput.png
+</pre>
+
+<p>
+参考链接: <a href="https://pypi.org/project/pnglatex/">https://pypi.org/project/pnglatex/</a>
+</p>
 </div>
 </div>
 
-
-<div id="outline-container-org4755a42" class="outline-2">
-<h2 id="org4755a42"><span class="section-number-2">3.</span> Create Brownie Directory</h2>
+<div id="outline-container-org1375c57" class="outline-2">
+<h2 id="org1375c57"><span class="section-number-2">3.</span> 方式二: TEX -&gt; DVI -&gt; SVG &#x2013;&gt; PNG</h2>
 <div class="outline-text-2" id="text-3">
-<pre class="example">
-$ cd server
-$ pip install eth-brownie
-$ brownie bake token
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org265daa0" class="outline-2">
-<h2 id="org265daa0"><span class="section-number-2">4.</span> Config Network</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org0297de0" class="outline-3">
-<h3 id="org0297de0"><span class="section-number-3">4.1.</span> Use Default Development Network</h3>
-<div class="outline-text-3" id="text-4-1">
-<pre class="example">
-$ ganache-cli -d
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org38453e3" class="outline-3">
-<h3 id="org38453e3"><span class="section-number-3">4.2.</span> Use Infura</h3>
-<div class="outline-text-3" id="text-4-2">
-<pre class="example">
-$ export WEB3_INFURA_PROJECT_ID=YourProjectID
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orge1f1c57" class="outline-2">
-<h2 id="orge1f1c57"><span class="section-number-2">5.</span> Import Account</h2>
-<div class="outline-text-2" id="text-5">
 <p>
-If use development network, can skip this step.
+Tex导出为dvi
+</p>
+<pre class="example">
+$ latex -no-shell-escape -interaction=nonstopmode -halt-on-error input.tex
+</pre>
+
+<p>
+DVI转换为SVG
+</p>
+<pre class="example">
+$ dvisvgm --no-fonts input.dvi
+</pre>
+
+<p>
+SVG转换为PNG(可选)
 </p>
 
-<pre class="example">
-$ brownie accounts new master # master is your account nickname
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org42d8347" class="outline-2">
-<h2 id="org42d8347"><span class="section-number-2">6.</span> Update Django</h2>
-<div class="outline-text-2" id="text-6">
 <p>
-open file <code>server/__init__.py</code>
+python: CairoSVG
 </p>
 
-<div class="org-src-container">
-<pre class="src src-python">from brownie import project, network
-
-p = project.load('token', name='MyProject')
-p.load_config()
-
-# if use live network
-network.connect('rinkeby')
-network.accounts.load('master', 'ACCOUNT_PASSWORD') # account nickname and password
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org0f18737" class="outline-2">
-<h2 id="org0f18737"><span class="section-number-2">7.</span> Run Django</h2>
-<div class="outline-text-2" id="text-7">
-<pre class="example">
-$ ./manage.py runserver
-</pre>
-</div>
-</div>
-
-
-<div id="outline-container-org764a55e" class="outline-2">
-<h2 id="org764a55e"><span class="section-number-2">8.</span> Integrate With Contract</h2>
-<div class="outline-text-2" id="text-8">
 <p>
-You do do this by `./manage.py shell` or in python file
+Command: Inscape
 </p>
 
-<div class="org-src-container">
-<pre class="src src-python">from brownie import project, accounts
-
-erc721 = project.MyProject.ERC721 # Your contract name
-tx = erc721.deploy({'from':accounts[0]})
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org67ddf3e" class="outline-2">
-<h2 id="org67ddf3e"><span class="section-number-2">9.</span> Use Celery</h2>
-<div class="outline-text-2" id="text-9">
 <p>
-Because blockchain has high network delay, you should use celery do some longtime tasks
+参考链接: <a href="https://github.com/joeraut/latex2image-web/blob/f077a800f9ae89ee21d2421872344c5723fabd02/app.js#L152">https://github.com/joeraut/latex2image-web/blob/f077a800f9ae89ee21d2421872344c5723fabd02/app.js#L152</a>
 </p>
-</div>
-</div>
-
-<div id="outline-container-orgcc0e5ad" class="outline-2">
-<h2 id="orgcc0e5ad"><span class="section-number-2">10.</span> Use Next.js</h2>
-<div class="outline-text-2" id="text-10">
-<p>
-Next.js is a very popular js framework.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfe9a2f6" class="outline-2">
-<h2 id="orgfe9a2f6"><span class="section-number-2">11.</span> Use Docker</h2>
-<div class="outline-text-2" id="text-11">
-<div class="org-src-container">
-<pre class="src src-yaml">version: '3'
-
-services:
-  client:
-    build: ./client
-    ports:
-      - "3000:3000" 
-
-  server: &amp;base
-    build: ./server
-    volumes:
-      - ./server:/app
-      - ./server/static:/app/static
-      - ./server/media:/app/media
-      - ./.brownie:/root/.brownie
-      - ./.solcx/:/root/.solcx
-      - ./.vvm:/root/.vvm
-    depends_on:
-      - rabbitmq
-      - postgres
-    ports:
-      - "8000:8000"
-    environment:
-      DJANGO_SETTINGS_MODULE: "server.production"
-      WEB3_INFURA_PROJECT_ID: ""
-    command: gunicorn server.wsgi:application -w 2 -b :8000
-
-  postgres:
-    image: postgres
-    volumes:
-      - ./db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: ""
-
-  celery:
-    &lt;&lt;: *base
-    depends_on:
-      - rabbitmq
-    ports: []
-    command: celery -A server worker -l INFO
-
-  celery_beat:
-    &lt;&lt;: *base
-    depends_on:
-      - rabbitmq
-    ports: []
-    command: celery -A server beat -l INFO
-
-
-  rabbitmq:
-    image: rabbitmq
-    restart: always
-    volumes:
-      - ./mq:/var/lib/rabbitmq
-
-</pre>
-</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2022-10-14 五 14:27</p>
+<p class="date">Created: 2022-10-14 五 14:47</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

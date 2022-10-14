@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-14 五 14:27 -->
+<!-- 2022-10-14 五 14:56 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>在Django中使用Brownie</title>
+<title>使用树莓派定制智能电视系统</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="how to integrate eth-brownie with django" />
-<meta name="keywords" content="eth, brownie, django, python, web3, vyper, solidity, nft" />
+<meta name="description" content="使用树莓派定制家庭影音中心" />
+<meta name="keywords" content="raspberry, kodi, jellyfin" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -202,234 +202,89 @@
  |
  <a accesskey="H" href="/blog"> HOME </a>
 </div><div id="content" class="content">
-<h1 class="title">在Django中使用Brownie</h1>
+<h1 class="title">使用树莓派定制智能电视系统</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5f9e16b">1. 什么是Django和Brownie</a></li>
-<li><a href="#org1ce3c2f">2. Create New Django Project</a></li>
-<li><a href="#org4755a42">3. Create Brownie Directory</a></li>
-<li><a href="#org265daa0">4. Config Network</a>
+<li><a href="#orgbffeceb">1. 2022/04/16</a></li>
+<li><a href="#org9ec3b32">2. KODI</a>
 <ul>
-<li><a href="#org0297de0">4.1. Use Default Development Network</a></li>
-<li><a href="#org38453e3">4.2. Use Infura</a></li>
+<li><a href="#org85b9f7e">2.1. Install</a></li>
+<li><a href="#org5e173f3">2.2. 修复中文字符无法显示</a></li>
+<li><a href="#org74d9231">2.3. 开机启动</a></li>
 </ul>
 </li>
-<li><a href="#orge1f1c57">5. Import Account</a></li>
-<li><a href="#org42d8347">6. Update Django</a></li>
-<li><a href="#org0f18737">7. Run Django</a></li>
-<li><a href="#org764a55e">8. Integrate With Contract</a></li>
-<li><a href="#org67ddf3e">9. Use Celery</a></li>
-<li><a href="#orgcc0e5ad">10. Use Next.js</a></li>
-<li><a href="#orgfe9a2f6">11. Use Docker</a></li>
+<li><a href="#orge7423e8">3. Jellyfin</a>
+<ul>
+<li><a href="#org080def4">3.1. Install</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5f9e16b" class="outline-2">
-<h2 id="org5f9e16b"><span class="section-number-2">1.</span> 什么是Django和Brownie</h2>
+<div id="outline-container-orgbffeceb" class="outline-2">
+<h2 id="orgbffeceb"><span class="section-number-2">1.</span> 2022/04/16</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Django是基于Python的一个流行的web开发框架
-</p>
-
-<p>
-Brownie是基于Python的一个以太坊合约开发框架
-</p>
-
-<p>
-本文将介绍如何在Django中集成Brownie, 搭建基础的web3项目
+Pi3B播放H264没问题, H265会卡顿, 只有音频, 无视频
+Pi4B可正常播放H264, H265
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1ce3c2f" class="outline-2">
-<h2 id="org1ce3c2f"><span class="section-number-2">2.</span> Create New Django Project</h2>
+<div id="outline-container-org9ec3b32" class="outline-2">
+<h2 id="org9ec3b32"><span class="section-number-2">2.</span> KODI</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org85b9f7e" class="outline-3">
+<h3 id="org85b9f7e"><span class="section-number-3">2.1.</span> Install</h3>
+<div class="outline-text-3" id="text-2-1">
 <pre class="example">
-$ mkdir demo_site
-$ virtualenv env
-$ source env/bin/activate
-$ pip install Django
-$ django-admin startproject server
+$ sudo apt install kodi
 </pre>
 </div>
 </div>
 
 
-<div id="outline-container-org4755a42" class="outline-2">
-<h2 id="org4755a42"><span class="section-number-2">3.</span> Create Brownie Directory</h2>
+<div id="outline-container-org5e173f3" class="outline-3">
+<h3 id="org5e173f3"><span class="section-number-3">2.2.</span> 修复中文字符无法显示</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Goto Kodi home screen
+Select menu: System | Interface settings
+Select: Skin
+Select: Fonts
+Select: Arial based
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74d9231" class="outline-3">
+<h3 id="org74d9231"><span class="section-number-3">2.3.</span> 开机启动</h3>
+<div class="outline-text-3" id="text-2-3">
+<pre class="example">
+$ sudo sed -i "1i @kodi" /etc/xdg/lxsession/LXDE-pi/autostart
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge7423e8" class="outline-2">
+<h2 id="orge7423e8"><span class="section-number-2">3.</span> Jellyfin</h2>
 <div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org080def4" class="outline-3">
+<h3 id="org080def4"><span class="section-number-3">3.1.</span> Install</h3>
+<div class="outline-text-3" id="text-3-1">
 <pre class="example">
-$ cd server
-$ pip install eth-brownie
-$ brownie bake token
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org265daa0" class="outline-2">
-<h2 id="org265daa0"><span class="section-number-2">4.</span> Config Network</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org0297de0" class="outline-3">
-<h3 id="org0297de0"><span class="section-number-3">4.1.</span> Use Default Development Network</h3>
-<div class="outline-text-3" id="text-4-1">
-<pre class="example">
-$ ganache-cli -d
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org38453e3" class="outline-3">
-<h3 id="org38453e3"><span class="section-number-3">4.2.</span> Use Infura</h3>
-<div class="outline-text-3" id="text-4-2">
-<pre class="example">
-$ export WEB3_INFURA_PROJECT_ID=YourProjectID
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orge1f1c57" class="outline-2">
-<h2 id="orge1f1c57"><span class="section-number-2">5.</span> Import Account</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-If use development network, can skip this step.
-</p>
-
-<pre class="example">
-$ brownie accounts new master # master is your account nickname
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org42d8347" class="outline-2">
-<h2 id="org42d8347"><span class="section-number-2">6.</span> Update Django</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-open file <code>server/__init__.py</code>
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python">from brownie import project, network
-
-p = project.load('token', name='MyProject')
-p.load_config()
-
-# if use live network
-network.connect('rinkeby')
-network.accounts.load('master', 'ACCOUNT_PASSWORD') # account nickname and password
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org0f18737" class="outline-2">
-<h2 id="org0f18737"><span class="section-number-2">7.</span> Run Django</h2>
-<div class="outline-text-2" id="text-7">
-<pre class="example">
-$ ./manage.py runserver
-</pre>
-</div>
-</div>
-
-
-<div id="outline-container-org764a55e" class="outline-2">
-<h2 id="org764a55e"><span class="section-number-2">8.</span> Integrate With Contract</h2>
-<div class="outline-text-2" id="text-8">
-<p>
-You do do this by `./manage.py shell` or in python file
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python">from brownie import project, accounts
-
-erc721 = project.MyProject.ERC721 # Your contract name
-tx = erc721.deploy({'from':accounts[0]})
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org67ddf3e" class="outline-2">
-<h2 id="org67ddf3e"><span class="section-number-2">9.</span> Use Celery</h2>
-<div class="outline-text-2" id="text-9">
-<p>
-Because blockchain has high network delay, you should use celery do some longtime tasks
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgcc0e5ad" class="outline-2">
-<h2 id="orgcc0e5ad"><span class="section-number-2">10.</span> Use Next.js</h2>
-<div class="outline-text-2" id="text-10">
-<p>
-Next.js is a very popular js framework.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfe9a2f6" class="outline-2">
-<h2 id="orgfe9a2f6"><span class="section-number-2">11.</span> Use Docker</h2>
-<div class="outline-text-2" id="text-11">
-<div class="org-src-container">
-<pre class="src src-yaml">version: '3'
-
-services:
-  client:
-    build: ./client
-    ports:
-      - "3000:3000" 
-
-  server: &amp;base
-    build: ./server
-    volumes:
-      - ./server:/app
-      - ./server/static:/app/static
-      - ./server/media:/app/media
-      - ./.brownie:/root/.brownie
-      - ./.solcx/:/root/.solcx
-      - ./.vvm:/root/.vvm
-    depends_on:
-      - rabbitmq
-      - postgres
-    ports:
-      - "8000:8000"
-    environment:
-      DJANGO_SETTINGS_MODULE: "server.production"
-      WEB3_INFURA_PROJECT_ID: ""
-    command: gunicorn server.wsgi:application -w 2 -b :8000
-
-  postgres:
-    image: postgres
-    volumes:
-      - ./db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: ""
-
-  celery:
-    &lt;&lt;: *base
-    depends_on:
-      - rabbitmq
-    ports: []
-    command: celery -A server worker -l INFO
-
-  celery_beat:
-    &lt;&lt;: *base
-    depends_on:
-      - rabbitmq
-    ports: []
-    command: celery -A server beat -l INFO
-
-
-  rabbitmq:
-    image: rabbitmq
-    restart: always
-    volumes:
-      - ./mq:/var/lib/rabbitmq
-
+$ sudo apt install apt-transport-https
+$ curl https://repo.jellyfin.org/debian/jellyfin_team.gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/jellyfin-archive-keyring.gpg &gt;/dev/null
+$ echo "deb [signed-by=/usr/share/keyrings/jellyfin-archive-keyring.gpg arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/debian $( lsb_release -c -s ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+$ sudo apt update
+$ sudo apt install jellyfin
 </pre>
 </div>
 </div>
@@ -437,7 +292,7 @@ services:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2022-10-14 五 14:27</p>
+<p class="date">Created: 2022-10-14 五 14:56</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

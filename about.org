@@ -1,0 +1,33 @@
+#+TITLE: About Me
+#+DESCRIPTION: About me
+#+KEYWORDS: chanmo, dsoou
+
+** 开发语言
+
+- Python
+- Javascript
+- Vyper, Solidity  
+- C, C++, EmacsLisp, Rust, PHP
+
+** 技术框架
+
+- Django, Flask, Wagtail
+- React, Next.js, ReactNative
+- Brownie, Truffle
+- Docker, Linux
+- Godot, Phaser
+- Gimp, Inkscape, Blender
+
+** 行业
+
+- Web3
+- 游戏
+- Web应用定制开发
+- APP定制开发
+- Linux脚本  
+
+** 开发环境
+
+- ArchLinux + Gnome
+- Emacs
+- Vim  

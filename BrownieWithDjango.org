@@ -1,7 +1,15 @@
-#+title: Brownie with django
+#+title: 在Django中使用Brownie
 #+keywords: eth, brownie, django, python, web3, vyper, solidity, nft
 #+description: how to integrate eth-brownie with django
 #+HTML_LINK_HOME: /blog
+
+** 什么是Django和Brownie
+
+Django是基于Python的一个流行的web开发框架
+
+Brownie是基于Python的一个以太坊合约开发框架
+
+本文将介绍如何在Django中集成Brownie, 搭建基础的web3项目
 
 ** Create New Django Project
 

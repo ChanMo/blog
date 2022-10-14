@@ -1,0 +1,35 @@
+#+TITLE: 如何使用Python在DOCX中插入TOC
+#+KEYWORDS: python,docx,toc,TableOfContents
+#+DESCRIPTION: 如何使用Python在DOCX中插入TOC
+#+HTML_LINK_HOME: /blog
+
+** 什么是TOC
+
+TOC(Table of Contents), 是文档(docx, odt)中的目录
+
+当使用脚本生成word文档时, 可能会需要同时生成toc, 本文将介绍如何生成toc
+
+
+** 如何在word中插入toc
+
+*** 安装PythonDocx
+
+#+BEGIN_SRC
+  pip install python-docx
+#+END_SRC
+
+*** 获取~insert_toc~函数
+
+github 地址: [[https://github.com/ChanMo/python-toc]]
+
+*** 在文档中插入Toc
+
+#+BEGIN_SRC python
+  from docx import Document
+
+  d = Document()
+  d.add_heading('Title', 1)
+  d.add_heading('Subtitle', 2)
+  insert_toc(d, '1-2')
+  d.save('test.docx')  
+#+END_SRC
