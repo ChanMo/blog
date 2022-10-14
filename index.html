@@ -9,7 +9,7 @@
     <meta name="description" content="chanmo's development blog" />
     <meta name="keywords" content="dsoou, chanmo, blockchain, linux, opensource, python, javascript, react" />
     <meta name="generator" content="Org Mode" />
-    <link rel='stylesheet' href='bulma.min.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <style>
      h2.title a {
        border-bottom: 2px solid black;
@@ -19,6 +19,24 @@
      }
      .hero a:hover {
        text-decoration: underline;
+     }
+     #scrollToTop {
+       position: fixed;
+       bottom: 1.5rem;
+       right: 1.5rem;
+       background: black;
+       color: white;
+       display: inline-block;
+       width: 3rem;
+       height: 3rem;
+       text-align: center;
+       border-radius: 3rem;
+       padding: calc(1.5rem - 14px) 0;
+       transition: all 0.2s;
+       box-shadow: 1px 2px 4px grey;
+     }
+     #scrollToTop:hover {
+       transform: scale(1.1);
      }
     </style>
     <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
@@ -201,9 +219,15 @@
     </section>
     <footer class="footer mt-6">
       <div class="content has-text-centered">
-	<p class="has-text-grey">The End.</p>
-	<p><a href="">Scroll to top</a></p>
+	<p class="has-text-grey">
+	  <a href="https://github.com/ChanMo" target="_blank" class="mr-2 has-text-dark">Github</a>
+	  <a class="has-text-dark" href="./about.html">About</a>
+	</p>
+	<p><a href="javascript:window.scrollTo(0,0)" class="is-underlined">Scroll to top</a></p>
       </div>
     </footer>
+    <a href="javascript:window.scrollTo(0,0)" id="scrollToTop">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </a>
   </body>
 </html>
