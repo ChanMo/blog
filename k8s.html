@@ -4,10 +4,10 @@
 <!-- 2023-02-08 三 18:12 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CHANMO</title>
+<title>Kubernetes Cookbook</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="chanmo's development blog" />
-<meta name="keywords" content="dsoou, chanmo, blockchain, linux, opensource, python, javascript, react" />
+<meta name="description" content="Kubernetes notes" />
+<meta name="keywords" content="ChanMo, dsoou, k8s, kubernetes, microservices, docker" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -197,189 +197,228 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
 </head>
 <body>
-<div id="content" class="content">
-<h1 class="title">CHANMO</h1>
-<div class="buttons">
-<a href="./about.html" class="button is-light">ABOUT</a>
-<a target="_blank" href="https://github.com/ChanMo/" class="button is-light">GITHUB</a>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="/blog"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">Kubernetes Cookbook</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org53bab87">1. Kubectl</a>
+<ul>
+<li><a href="#org0fdbf13">1.1. Change current cluster</a></li>
+</ul>
+</li>
+<li><a href="#org246620d">2. Dashboard</a>
+<ul>
+<li><a href="#org49fad3b">2.1. Deploy</a></li>
+<li><a href="#orgc39dab1">2.2. Usage</a></li>
+<li><a href="#orga90b011">2.3. Create Sample User</a></li>
+</ul>
+</li>
+<li><a href="#org6c00a9e">3. Kind</a>
+<ul>
+<li><a href="#org9e37ac8">3.1. Configuring Your Kind Cluster</a></li>
+</ul>
+</li>
+<li><a href="#orga5a13fa">4. Minio</a>
+<ul>
+<li><a href="#org9e15d75">4.1. Install</a></li>
+<li><a href="#org9112f19">4.2. Open the Operator Console</a></li>
+</ul>
+</li>
+<li><a href="#org79f77b7">5. Helm</a></li>
+<li><a href="#orgcad5f66">6. Krew</a></li>
+</ul>
 </div>
-
-<div id="outline-container-org4a0d065" class="outline-2">
-<h2 id="org4a0d065"><span class="section-number-2">1.</span> <a href="./minio.html">MinIO With K8s</a></h2>
+</div>
+<div id="outline-container-org53bab87" class="outline-2">
+<h2 id="org53bab87"><span class="section-number-2">1.</span> Kubectl</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-minio setup by k8s.
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2023-02-08 三&gt;</span></span>
-</p>
+</div>
+<div id="outline-container-org0fdbf13" class="outline-3">
+<h3 id="org0fdbf13"><span class="section-number-3">1.1.</span> Change current cluster</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-sh">kubectl config get-contexts
+kubectl cnofig use-context CONTEXT_NAME
+</pre>
 </div>
 </div>
-
-<div id="outline-container-org90586a2" class="outline-2">
-<h2 id="org90586a2"><span class="section-number-2">2.</span> <a href="./k8s.html">Kubernetes Cookbook</a></h2>
+</div>
+</div>
+<div id="outline-container-org246620d" class="outline-2">
+<h2 id="org246620d"><span class="section-number-2">2.</span> Dashboard</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Kind, Krew, Dashboard, etc
+Dashboard 是基于网页的 Kubernetes 用户界面。
+你可以使用 Dashboard 将容器应用部署到 Kubernetes 集群中，也可以对容器应用排错，
+还能管理集群资源。 你可以使用 Dashboard 获取运行在集群中的应用的概览信息，
+也可以创建或者修改 Kubernetes 资源 （如 Deployment，Job，DaemonSet 等等）。
+例如，你可以对 Deployment 实现弹性伸缩、发起滚动升级、重启 Pod 或者使用向导创建新的应用。
 </p>
 
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2023-02-08 三&gt;</span></span>
+Dashboard 同时展示了 Kubernetes 集群中的资源状态信息和所有报错信息。
 </p>
+
+<p>
+<a href="https://kubernetes.io/zh-cn/docs/tasks/access-application-cluster/web-ui-dashboard/">DOCS</a>
+</p>
+</div>
+<div id="outline-container-org49fad3b" class="outline-3">
+<h3 id="org49fad3b"><span class="section-number-3">2.1.</span> Deploy</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-sh">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+</pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org19abb86" class="outline-2">
-<h2 id="org19abb86"><span class="section-number-2">3.</span> <a href="./FishingByApprove.html">如何制作一个基础的WEB3钓鱼网站</a></h2>
+<div id="outline-container-orgc39dab1" class="outline-3">
+<h3 id="orgc39dab1"><span class="section-number-3">2.2.</span> Usage</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-sh">kubectl proxy
+</pre>
+</div>
+<p>
+Visit by <a href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/">http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orga90b011" class="outline-3">
+<h3 id="orga90b011"><span class="section-number-3">2.3.</span> Create Sample User</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<a href="https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md">link</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">kubectl -n kubernetes-dashboard create token admin-user
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6c00a9e" class="outline-2">
+<h2 id="org6c00a9e"><span class="section-number-2">3.</span> Kind</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-利用伪装的Approve函数获取帐号权限
+<a href="https://kind.sigs.k8s.io/docs/user/quick-start#creating-a-cluster">DOC</a>,
 </p>
-
+</div>
+<div id="outline-container-org9e37ac8" class="outline-3">
+<h3 id="org9e37ac8"><span class="section-number-3">3.1.</span> Configuring Your Kind Cluster</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-sh">kind create cluster --config kind-example-config.yaml
+</pre>
+</div>
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-10-14 五&gt;</span></span>
+Muiti-node clusters
 </p>
+<div class="org-src-container">
+<pre class="src src-yaml">kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker
+  - role: worker
+  - role: worker
+</pre>
 </div>
 </div>
-
-<div id="outline-container-org3970827" class="outline-2">
-<h2 id="org3970827"><span class="section-number-2">4.</span> <a href="./DjangoReact.html">如何在Django中更好的使用React</a></h2>
+</div>
+</div>
+<div id="outline-container-orga5a13fa" class="outline-2">
+<h2 id="orga5a13fa"><span class="section-number-2">4.</span> Minio</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-使用Vite.js让Django和React开发更方便
+Multi-Cloud Object Storage
 </p>
 
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-10-09 日&gt;</span></span>
+MinIO offers high-performance, S3 compatible object storage. Native to
+Kubernetes, MinIO is the only object storage suite available on every public
+cloud, every Kubernetes distribution, the private cloud and the edge. MinIO
+is software-defined and is 100% open source under GNU AGPL v3.
+<a href="https://min.io/download#/kubernetes">QuickStart</a>
 </p>
 </div>
+<div id="outline-container-org9e15d75" class="outline-3">
+<h3 id="org9e15d75"><span class="section-number-3">4.1.</span> Install</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-bash">kubectl krew update
+kubectl krew install minio
+</pre>
+</div>
+<p>
+z*** Init
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">kubectl minio init
+kubectl get all --namespace minio-operator
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9112f19" class="outline-3">
+<h3 id="org9112f19"><span class="section-number-3">4.2.</span> Open the Operator Console</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-sh">kubectl minio proxy
+</pre>
+</div>
+</div>
+</div>
 </div>
 
-
-<div id="outline-container-orga9bd8a4" class="outline-2">
-<h2 id="orga9bd8a4"><span class="section-number-2">5.</span> <a href="./InsertTOCByPython.html">如何使用Python在DOCX中插入TOC</a></h2>
+<div id="outline-container-org79f77b7" class="outline-2">
+<h2 id="org79f77b7"><span class="section-number-2">5.</span> Helm</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-在Word中插入目录
+<a href="https://helm.sh/zh/docs/intro/quickstart/">QuickStart</a>
 </p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-10-09 日&gt;</span></span>
-</p>
+<div class="org-src-container">
+<pre class="src src-sh">helm repo add bitnami https://charts.bitnami.com/bitnami
+helm search repo bitnami
+helm repo update
+helm install bitnami/mysql --generate-name
+helm list
+</pre>
 </div>
 </div>
+</div>
 
-
-<div id="outline-container-org7a4a716" class="outline-2">
-<h2 id="org7a4a716"><span class="section-number-2">6.</span> <a href="./BrownieWithDjango.html">在Django中使用Brownie</a></h2>
+<div id="outline-container-orgcad5f66" class="outline-2">
+<h2 id="orgcad5f66"><span class="section-number-2">6.</span> Krew</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-how to integrate eth-brownie in your django project,
-how to interact with contract
+Krew helps you discover and install kubectl plugins on your machine.
+<a href="https://krew.sigs.k8s.io/docs/user-guide/quickstart/">QuickStart</a>
 </p>
 
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-08-04 四&gt;</span></span>
-</p>
+<div class="org-src-container">
+<pre class="src src-sh">kubectl krew update
+kubectl krew search
+kubectl krew install access-matrix
+kubectl krew uninstall access-matrix
+</pre>
 </div>
 </div>
-
-
-<div id="outline-container-orgb07114f" class="outline-2">
-<h2 id="orgb07114f"><span class="section-number-2">7.</span> <a href="./UpdateTocWithLibreOffice.html">Update Toc by LibreOffice from command line</a></h2>
-<div class="outline-text-2" id="text-7">
-<p>
-update 'table of contents' by libreoffice from command line
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-29 五&gt;</span></span>
-</p>
 </div>
 </div>
-
-<div id="outline-container-orgbfd269e" class="outline-2">
-<h2 id="orgbfd269e"><span class="section-number-2">8.</span> <a href="./LinuxTools.html">Linux Tools Recommand</a></h2>
-<div class="outline-text-2" id="text-8">
-<p>
-Very usagefull command tools
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-14 四&gt;</span></span>
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-org7394462" class="outline-2">
-<h2 id="org7394462"><span class="section-number-2">9.</span> <a href="./Defi.html">Defi Platform Compare</a></h2>
-<div class="outline-text-2" id="text-9">
-<p>
-Top Defi platform compare.
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-14 四&gt;</span></span>
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfd2350c" class="outline-2">
-<h2 id="orgfd2350c"><span class="section-number-2">10.</span> <a href="./Blockchain.html">BlockChain Development Tooltips</a></h2>
-<div class="outline-text-2" id="text-10">
-<p>
-Truffle, Brownie, Vyper, etc.
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-14 四&gt;</span></span>
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-org04c6ce9" class="outline-2">
-<h2 id="org04c6ce9"><span class="section-number-2">11.</span> <a href="./Tex2Png.html">TEX导出为PNG</a></h2>
-<div class="outline-text-2" id="text-11">
-<p>
-如何在linux中将Tex代码导出为PNG图片
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-04-11 一&gt;</span></span>
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgee59c3f" class="outline-2">
-<h2 id="orgee59c3f"><span class="section-number-2">12.</span> <a href="./PiAsHomeMediaCenter.html">使用树莓派作为家庭影音中心</a></h2>
-<div class="outline-text-2" id="text-12">
-<p>
-使用树莓派定制家庭影音中心
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-03-09 三&gt;</span></span>
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgfd11c97" class="outline-2">
-<h2 id="orgfd11c97"><span class="section-number-2">13.</span> <a href="./OpenSourceForCompany.html">适合互联网团队的开源系统推荐</a></h2>
-<div class="outline-text-2" id="text-13">
-<p>
-Nextcloud, Taiga, Wordpress&#x2026;
-</p>
-
-<p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2021-08-09 一&gt;</span></span>
-</p>
-</div>
-</div>
+<div id="postamble" class="status">
+<p class="author">Author: ChanMo</p>
+<p class="date">Created: 2023-02-08 三 18:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

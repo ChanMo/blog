@@ -1,0 +1,26 @@
+#+TITLE: Emacs Package Recommend
+#+KEYWORDS: emacs
+#+DESCRIPTION: Emacs Packages recommend
+#+HTML_LINK_HOME: /blog
+
+** Flycheck — Syntax checking for GNU Emacs
+
+Flycheck is a modern on-the-fly syntax checking extension for GNU Emacs,
+intended as replacement for the older Flymake extension which is part of
+GNU Emacs. For a detailed comparison to Flymake see Flycheck versus Flymake.
+
+It uses various syntax checking and linting tools to automatically
+check the contents of buffers while you type,
+and reports warnings and errors directly in the buffer,
+or in an optional error list:
+
+[[https://www.flycheck.org/en/latest/_images/flycheck-annotated.png]]
+
+Out of the box Flycheck supports over 40 different programming languages
+with more than 80 different syntax checking tools,
+and comes with a simple interface to define new syntax checkers.
+
+Many 3rd party extensions provide new syntax checkers and other features
+like alternative error displays or mode line indicators.
+
+[[https://www.flycheck.org/en/latest/user/quickstart.html][doc]]

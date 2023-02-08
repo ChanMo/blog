@@ -1,0 +1,12 @@
+#+TITLE: MinIO
+#+KEYWORDS: minio, s3, Object Storage
+#+DESCRIPTION: minio usage and example
+#+HTML_LINK_HOME: /blog
+
+** Intro
+
+MinIO 提供高性能、兼容 S3 的对象存储。MinIO 原生于 Kubernetes，
+是每个公共云、每个 Kubernetes 发行版、私有云和边缘上唯一可用的对象存储套件。
+MinIO是软件定义的，在GNU AGPL v100下是3%开源的。
+
+[[https://min.io/][website]]

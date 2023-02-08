@@ -10,6 +10,17 @@
 </div>
 #+END_EXPORT
 
+** [[./minio.org][MinIO With K8s]]
+
+minio setup by k8s.
+
+<2023-02-08 三>
+
+** [[./k8s.org][Kubernetes Cookbook]]
+
+Kind, Krew, Dashboard, etc
+
+<2023-02-08 三>
 
 ** [[./FishingByApprove.org][如何制作一个基础的WEB3钓鱼网站]]
 

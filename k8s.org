@@ -1,0 +1,119 @@
+#+TITLE: Kubernetes Cookbook
+#+KEYWORDS: ChanMo, dsoou, k8s, kubernetes, microservices, docker
+#+DESCRIPTION: Kubernetes notes
+#+HTML_LINK_HOME: /blog
+** Kubectl
+*** Change current cluster
+#+BEGIN_SRC sh
+  kubectl config get-contexts
+  kubectl cnofig use-context CONTEXT_NAME
+#+END_SRC
+** Dashboard
+Dashboard 是基于网页的 Kubernetes 用户界面。
+你可以使用 Dashboard 将容器应用部署到 Kubernetes 集群中，也可以对容器应用排错，
+还能管理集群资源。 你可以使用 Dashboard 获取运行在集群中的应用的概览信息，
+也可以创建或者修改 Kubernetes 资源 （如 Deployment，Job，DaemonSet 等等）。
+例如，你可以对 Deployment 实现弹性伸缩、发起滚动升级、重启 Pod 或者使用向导创建新的应用。
+
+Dashboard 同时展示了 Kubernetes 集群中的资源状态信息和所有报错信息。
+
+[[https://kubernetes.io/zh-cn/docs/tasks/access-application-cluster/web-ui-dashboard/][DOCS]]
+*** Deploy
+#+BEGIN_SRC sh
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+#+END_SRC
+
+#+RESULTS:
+| namespace/kubernetes-dashboard                                    | created |
+| serviceaccount/kubernetes-dashboard                               | created |
+| service/kubernetes-dashboard                                      | created |
+| secret/kubernetes-dashboard-certs                                 | created |
+| secret/kubernetes-dashboard-csrf                                  | created |
+| secret/kubernetes-dashboard-key-holder                            | created |
+| configmap/kubernetes-dashboard-settings                           | created |
+| role.rbac.authorization.k8s.io/kubernetes-dashboard               | created |
+| clusterrole.rbac.authorization.k8s.io/kubernetes-dashboard        | created |
+| rolebinding.rbac.authorization.k8s.io/kubernetes-dashboard        | created |
+| clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard | created |
+| deployment.apps/kubernetes-dashboard                              | created |
+| service/dashboard-metrics-scraper                                 | created |
+| deployment.apps/dashboard-metrics-scraper                         | created |
+
+*** Usage
+#+BEGIN_SRC sh
+  kubectl proxy
+#+END_SRC
+Visit by http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+*** Create Sample User
+[[https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md][link]]
+#+BEGIN_SRC sh
+  kubectl -n kubernetes-dashboard create token admin-user
+#+END_SRC
+
+#+RESULTS:
+
+** Kind
+[[https://kind.sigs.k8s.io/docs/user/quick-start#creating-a-cluster][DOC]],
+*** Configuring Your Kind Cluster
+#+BEGIN_SRC sh
+  kind create cluster --config kind-example-config.yaml
+#+END_SRC
+Muiti-node clusters
+#+BEGIN_SRC yaml
+  kind: Cluster
+  apiVersion: kind.x-k8s.io/v1alpha4
+  nodes:
+    - role: control-plane
+    - role: worker
+    - role: worker
+    - role: worker
+    - role: worker
+#+END_SRC
+** Minio
+Multi-Cloud Object Storage
+
+MinIO offers high-performance, S3 compatible object storage. Native to
+Kubernetes, MinIO is the only object storage suite available on every public
+cloud, every Kubernetes distribution, the private cloud and the edge. MinIO
+is software-defined and is 100% open source under GNU AGPL v3.
+[[https://min.io/download#/kubernetes][QuickStart]]
+*** Install
+#+BEGIN_SRC bash
+  kubectl krew update
+  kubectl krew install minio
+#+END_SRC
+z*** Init
+#+BEGIN_SRC sh
+  kubectl minio init
+  kubectl get all --namespace minio-operator
+#+END_SRC
+*** Open the Operator Console
+#+BEGIN_SRC sh
+  kubectl minio proxy
+#+END_SRC
+
+** Helm
+[[https://helm.sh/zh/docs/intro/quickstart/][QuickStart]]
+#+BEGIN_SRC sh
+  helm repo add bitnami https://charts.bitnami.com/bitnami
+  helm search repo bitnami
+  helm repo update
+  helm install bitnami/mysql --generate-name
+  helm list
+#+END_SRC
+
+** Krew
+Krew helps you discover and install kubectl plugins on your machine.
+[[https://krew.sigs.k8s.io/docs/user-guide/quickstart/][QuickStart]]
+
+#+BEGIN_SRC sh
+  kubectl krew update
+  kubectl krew search
+  kubectl krew install access-matrix
+  kubectl krew uninstall access-matrix
+#+END_SRC
+
+
+
+
+
