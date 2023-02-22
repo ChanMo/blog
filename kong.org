@@ -1,0 +1,15 @@
+#+TITLE: Kong Cookbook
+#+KEYWORDS: kong, k8s, gateway
+#+DESCRIPTION: Kong Usage example
+#+HTML_LINK_HOME: /blog
+
+** Install
+
+#+BEGIN_SRC sh
+  helm repo add kong https://charts.konghq.com
+  helm repo update
+
+  helm install kong/kong --generate-name --set ingressController.installCRDs=false
+#+END_SRC
+
+** Usage
