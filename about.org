@@ -2,32 +2,31 @@
 #+DESCRIPTION: About me
 #+KEYWORDS: chanmo, dsoou
 
-** 开发语言
 
-- Python
-- Javascript
-- Vyper, Solidity  
-- C, C++, EmacsLisp, Rust, PHP
+喜欢古老的Emacs, Python, 又喜欢React.js, k8s
 
-** 技术框架
+喜欢简单的Html, Bulma.css, 又喜欢@mui/material, OpenLayer, Babylon.js
 
-- Django, Flask, Wagtail
-- React, Next.js, ReactNative
-- Brownie, Truffle
-- Docker, Linux
-- Godot, Phaser
-- Gimp, Inkscape, Blender
 
-** 行业
+** SHOWCASES
 
-- Web3
-- 游戏
-- Web应用定制开发
-- APP定制开发
-- Linux脚本  
+#+CAPTION: 土地规化GIS应用平台[2023]
+[[./img/mgis.png]]
 
-** 开发环境
+#+CAPTION: HISOUL元宇宙三维空间创作, 社交, 租赁平台[2023]
+[[./img/hisoul.png]]
 
-- ArchLinux + Gnome
-- Emacs
-- Vim  
+#+CAPTION: PAPER交互式文档协作平台[2022]
+[[./img/paper.png]]
+
+#+CAPTION: MPOC, NFT音乐发布与交易应用[2022]
+[[./img/mpoc.png]]
+
+#+CAPTION: MQ地质勘测数据存储, 展示与分析应用平台[2022]
+[[./img/mq.png]]
+
+#+CAPTION: HZLL数字货币交易行情预测分析与资讯应用[2021]
+[[./img/hzll.png]]
+
+#+CAPTION: DIRII多国家, 定制客服, 短视频网站[2020]
+[[./img/dirii.png]]
