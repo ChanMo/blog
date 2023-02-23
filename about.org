@@ -11,22 +11,22 @@
 ** SHOWCASES
 
 #+CAPTION: 土地规化GIS应用平台[2023]
-[[./img/mgis.png]]
+[[./img/mgis.jpeg]]
 
 #+CAPTION: HISOUL元宇宙三维空间创作, 社交, 租赁平台[2023]
-[[./img/hisoul.png]]
+[[./img/hisoul.jpeg]]
 
 #+CAPTION: PAPER交互式文档协作平台[2022]
-[[./img/paper.png]]
+[[./img/paper.jpeg]]
 
 #+CAPTION: MPOC, NFT音乐发布与交易应用[2022]
-[[./img/mpoc.png]]
+[[./img/mpoc.jpeg]]
 
 #+CAPTION: MQ地质勘测数据存储, 展示与分析应用平台[2022]
-[[./img/mq.png]]
+[[./img/mq.jpeg]]
 
 #+CAPTION: HZLL数字货币交易行情预测分析与资讯应用[2021]
-[[./img/hzll.png]]
+[[./img/hzll.jpeg]]
 
 #+CAPTION: DIRII多国家, 定制客服, 短视频网站[2020]
-[[./img/dirii.png]]
+[[./img/dirii.jpeg]]
