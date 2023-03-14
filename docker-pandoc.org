@@ -1,0 +1,27 @@
+#+TITLE: Docker Pandoc API
+#+KEYWORDS: pandoc, docker pandoc, pandoc server
+#+DESCRIPTION: 基于Docker的Pandoc文档格式转换服务
+#+HTML_LINK_HOME: /blog
+
+[[https://hub.docker.com/r/chanmo/pandoc][docker]], [[https://github.com/ChanMo/docker-pandoc][github]]
+
+** Usage
+
+Start http server
+#+BEGIN_SRC bash
+docker run --rm -p 5000:5000 chanmo/pandoc
+#+END_SRC
+
+convert to html, use httpie
+#+BEGIN_SRC bash
+http -f POST :5000/convert/html file@~/demo.docx
+#+END_SRC
+
+** APIs
+
+#+BEGIN_SRC bash
+/convert/{format}
+#+END_SRC
+
+
+
