@@ -1,0 +1,54 @@
+#+TITLE: Install Nvidia Driver On Ubuntu22.04 (Lenovo)
+#+DESCRIPTION: Handle SGX, Secure Boot
+#+KEYWORDS: nvidia, lenovo, ubuntu, sgx, mok
+#+HTML_LINK_HOME: /blog
+
+** Enable SGX
+
+In BIOS, set SGX to Enabled.
+
+** Install Nvidia Driver
+
+Remove Nvidia Packages
+#+BEGIN_SRC bash
+  sudo apt-get remove --purge nvidia-*
+  sudo apt-get remove --purge '^libnvidia-.*'
+  sudo apt-get remove --purge '^cuda-.*'
+#+END_SRC
+
+Find Drivers
+#+BEGIN_SRC bash
+  ubuntu-drivers devices
+#+END_SRC
+
+DO NOT CHOOSE `nvidia-driver-*-open`
+
+Install
+#+BEGIN_SRC bash
+  sudo apt-get install nvidia-driver-525
+#+END_SRC
+
+If there is a dialog about "secure boot", remember your password
+
+#+BEGIN_SRC bash
+  sudo reboot
+#+END_SRC
+
+** First Reboot
+
+Select "Perform MOK Management",
+Select "Enroll MOK",
+Input your password,
+Select "Ok"
+
+** Check Driver
+
+#+BEGIN_SRC bash
+  nvidia-smi
+#+END_SRC
+
+
+** References
+
+- [[https://gist.github.com/bitsurgeon/b0f4440984c9e60dcd8fe8bbc346c029]]
+- [[https://www.linuxcapable.com/install-nvidia-drivers-on-ubuntu-linux/]]  
