@@ -19,7 +19,7 @@ WebDAV协议最重要的功能包括维护作者或修改日期的属性、名�
 
 Webdav可以作为文档管理应用的底层技术支持, 比如存储各种文档, 图片.
 也可以作为一个内嵌的云存储, 类似Dropbox, Nextcloud, 然后可增加权限, 分享, 特殊文件的预览等
-[[./img/webdav.png]]
+[[./img/webdav.jpeg]]
 
 ** Webdav相较于FTP, SAMBA等的优势
 

@@ -1,0 +1,18 @@
+#+title: Machine Learning
+#+keywords: ml, ai, pytorch, nlp
+#+description: Machine Learning Cookbook
+
+* Basic Packages
+
+** Numpy
+
+** Matplotlib
+
+
+* AI Packages
+
+** Pytorch
+
+** Fastai
+
+https://docs.fast.ai/
