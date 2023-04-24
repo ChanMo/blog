@@ -1,11 +1,27 @@
 .content {
-    padding: 1.5rem 1rem;
+    position: relative !important;
+    width: 768px !important;
+    max-width: 100% !important;
+    padding: 3rem 1.5rem;
+    box-sizing: border-box;
+}
+.content h2 {
+    font-size: 1.45rem !important;
+    margin: 2rem 0 1rem !important;
+}
+.title {
+    text-align: left;
+    font-size: 40px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 3rem !important;
 }
 #postamble {
-    max-width:60em;
-    margin:2rem auto auto;
+    max-width: 100%;
+    width: 768px;
+    margin:0 auto;
     color: grey;
-    padding: 0 1rem;
+    padding: 1.5rem 1.5rem;
+    box-sizing: border-box;
 }
 #org-div-home-and-up {
     padding: .5rem;
@@ -26,5 +42,23 @@
     margin: 1rem 0;
 }
 #table-of-contents {
-    margin-bottom: 1.5rem;
+    position: sticky;
+    top: 3rem;
+    left: 0;
+    transform: translateX(100%);
+    padding-left: 2.5rem;
+    height: 0;
+}
+@media screen and (max-width: 768px) {
+    #table-of-contents {
+	top: 0;
+	height: initial;
+	position: relative;
+	transform: none;
+	padding-left: 0;
+	margin-bottom: 1.5rem;
+    }
+}
+.validation {
+    display: none;
 }
