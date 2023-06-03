@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-03 六 14:13 -->
+<!-- 2023-06-03 六 14:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About Me</title>
+<title>Use Org Mode To Build Your Blog</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="About me" />
-<meta name="keywords" content="chanmo, dsoou" />
+<meta name="description" content="How to use emacs orgmode to write and publish your blog." />
+<meta name="keywords" content="emacs, orgmode, github, blog, markdown" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -197,78 +197,124 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
 </head>
 <body>
-<div id="content" class="content">
-<h1 class="title">About Me</h1>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="/blog"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">Use Org Mode To Build Your Blog</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org14fc0f5">1. SHOWCASES</a></li>
+<li><a href="#org19592d8">1. What is Emacs Org Mode</a></li>
+<li><a href="#org6696339">2. Write an article</a></li>
+<li><a href="#org7b5c9e4">3. Publish to the web</a></li>
+<li><a href="#org769b99c">4. Tips</a>
+<ul>
+<li><a href="#orgd8fde31">4.1. Add a css file</a></li>
+<li><a href="#org170bd3d">4.2. Create a beautiful index.html</a></li>
+<li><a href="#orgcf37f3e">4.3. SEO</a></li>
+</ul>
+</li>
+<li><a href="#org47d0d31">5. Links</a></li>
 </ul>
 </div>
 </div>
-<p>
-I like emacs, python, reactjs.
-</p>
 
 
-<div id="outline-container-org14fc0f5" class="outline-2">
-<h2 id="org14fc0f5"><span class="section-number-2">1.</span> SHOWCASES</h2>
+<div id="outline-container-org19592d8" class="outline-2">
+<h2 id="org19592d8"><span class="section-number-2">1.</span> What is Emacs Org Mode</h2>
 <div class="outline-text-2" id="text-1">
-
-<div id="orgff5bfcd" class="figure">
-<p><img src="./img/mgis.jpeg" alt="mgis.jpeg">
+<p>
+Org Mode is an authoring tool and a TODO lists manager for GNU Emacs.
+It relies on a lightweight plain-text markup language used in files with the
+‘.org’ extension.
 </p>
-<p><span class="figure-number">Figure 1: </span>土地规化GIS应用平台[2023]</p>
+</div>
 </div>
 
 
-<div id="org4ba8476" class="figure">
-<p><img src="./img/hisoul.jpeg" alt="hisoul.jpeg">
+<div id="outline-container-org6696339" class="outline-2">
+<h2 id="org6696339"><span class="section-number-2">2.</span> Write an article</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Use emacs to create a file named "helloworld.org"
+then use <code>C-c C-e h h</code> to generate a html file.
 </p>
-<p><span class="figure-number">Figure 2: </span>HISOUL元宇宙三维空间创作, 社交, 租赁平台[2023]</p>
+</div>
 </div>
 
 
-<div id="org1135708" class="figure">
-<p><img src="./img/paper.jpeg" alt="paper.jpeg">
+<div id="outline-container-org7b5c9e4" class="outline-2">
+<h2 id="org7b5c9e4"><span class="section-number-2">3.</span> Publish to the web</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+create a public repository in github,
+then add your html files,
+enable to use github page,
+and your articles are published.
 </p>
-<p><span class="figure-number">Figure 3: </span>PAPER交互式文档协作平台[2022]</p>
+</div>
 </div>
 
-
-<div id="org353448a" class="figure">
-<p><img src="./img/mpoc.jpeg" alt="mpoc.jpeg">
+<div id="outline-container-org769b99c" class="outline-2">
+<h2 id="org769b99c"><span class="section-number-2">4.</span> Tips</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgd8fde31" class="outline-3">
+<h3 id="orgd8fde31"><span class="section-number-3">4.1.</span> Add a css file</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Edit <code>init.el</code>, add this
 </p>
-<p><span class="figure-number">Figure 4: </span>MPOC, NFT音乐发布与交易应用[2022]</p>
+<pre class="example">
+(setq org-html-head "&lt;link rel='stylesheet' href='app.css'&gt;")
+</pre>
+</div>
 </div>
 
-
-<div id="org523f8d5" class="figure">
-<p><img src="./img/mq.jpeg" alt="mq.jpeg">
+<div id="outline-container-org170bd3d" class="outline-3">
+<h3 id="org170bd3d"><span class="section-number-3">4.2.</span> Create a beautiful index.html</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+You can use orgmode to generate a index.html to list your articles,
+but the index.html may not be look good as a blog home page.
 </p>
-<p><span class="figure-number">Figure 5: </span>MQ地质勘测数据存储, 展示与分析应用平台[2022]</p>
+
+<p>
+So you can create a beautiful index.html by using html, css, and javascript.
+</p>
+</div>
 </div>
 
-
-<div id="orgff1f150" class="figure">
-<p><img src="./img/hzll.jpeg" alt="hzll.jpeg">
+<div id="outline-container-orgcf37f3e" class="outline-3">
+<h3 id="orgcf37f3e"><span class="section-number-3">4.3.</span> SEO</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Add this to your orgfile.
 </p>
-<p><span class="figure-number">Figure 6: </span>HZLL数字货币交易行情预测分析与资讯应用[2021]</p>
+<pre class="example">
+#+TITLE: Hello World
+#+KEYWORDS: orgmode, blog
+#+DESCRIPTION: a simple blog
+</pre>
+</div>
+</div>
 </div>
 
-
-<div id="org10a424f" class="figure">
-<p><img src="./img/dirii.jpeg" alt="dirii.jpeg">
-</p>
-<p><span class="figure-number">Figure 7: </span>DIRII多国家, 定制客服, 短视频网站[2020]</p>
-</div>
+<div id="outline-container-org47d0d31" class="outline-2">
+<h2 id="org47d0d31"><span class="section-number-2">5.</span> Links</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><a href="https://orgmode.org/manual/">The Org Manual</a></li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-06-03 六 14:13</p>
+<p class="date">Created: 2023-06-03 六 14:50</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

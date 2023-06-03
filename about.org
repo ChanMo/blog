@@ -3,9 +3,7 @@
 #+KEYWORDS: chanmo, dsoou
 
 
-喜欢古老的Emacs, Python, 又喜欢React.js, k8s
-
-喜欢简单的Html, Bulma.css, 又喜欢@mui/material, OpenLayer, Babylon.js
+I like emacs, python, reactjs.
 
 
 ** SHOWCASES

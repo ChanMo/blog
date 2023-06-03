@@ -1,0 +1,54 @@
+#+TITLE: Use Org Mode To Build Your Blog
+#+KEYWORDS: emacs, orgmode, github, blog, markdown
+#+DESCRIPTION: How to use emacs orgmode to write and publish your blog.
+#+HTML_LINK_HOME: /blog
+
+
+** What is Emacs Org Mode
+
+Org Mode is an authoring tool and a TODO lists manager for GNU Emacs.
+It relies on a lightweight plain-text markup language used in files with the
+‘.org’ extension.
+
+
+** Write an article
+
+Use emacs to create a file named "helloworld.org"
+then use ~C-c C-e h h~ to generate a html file.
+
+
+** Publish to the web
+
+create a public repository in github,
+then add your html files,
+enable to use github page,
+and your articles are published.
+
+** Tips
+
+*** Add a css file
+
+Edit ~init.el~, add this
+#+BEGIN_SRC
+(setq org-html-head "<link rel='stylesheet' href='app.css'>")
+#+END_SRC
+
+*** Create a beautiful index.html
+
+You can use orgmode to generate a index.html to list your articles,
+but the index.html may not be look good as a blog home page.
+
+So you can create a beautiful index.html by using html, css, and javascript.
+
+*** SEO
+
+Add this to your orgfile.
+#+BEGIN_SRC
+#+TITLE: Hello World
+#+KEYWORDS: orgmode, blog
+#+DESCRIPTION: a simple blog
+#+END_SRC
+
+** Links
+
+- [[https://orgmode.org/manual/][The Org Manual]]
