@@ -2,7 +2,7 @@
 #+DESCRIPTION: ChanMo is a software enginner.
 #+KEYWORDS: chanmo, dsoou
 
-Hi, my niakname is ChanMo and I am a software engineer. I am passionate about programming and I enjoy writing about my experiences with various programming languages and technologies.
+Hi, my nickname is ChanMo and I am a software engineer. I am passionate about programming and I enjoy writing about my experiences with various programming languages and technologies.
 
 I started this blog to share my knowledge and experiences with others. I hope that my blog will help people learn more about programming and that it will inspire them to explore these technologies on their own.
 
