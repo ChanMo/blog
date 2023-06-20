@@ -1,11 +1,26 @@
 #+TITLE: About Me
-#+DESCRIPTION: About me
+#+DESCRIPTION: ChanMo is a software enginner.
 #+KEYWORDS: chanmo, dsoou
 
+Hi, my niakname is ChanMo and I am a software engineer. I am passionate about programming and I enjoy writing about my experiences with various programming languages and technologies.
 
-I like emacs, python, reactjs.
+I started this blog to share my knowledge and experiences with others. I hope that my blog will help people learn more about programming and that it will inspire them to explore these technologies on their own.
+
+In my spare time, I enjoy hiking, biking, and spending time with my family and friends. I am also an avid reader and I love to learn new things.
+
+I am excited to share my journey with you and I hope that you will join me on this adventure.
+
+Here are some of my favorite programming languages and technologies:
+
+- Python: A general-purpose programming language that is easy to learn and use.
+- Emacs: A text editor that is highly customizable and extensible.
+- ReactJS: A JavaScript library for building user interfaces.
+  
+I am a strong believer in open source software and I contribute to open source projects in my spare time.
+I am always looking for new challenges and I am excited to see what the future holds for me. I hope that you will follow along on my journey and that I can inspire you to pursue your own dreams.
 
 
+#+BEGIN_COMMENT
 ** SHOWCASES
 
 #+CAPTION: 土地规化GIS应用平台[2023]
@@ -28,3 +43,4 @@ I like emacs, python, reactjs.
 
 #+CAPTION: DIRII多国家, 定制客服, 短视频网站[2020]
 [[./img/dirii.jpeg]]
+#+END_COMMENT
