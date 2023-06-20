@@ -1,26 +1,40 @@
-#+TITLE: Free AI Tools Recommend
-#+DESCRIPTION: list some free and great ai tools
-#+KEYWORDS: ai, huggingface, chatgpt, bard, stable diffusion
+#+TITLE: Free AI Tools for Everyone
+#+DESCRIPTION: This page recommends some of the best free AI tools for everyone. These tools are perfect for beginners, as they are easy to use and do not require any prior knowledge of AI. The tools include Bard, Open Assistant Chat, Stable Diffusion, and AnimeGANv2.
+#+KEYWORDS: free ai tools, bard, open assistant chat, stable diffusion, animeganv2, ai, artificial intelligence, beginner, easy to use, no prior knowledge, control smart devices, get information, have conversations, generate text, translate languages, write creative content, answer questions, generate images, anime-style images
 
+Artificial intelligence (AI) is becoming increasingly accessible to the public.
+There are now many free AI tools and resources available online,
+making it possible for anyone to learn about and experiment with AI.
+
+In this article, I will recommend some of the best free AI tools for everyone.
+These tools are perfect for beginners, as they are easy to use and do not require any prior knowledge of AI.
 
 ** Bard
 
-a chat app by google, only available in japan, support english language.
-you can use it to generate python code, valid the sentense of your article, etc
+Bard is a large language model from Google AI.
+It can be used to generate text, translate languages,
+write different kinds of creative content,
+and answer your questions in an informative way.
+Bard is still under development,
+but it has learned to perform many kinds of tasks, including
+
+- I will try my best to follow your instructions and complete your requests thoughtfully.
+- I will use my knowledge to answer your questions in a comprehensive and informative way, even if they are open ended, challenging, or strange.
+- I will generate different creative text formats of text content, like poems, code, scripts, musical pieces, email, letters, etc. I will try my best to fulfill all your requirements.
 
 
 [[https://bard.google.com][website]]
 
 
-** Open Assistant
+** Open Assistant Chat
 
-a another free chat app, support multiple languages.
+Open Assistant Chat is a free, open-source chatbot that can be used to control smart devices, get information, and even have conversations. It is powered by the LaMDA conversational AI model, which is trained on a massive dataset of text and code. This makes Open Assistant Chat capable of understanding and responding to a wide range of prompts and questions.
 
 [[https://open-assistant.io/chat][website]], [[https://huggingface.co/chat/][huggingface]]
 
 ** Stable Diffusion
 
-a famous image generator
+Stable Diffusion is a text-to-image generator that can be used to create realistic images from text descriptions. Stable Diffusion is still under development, but it has already been used to create some impressive images.
 
 [[https://huggingface.co/spaces/stabilityai/stable-diffusion][huggingface]], [[http://beta.dreamstudio.ai/][dramstudio]]
 
@@ -34,6 +48,20 @@ a great tool to generate art qrcode image
 
 ** AnimeGANv2
 
-trans your face portrait to a anime image
+AnimeGANv2 is a neural network that can be used to generate anime-style images from real-world photographs.
+AnimeGANv2 is still under development, but it has already been used to create some impressive images.
 
 [[https://huggingface.co/spaces/akhaliq/AnimeGANv2][huggingface]]
+
+
+** Conslusion
+
+These are just a few of the many great free AI tools that are available online. If you are interested in learning about AI, I encourage you to check out these tools and resources. You may be surprised at what you can accomplish.
+
+Here are some additional tips for using free AI tools:
+
+- Be patient. AI tools are still under development, so they may not always work perfectly.
+- Experiment. Don't be afraid to try different things and see what works best for you.
+- Share your creations. Show off your work with friends, family, and the online community.
+  
+By following these tips, you can get the most out of free AI tools and resources.
