@@ -1,0 +1,39 @@
+#+TITLE: Free AI Tools Recommend
+#+DESCRIPTION: list some free and great ai tools
+#+KEYWORDS: ai, huggingface, chatgpt, bard, stable diffusion
+
+
+** Bard
+
+a chat app by google, only available in japan, support english language.
+you can use it to generate python code, valid the sentense of your article, etc
+
+
+[[https://bard.google.com][website]]
+
+
+** Open Assistant
+
+a another free chat app, support multiple languages.
+
+[[https://open-assistant.io/chat][website]], [[https://huggingface.co/chat/][huggingface]]
+
+** Stable Diffusion
+
+a famous image generator
+
+[[https://huggingface.co/spaces/stabilityai/stable-diffusion][huggingface]], [[http://beta.dreamstudio.ai/][dramstudio]]
+
+
+** QR Code AI Art Generator
+
+a great tool to generate art qrcode image
+
+[[https://huggingface.co/spaces/huggingface-projects/QR-code-AI-art-generator][huggingface]]
+
+
+** AnimeGANv2
+
+trans your face portrait to a anime image
+
+[[https://huggingface.co/spaces/akhaliq/AnimeGANv2][huggingface]]
