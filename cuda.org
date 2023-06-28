@@ -1,0 +1,14 @@
+#+TITLE: The Tips of CUDA
+#+DESCRIPTION:
+#+AUTHOR: ChanMo
+#+DATE:
+
+
+** CUDA out of memory
+
+Use NvidiaSmi Kill the pid
+
+#+BEGIN_SRC bash
+  nvidia-smi
+  sudo kill -9 pid
+#+END_SRC
