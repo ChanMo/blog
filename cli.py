@@ -19,7 +19,7 @@ def generate_sitemap():
             continue
         url = ET.SubElement(root, "url")
         loc = ET.SubElement(url, "loc")
-        loc.text = f
+        loc.text = f'https://www.chanmo.me/{f}'
         lastmod = ET.SubElement(url, "lastmod")
         lastmod.text = datetime.datetime.fromtimestamp(os.path.getmtime(f)).isoformat()
 
