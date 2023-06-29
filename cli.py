@@ -21,7 +21,7 @@ def generate_sitemap():
         loc = ET.SubElement(url, "loc")
         loc.text = f'https://www.chanmo.me/{f}'
         lastmod = ET.SubElement(url, "lastmod")
-        lastmod.text = datetime.datetime.fromtimestamp(os.path.getmtime(f)).isoformat()
+        lastmod.text = datetime.datetime.fromtimestamp(os.path.getmtime(f)).isoformat(timespec='seconds')
 
     with open('sitemap.xml', 'wb') as f:
         f.write(b'<?xml version="1.0" encoding="utf-8"?>\n')
