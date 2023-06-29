@@ -13,14 +13,18 @@ def cli():
 def generate_sitemap():
     " Generate sitemap.xml"
     root = ET.Element('urlset')
+    root.attrib['xmlns'] = 'http://www.sitemaps.org/schemas/sitemap/0.9'
     for f in os.listdir("."):
         if not f.endswith(".html"):
             continue
         url = ET.SubElement(root, "url")
-        url.attrib['loc'] = f
-        url.attrib['lastmod'] = datetime.datetime.fromtimestamp(os.path.getmtime(f)).isoformat()
+        loc = ET.SubElement(url, "loc")
+        loc.text = f
+        lastmod = ET.SubElement(url, "lastmod")
+        lastmod.text = datetime.datetime.fromtimestamp(os.path.getmtime(f)).isoformat()
 
     with open('sitemap.xml', 'wb') as f:
+        f.write(b'<?xml version="1.0" encoding="utf-8"?>\n')
         f.write(ET.tostring(root, encoding='utf-8'))
 
     click.echo('done')
