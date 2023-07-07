@@ -62,3 +62,15 @@
 .validation {
     display: none;
 }
+
+body {
+    font-family: "Blanco OSF";
+}
+
+#org-div-home-and-up {
+    display: none;
+}
+
+#table-of-contents {
+    display: none;
+}

@@ -1,7 +1,10 @@
 #+TITLE: Install Nvidia Driver On Ubuntu22.04 (Lenovo)
 #+DESCRIPTION: Handle SGX, Secure Boot
 #+KEYWORDS: nvidia, lenovo, ubuntu, sgx, mok
-#+HTML_LINK_HOME: /blog
+
+# Local Variables:
+# org-html-preamble: '<nav class="navbar"><a class="navbar-item">GoBack</a></nav>'
+# End:
 
 ** Enable SGX
 

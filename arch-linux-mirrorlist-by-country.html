@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-30 五 18:16 -->
+<!-- 2023-07-07 五 15:24 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Install Nvidia Driver On Ubuntu22.04 (Lenovo)</title>
+<title>How to Update Arch Linux Mirrorlist by Country</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="Handle SGX, Secure Boot" />
-<meta name="keywords" content="nvidia, lenovo, ubuntu, sgx, mok" />
+<meta name="description" content="This article provides instructions on how to update the Arch Linux mirrorlist by country. The mirrorlist is a list of servers that Arch Linux uses to download packages. By updating the mirrorlist, you can ensure that you are using the most up-to-date and reliable mirrors for your country." />
+<meta name="keywords" content="ArchLinux, mirrorlist, reflector" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -201,109 +201,85 @@
 <nav class='navbar is-primary'></nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Install Nvidia Driver On Ubuntu22.04 (Lenovo)</h1>
+<h1 class="title">How to Update Arch Linux Mirrorlist by Country</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6efa9a2">1. Enable SGX</a></li>
-<li><a href="#org7531f59">2. Install Nvidia Driver</a></li>
-<li><a href="#orgcb6b064">3. First Reboot</a></li>
-<li><a href="#orgc608db1">4. Check Driver</a></li>
-<li><a href="#org8526e7d">5. References</a></li>
+<li><a href="#org8a89ee1">1. Install reflector</a></li>
+<li><a href="#org311be1c">2. Generate a new mirrorlist for your country</a></li>
+<li><a href="#org89c7f8a">3. Here are some additional tips for refreshing your mirrorlist:</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6efa9a2" class="outline-2">
-<h2 id="org6efa9a2"><span class="section-number-2">1.</span> Enable SGX</h2>
+<div id="outline-container-org8a89ee1" class="outline-2">
+<h2 id="org8a89ee1"><span class="section-number-2">1.</span> Install reflector</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-In BIOS, set SGX to Enabled.
-</p>
+<pre class="example">
+sudo pacman -S reflector
+</pre>
 </div>
 </div>
 
-<div id="outline-container-org7531f59" class="outline-2">
-<h2 id="org7531f59"><span class="section-number-2">2.</span> Install Nvidia Driver</h2>
+<div id="outline-container-org311be1c" class="outline-2">
+<h2 id="org311be1c"><span class="section-number-2">2.</span> Generate a new mirrorlist for your country</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-Remove Nvidia Packages
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">sudo apt-get remove --purge nvidia-*
-sudo apt-get remove --purge '^libnvidia-.*'
-sudo apt-get remove --purge '^cuda-.*'
+<pre class="example">
+reflector --country &lt;country code&gt; --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 </pre>
-</div>
 
 <p>
-Find Drivers
+Replace <code>&lt;country code&gt;</code> with the two-letter country code for the country
+you want to refresh.
+For example, to refresh the mirrorlist for the United States,
+you would run the following command:
 </p>
-<div class="org-src-container">
-<pre class="src src-bash">ubuntu-drivers devices
+
+<pre class="example">
+reflector --country US --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 </pre>
-</div>
 
 <p>
-DO NOT CHOOSE `nvidia-driver-*-open`
+Once the new mirrorlist has been generated,
+you can force pacman to refresh the package lists by running the following
+command:
 </p>
 
-<p>
-Install
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">sudo apt-get install nvidia-driver-525
+<pre class="example">
+pacman -Syyu --refresh
 </pre>
-</div>
 
 <p>
-If there is a dialog about "secure boot", remember your password
+This will ensure that you are using the latest mirrors for your country.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-bash">sudo reboot
-</pre>
-</div>
 </div>
 </div>
 
-<div id="outline-container-orgcb6b064" class="outline-2">
-<h2 id="orgcb6b064"><span class="section-number-2">3.</span> First Reboot</h2>
+<div id="outline-container-org89c7f8a" class="outline-2">
+<h2 id="org89c7f8a"><span class="section-number-2">3.</span> Here are some additional tips for refreshing your mirrorlist:</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Select "Perform MOK Management",
-Select "Enroll MOK",
-Input your password,
-Select "Ok"
+You can use the <code>--country</code> flag to specify multiple countries. For example, to refresh the mirrorlist for the United States and Canada, you would run the following command:
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgc608db1" class="outline-2">
-<h2 id="orgc608db1"><span class="section-number-2">4.</span> Check Driver</h2>
-<div class="outline-text-2" id="text-4">
-<div class="org-src-container">
-<pre class="src src-bash">nvidia-smi
+<pre class="example">
+reflector --country US,CA --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 </pre>
-</div>
-</div>
-</div>
 
+<p>
+You can use the <code>--latest</code> flag to specify the number of mirrors you want to keep. The default is 5.
+You can use the <code>--sort</code> flag to specify how you want the mirrors to be sorted. The default is by rate. You can also sort by latency or last update.
+You can use the <code>--save</code> flag to specify the file where you want the new mirrorlist to be saved. The default is /etc/pacman.d/mirrorlist.
+</p>
 
-<div id="outline-container-org8526e7d" class="outline-2">
-<h2 id="org8526e7d"><span class="section-number-2">5.</span> References</h2>
-<div class="outline-text-2" id="text-5">
-<ul class="org-ul">
-<li><a href="https://gist.github.com/bitsurgeon/b0f4440984c9e60dcd8fe8bbc346c029">https://gist.github.com/bitsurgeon/b0f4440984c9e60dcd8fe8bbc346c029</a></li>
-<li><a href="https://www.linuxcapable.com/install-nvidia-drivers-on-ubuntu-linux/">https://www.linuxcapable.com/install-nvidia-drivers-on-ubuntu-linux/</a></li>
-</ul>
+<div id="comments"></div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-06-30 五 18:16</p>
+<p class="date">Created: 2023-07-07 五 15:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
