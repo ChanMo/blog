@@ -1,0 +1,23 @@
+#+TITLE: Render csrf_token when using render_to_string in Django
+#+DESCRIPTION: Render csrf_token when using render_to_string in Django
+#+KEYWORDS: csrf_token, django, render_to_string
+
+In ~views.py~
+#+BEGIN_SRC python
+  from django.middleware.csrf import get_token
+  from django.template.loader import render_to_string
+
+  context = {
+      'csrf_token': get_token(request),
+  }
+  html = render_to_string('demo.html', context)
+#+END_SRC
+
+
+In ~demo.html~
+#+BEGIN_SRC html
+  <form method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}" />
+    <button type="submit">Submit</button>
+  </form>
+#+END_SRC
