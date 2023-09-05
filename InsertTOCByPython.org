@@ -33,3 +33,5 @@ github 地址: [[https://github.com/ChanMo/python-toc]]
   insert_toc(d, '1-2')
   d.save('test.docx')  
 #+END_SRC
+
+#+HTML: <div id="comments"></div>

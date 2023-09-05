@@ -180,3 +180,5 @@ Example ~backend/components/app.jsx~
 
 Before prepare to deploy, run ~yarn dev~
 
+
+#+HTML: <div id="comments"></div>

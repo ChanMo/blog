@@ -205,3 +205,5 @@ and has become the most cited neural network of the 21st century.
 生成对抗网络的应用范围正在大幅增加，比如ChatGPT等
 
 [[https://zh.wikipedia.org/zh-cn/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C][wikipedia]]
+
+#+HTML: <div id="comments"></div>

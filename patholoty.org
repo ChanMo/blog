@@ -64,3 +64,5 @@ system，PACS）是一种专门用来存储、获取、发送与展示医疗影�
 PACS一词由Andre Duerinckx博士提出。
 
 [[https://zh.wikipedia.org/zh-cn/%E9%86%AB%E7%99%82%E5%BD%B1%E5%83%8F%E5%84%B2%E5%82%B3%E7%B3%BB%E7%B5%B1][wikipedia]]
+
+#+HTML: <div id="comments"></div>

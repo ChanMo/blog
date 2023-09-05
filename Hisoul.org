@@ -2,11 +2,15 @@
 #+DESCRIPTION: Hisoul 是一个虚拟空间创作平台.用户可以创作三维空间, 如办公室, 展厅, 卧室等
 #+KEYWORDS: 元宇宙, babylon, blender, 虚拟空间
 
-
 Hisoul 是一个虚拟空间创作平台.
 用户可以创作三维空间, 如办公室, 展厅, 卧室等, 可以随意进行装修, 如摆放一颗圣诞树.
 
 创作者可以使用平台举办一个小型的虚拟画展等
+
+#+ATTR_HTML: :autoplay true :muted true
+#+BEGIN_video
+#+HTML: <source src="hisoul.mp4" type="video/mp4">
+#+END_video
 
 [[https://hisoul.md1927.com][website]]
 
@@ -15,12 +19,14 @@ Hisoul 是一个虚拟空间创作平台.
 *** 操作简单
 
 [[./img/hisoul_1.jpeg]]
+
 不需要太多辅助按键, 在Ipad上也可以轻松创建出一个漂亮的展厅
 
 
 *** 多人互动
 
 [[./img/hisoul_2.jpeg]]
+
 空间创作者可以邀请用户进入房间, 每个用户都会拥有一个独立的虚拟人物, 可以在房间走动,
 与他人交流
 
@@ -39,6 +45,7 @@ Hisoul 是一个虚拟空间创作平台.
 *** 虚拟城镇
 
 [[./img/hisoul_3.jpeg]]
+
 平台提供了一个开放空间的索引, 用户可以像浏览商城一样快速查看热门空间
 
 平台还提供了一个虚拟城镇的浏览形式, 用户可以进入三维虚拟城镇,
@@ -57,3 +64,5 @@ Hisoul 是一个虚拟空间创作平台.
 
 - 2022/11/01 项目启动
 - 2023/01/01 Beta版上线  
+
+#+HTML: <div id="comments"></div>  

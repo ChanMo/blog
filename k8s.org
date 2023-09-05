@@ -113,7 +113,4 @@ Krew helps you discover and install kubectl plugins on your machine.
   kubectl krew uninstall access-matrix
 #+END_SRC
 
-
-
-
-
+#+HTML: <div id="comments"></div>

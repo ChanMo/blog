@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-14 五 14:36 -->
+<!-- 2023-09-05 二 17:47 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何使用Python在DOCX中插入TOC</title>
@@ -193,34 +193,38 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel='stylesheet' href='bulma.min.css'><link rel='stylesheet' href='app.css'>
-<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'><link rel='stylesheet' href='app.css'>
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script><script type='module' crossorigin src='index.min.js'></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href=""> UP </a>
  |
  <a accesskey="H" href="/blog"> HOME </a>
-</div><div id="content" class="content">
+</div><div id="preamble" class="status">
+<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+</div>
+<div id="content" class="content">
+<header>
 <h1 class="title">如何使用Python在DOCX中插入TOC</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfda300c">1. 什么是TOC</a></li>
-<li><a href="#orga6f25d9">2. 如何在word中插入toc</a>
+<li><a href="#org24c614a">1. 什么是TOC</a></li>
+<li><a href="#org32ef16d">2. 如何在word中插入toc</a>
 <ul>
-<li><a href="#orgbc1c585">2.1. 安装PythonDocx</a></li>
-<li><a href="#org3d6cc85">2.2. 获取~insert<sub>toc</sub>~函数</a></li>
-<li><a href="#org4adbf9a">2.3. 在文档中插入Toc</a></li>
+<li><a href="#orgb7a0d75">2.1. 安装PythonDocx</a></li>
+<li><a href="#org5cf8352">2.2. 获取~insert<sub>toc</sub>~函数</a></li>
+<li><a href="#org07f2543">2.3. 在文档中插入Toc</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
+</nav>
 
-<div id="outline-container-orgfda300c" class="outline-2">
-<h2 id="orgfda300c"><span class="section-number-2">1.</span> 什么是TOC</h2>
+<div id="outline-container-org24c614a" class="outline-2">
+<h2 id="org24c614a"><span class="section-number-2">1.</span> 什么是TOC</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 TOC(Table of Contents), 是文档(docx, odt)中的目录
@@ -233,12 +237,12 @@ TOC(Table of Contents), 是文档(docx, odt)中的目录
 </div>
 
 
-<div id="outline-container-orga6f25d9" class="outline-2">
-<h2 id="orga6f25d9"><span class="section-number-2">2.</span> 如何在word中插入toc</h2>
+<div id="outline-container-org32ef16d" class="outline-2">
+<h2 id="org32ef16d"><span class="section-number-2">2.</span> 如何在word中插入toc</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgbc1c585" class="outline-3">
-<h3 id="orgbc1c585"><span class="section-number-3">2.1.</span> 安装PythonDocx</h3>
+<div id="outline-container-orgb7a0d75" class="outline-3">
+<h3 id="orgb7a0d75"><span class="section-number-3">2.1.</span> 安装PythonDocx</h3>
 <div class="outline-text-3" id="text-2-1">
 <pre class="example">
 pip install python-docx
@@ -246,8 +250,8 @@ pip install python-docx
 </div>
 </div>
 
-<div id="outline-container-org3d6cc85" class="outline-3">
-<h3 id="org3d6cc85"><span class="section-number-3">2.2.</span> 获取~insert<sub>toc</sub>~函数</h3>
+<div id="outline-container-org5cf8352" class="outline-3">
+<h3 id="org5cf8352"><span class="section-number-3">2.2.</span> 获取~insert<sub>toc</sub>~函数</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 github 地址: <a href="https://github.com/ChanMo/python-toc">https://github.com/ChanMo/python-toc</a>
@@ -255,8 +259,8 @@ github 地址: <a href="https://github.com/ChanMo/python-toc">https://github.com
 </div>
 </div>
 
-<div id="outline-container-org4adbf9a" class="outline-3">
-<h3 id="org4adbf9a"><span class="section-number-3">2.3.</span> 在文档中插入Toc</h3>
+<div id="outline-container-org07f2543" class="outline-3">
+<h3 id="org07f2543"><span class="section-number-3">2.3.</span> 在文档中插入Toc</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-python">from docx import Document
@@ -268,13 +272,15 @@ insert_toc(d, '1-2')
 d.save('test.docx')  
 </pre>
 </div>
+
+<div id="comments"></div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2022-10-14 五 14:36</p>
+<p class="date">Created: 2023-09-05 二 17:47</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
