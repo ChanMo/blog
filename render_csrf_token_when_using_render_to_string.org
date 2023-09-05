@@ -1,4 +1,4 @@
-#+TITLE: Render csrf_token when using render_to_string in Django
+#+TITLE: Render csrftoken when using rendertostring in Django
 #+DESCRIPTION: Render csrf_token when using render_to_string in Django
 #+KEYWORDS: csrf_token, django, render_to_string
 

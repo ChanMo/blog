@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-05 二 15:21 -->
+<!-- 2023-09-05 二 16:28 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Render csrf_token when using render_to_string in Django</title>
+<title>Render csrftoken when using rendertostring in Django</title>
 <meta name="author" content="ChanMo" />
 <meta name="description" content="Render csrf_token when using render_to_string in Django" />
 <meta name="keywords" content="csrf_token, django, render_to_string" />
@@ -201,7 +201,7 @@
 <nav class='navbar is-primary'></nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Render csrf<sub>token</sub> when using render<sub>to</sub><sub>string</sub> in Django</h1>
+<h1 class="title">Render csrftoken when using rendertostring in Django</h1>
 <p>
 In <code>views.py</code>
 </p>
@@ -215,22 +215,10 @@ context = {
 html = render_to_string('demo.html', context)
 </pre>
 </div>
-
-
-<p>
-In <code>demo.html</code>
-</p>
-<div class="org-src-container">
-<pre class="src src-html">&lt;form method="post"&gt;
-  &lt;input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}" /&gt;
-  &lt;button type="submit"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
-</pre>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-05 二 15:21</p>
+<p class="date">Created: 2023-09-05 二 16:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
