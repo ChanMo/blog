@@ -1,0 +1,99 @@
+#+TITLE: Awesome Document: Dockerize Document Processing
+#+DESCRIPTION: Dockerize document processing with three awesome Docker images: docker-pandoc, docker-unoserver, and docker-poppler. These images make it easy to convert documents between different formats, edit documents in LibreOffice, and extract text from PDF files.
+#+KEYWORDS: docker,pandoc,libreoffice,unoserver,poppler
+
+Document processing is a common task in many industries,
+but it can be time-consuming and complex.
+Docker can be used to simplify and streamline document processing by providing
+a containerized environment for each tool.
+
+This article will introduce three Docker images for document processing:
+
+[[https://github.com/ChanMo/docker-pandoc][docker-pandoc:]] A Docker image for Pandoc, a universal document converter.
+[[https://github.com/ChanMo/docker-unoserver][docker-unoserver]]: A Docker image for LibreOffice, a free and open-source office suite.
+[[https://github.com/ChanMo/docker-poppler][docker-poppler]]: A Docker image for Poppler, a PDF library.
+
+** docker-pandoc
+
+docker-pandoc is a Docker image for Pandoc, a universal document converter.
+Pandoc can convert between many different document formats, including Markdown,
+HTML, PDF, and LaTeX.
+
+Start the API server
+#+BEGIN_SRC bash
+  docker run --rm -p 5000:5000 chanmo/pandoc
+#+END_SRC
+
+Convert the DOCX file to HTML format, by httpie
+#+BEGIN_SRC bash
+  http -f POST :5000/convert/html file@~/demo.docx
+#+END_SRC
+
+[[https://github.com/ChanMo/docker-poppler][github]], [[https://hub.docker.com/r/chanmo/poppler][docker]]
+
+** docker-unoserver
+
+docker-unoserver is a Docker image for LibreOffice,
+a free and open-source office suite.
+LibreOffice includes a variety of applications for word processing,
+spreadsheets, presentations, and more.
+
+Start the API server
+#+BEGIN_SRC bash
+  docker run -p 5000:5000 chanmo/unoserver  
+#+END_SRC
+
+convert a docx file to the pdf format
+#+BEGIN_SRC bash
+  http -f POST :5000/convert/pdf file@/path/to/demo.docx -o demo.pdf
+#+END_SRC
+
+If you just want to refresh the TOC in a docx file.
+#+BEGIN_SRC bash
+  http -f POST :5000/convert/docx file@/path/to/demo.docx -o demo.docx
+#+END_SRC
+
+[[https://github.com/ChanMo/docker-unoserver][github]], [[https://hub.docker.com/r/chanmo/unoserver][docker]]
+
+** docker-poppler
+
+docker-poppler is a Docker image for Poppler, a PDF library.
+Poppler can be used to render, split, and merge PDF files.
+
+Start the API server
+#+BEGIN_SRC bash
+  docker run --rm -p 5000:5000 chanmo/poppler
+#+END_SRC
+
+convert a pdf file to the html format
+#+BEGIN_SRC bash
+  http -f POST :5000/pdftohtml file@/path/to/file.pdf -o demo.html
+#+END_SRC
+
+convert a pdf file to the text string
+#+BEGIN_SRC bash
+  http -f POST :5000/pdftotext file@/path/to/file.pdf
+#+END_SRC
+
+convert a pdf file to multiple images
+#+BEGIN_SRC bash
+  http -f POST :5000/pdftocairo file@/path/to/file.pdf
+#+END_SRC
+
+get a pdf file information
+#+BEGIN_SRC bash
+  http -f POST :5000/pdfinfo file@/path/to/file.pdf  
+#+END_SRC
+
+[[https://github.com/ChanMo/docker-poppler][github]], [[https://hub.docker.com/r/chanmo/poppler][docker]]
+
+** Conclusion
+
+Docker can be used to simplify and streamline document processing by
+providing a containerized environment for each tool.
+The three Docker images introduced in this article can be used to
+perform a variety of document processing tasks,
+including converting documents between different formats,
+editing documents in LibreOffice, and extracting text from PDF files.
+
+#+HTML: <div id="comments"></div>
