@@ -1,5 +1,5 @@
 #+TITLE: Awesome Document: Dockerize Document Processing
-#+DESCRIPTION: Dockerize document processing with three awesome Docker images: docker-pandoc, docker-unoserver, and docker-poppler. These images make it easy to convert documents between different formats, edit documents in LibreOffice, and extract text from PDF files.
+#+DESCRIPTION: Dockerize document processing with three awesome Docker images: docker-pandoc, docker-unoserver, and docker-poppler. These images make it easy to convert documents between different formats, refresh the TOC in LibreOffice, and extract text from PDF files.
 #+KEYWORDS: docker,pandoc,libreoffice,unoserver,poppler
 
 Document processing is a common task in many industries,
@@ -94,6 +94,6 @@ providing a containerized environment for each tool.
 The three Docker images introduced in this article can be used to
 perform a variety of document processing tasks,
 including converting documents between different formats,
-editing documents in LibreOffice, and extracting text from PDF files.
+refresh the TOC in LibreOffice, and extracting text from PDF files.
 
 #+HTML: <div id="comments"></div>

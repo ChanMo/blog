@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-16 六 22:56 -->
+<!-- 2023-09-16 六 23:09 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Awesome Document: Dockerize Document Processing</title>
 <meta name="author" content="ChanMo" />
-<meta name="description" content="Dockerize document processing with three awesome Docker images: docker-pandoc, docker-unoserver, and docker-poppler. These images make it easy to convert documents between different formats, edit documents in LibreOffice, and extract text from PDF files." />
+<meta name="description" content="Dockerize document processing with three awesome Docker images: docker-pandoc, docker-unoserver, and docker-poppler. These images make it easy to convert documents between different formats, refresh the TOC in LibreOffice, and extract text from PDF files." />
 <meta name="keywords" content="docker,pandoc,libreoffice,unoserver,poppler" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -207,10 +207,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0133c04">1. docker-pandoc</a></li>
-<li><a href="#org56b6396">2. docker-unoserver</a></li>
-<li><a href="#org8171d1a">3. docker-poppler</a></li>
-<li><a href="#org4d33b9e">4. Conclusion</a></li>
+<li><a href="#org558785d">1. docker-pandoc</a></li>
+<li><a href="#org5afeb02">2. docker-unoserver</a></li>
+<li><a href="#orgcb6bd9e">3. docker-poppler</a></li>
+<li><a href="#org225d2d5">4. Conclusion</a></li>
 </ul>
 </div>
 </nav>
@@ -231,8 +231,8 @@ This article will introduce three Docker images for document processing:
 <a href="https://github.com/ChanMo/docker-poppler">docker-poppler</a>: A Docker image for Poppler, a PDF library.
 </p>
 
-<div id="outline-container-org0133c04" class="outline-2">
-<h2 id="org0133c04"><span class="section-number-2">1.</span> docker-pandoc</h2>
+<div id="outline-container-org558785d" class="outline-2">
+<h2 id="org558785d"><span class="section-number-2">1.</span> docker-pandoc</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 docker-pandoc is a Docker image for Pandoc, a universal document converter.
@@ -262,8 +262,8 @@ Convert the DOCX file to HTML format, by httpie
 </div>
 </div>
 
-<div id="outline-container-org56b6396" class="outline-2">
-<h2 id="org56b6396"><span class="section-number-2">2.</span> docker-unoserver</h2>
+<div id="outline-container-org5afeb02" class="outline-2">
+<h2 id="org5afeb02"><span class="section-number-2">2.</span> docker-unoserver</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 docker-unoserver is a Docker image for LibreOffice,
@@ -302,8 +302,8 @@ If you just want to refresh the TOC in a docx file.
 </div>
 </div>
 
-<div id="outline-container-org8171d1a" class="outline-2">
-<h2 id="org8171d1a"><span class="section-number-2">3.</span> docker-poppler</h2>
+<div id="outline-container-orgcb6bd9e" class="outline-2">
+<h2 id="orgcb6bd9e"><span class="section-number-2">3.</span> docker-poppler</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 docker-poppler is a Docker image for Poppler, a PDF library.
@@ -356,8 +356,8 @@ get a pdf file information
 </div>
 </div>
 
-<div id="outline-container-org4d33b9e" class="outline-2">
-<h2 id="org4d33b9e"><span class="section-number-2">4.</span> Conclusion</h2>
+<div id="outline-container-org225d2d5" class="outline-2">
+<h2 id="org225d2d5"><span class="section-number-2">4.</span> Conclusion</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Docker can be used to simplify and streamline document processing by
@@ -365,7 +365,7 @@ providing a containerized environment for each tool.
 The three Docker images introduced in this article can be used to
 perform a variety of document processing tasks,
 including converting documents between different formats,
-editing documents in LibreOffice, and extracting text from PDF files.
+refresh the TOC in LibreOffice, and extracting text from PDF files.
 </p>
 
 <div id="comments"></div>
@@ -374,7 +374,7 @@ editing documents in LibreOffice, and extracting text from PDF files.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-16 六 22:56</p>
+<p class="date">Created: 2023-09-16 六 23:09</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
