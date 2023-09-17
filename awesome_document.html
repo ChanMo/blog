@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-16 六 23:09 -->
+<!-- 2023-09-17 日 17:31 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Awesome Document: Dockerize Document Processing</title>
@@ -198,7 +198,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
 <header>
@@ -207,10 +207,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org558785d">1. docker-pandoc</a></li>
-<li><a href="#org5afeb02">2. docker-unoserver</a></li>
-<li><a href="#orgcb6bd9e">3. docker-poppler</a></li>
-<li><a href="#org225d2d5">4. Conclusion</a></li>
+<li><a href="#orgccbc8c9">1. docker-pandoc</a></li>
+<li><a href="#org3836bad">2. docker-unoserver</a></li>
+<li><a href="#org3e5b3e8">3. docker-poppler</a></li>
+<li><a href="#org55c8387">4. Conclusion</a></li>
 </ul>
 </div>
 </nav>
@@ -231,8 +231,8 @@ This article will introduce three Docker images for document processing:
 <a href="https://github.com/ChanMo/docker-poppler">docker-poppler</a>: A Docker image for Poppler, a PDF library.
 </p>
 
-<div id="outline-container-org558785d" class="outline-2">
-<h2 id="org558785d"><span class="section-number-2">1.</span> docker-pandoc</h2>
+<div id="outline-container-orgccbc8c9" class="outline-2">
+<h2 id="orgccbc8c9"><span class="section-number-2">1.</span> docker-pandoc</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 docker-pandoc is a Docker image for Pandoc, a universal document converter.
@@ -262,8 +262,8 @@ Convert the DOCX file to HTML format, by httpie
 </div>
 </div>
 
-<div id="outline-container-org5afeb02" class="outline-2">
-<h2 id="org5afeb02"><span class="section-number-2">2.</span> docker-unoserver</h2>
+<div id="outline-container-org3836bad" class="outline-2">
+<h2 id="org3836bad"><span class="section-number-2">2.</span> docker-unoserver</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 docker-unoserver is a Docker image for LibreOffice,
@@ -302,8 +302,8 @@ If you just want to refresh the TOC in a docx file.
 </div>
 </div>
 
-<div id="outline-container-orgcb6bd9e" class="outline-2">
-<h2 id="orgcb6bd9e"><span class="section-number-2">3.</span> docker-poppler</h2>
+<div id="outline-container-org3e5b3e8" class="outline-2">
+<h2 id="org3e5b3e8"><span class="section-number-2">3.</span> docker-poppler</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 docker-poppler is a Docker image for Poppler, a PDF library.
@@ -356,8 +356,8 @@ get a pdf file information
 </div>
 </div>
 
-<div id="outline-container-org225d2d5" class="outline-2">
-<h2 id="org225d2d5"><span class="section-number-2">4.</span> Conclusion</h2>
+<div id="outline-container-org55c8387" class="outline-2">
+<h2 id="org55c8387"><span class="section-number-2">4.</span> Conclusion</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Docker can be used to simplify and streamline document processing by
@@ -367,15 +367,11 @@ perform a variety of document processing tasks,
 including converting documents between different formats,
 refresh the TOC in LibreOffice, and extracting text from PDF files.
 </p>
-
-<div id="comments"></div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-16 六 23:09</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>

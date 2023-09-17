@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-05 二 17:04 -->
+<!-- 2023-09-17 日 17:44 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to Update Arch Linux Mirrorlist by Country</title>
@@ -198,23 +198,24 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
+<header>
 <h1 class="title">How to Update Arch Linux Mirrorlist by Country</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1836715">1. Install reflector</a></li>
-<li><a href="#orgfd88622">2. Generate a new mirrorlist for your country</a></li>
-<li><a href="#org2210b32">3. Here are some additional tips for refreshing your mirrorlist:</a></li>
+<li><a href="#org80b706a">1. Install reflector</a></li>
+<li><a href="#org03ed154">2. Generate a new mirrorlist for your country</a></li>
+<li><a href="#orge41ecc9">3. Here are some additional tips for refreshing your mirrorlist:</a></li>
 </ul>
 </div>
-</div>
+</nav>
 
-<div id="outline-container-org1836715" class="outline-2">
-<h2 id="org1836715"><span class="section-number-2">1.</span> Install reflector</h2>
+<div id="outline-container-org80b706a" class="outline-2">
+<h2 id="org80b706a"><span class="section-number-2">1.</span> Install reflector</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 sudo pacman -S reflector
@@ -222,8 +223,8 @@ sudo pacman -S reflector
 </div>
 </div>
 
-<div id="outline-container-orgfd88622" class="outline-2">
-<h2 id="orgfd88622"><span class="section-number-2">2.</span> Generate a new mirrorlist for your country</h2>
+<div id="outline-container-org03ed154" class="outline-2">
+<h2 id="org03ed154"><span class="section-number-2">2.</span> Generate a new mirrorlist for your country</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 reflector --country &lt;country code&gt; --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
@@ -256,8 +257,8 @@ This will ensure that you are using the latest mirrors for your country.
 </div>
 </div>
 
-<div id="outline-container-org2210b32" class="outline-2">
-<h2 id="org2210b32"><span class="section-number-2">3.</span> Here are some additional tips for refreshing your mirrorlist:</h2>
+<div id="outline-container-orge41ecc9" class="outline-2">
+<h2 id="orge41ecc9"><span class="section-number-2">3.</span> Here are some additional tips for refreshing your mirrorlist:</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 You can use the <code>--country</code> flag to specify multiple countries. For example, to refresh the mirrorlist for the United States and Canada, you would run the following command:
@@ -272,15 +273,11 @@ You can use the <code>--latest</code> flag to specify the number of mirrors you 
 You can use the <code>--sort</code> flag to specify how you want the mirrors to be sorted. The default is by rate. You can also sort by latency or last update.
 You can use the <code>--save</code> flag to specify the file where you want the new mirrorlist to be saved. The default is /etc/pacman.d/mirrorlist.
 </p>
-
-<div id="comments"></div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-05 二 17:04</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 #+TITLE: 如何使用Python在DOCX中插入TOC
 #+KEYWORDS: python,docx,toc,TableOfContents
 #+DESCRIPTION: 如何使用Python在DOCX中插入TOC
-#+HTML_LINK_HOME: /blog
+
 
 ** 什么是TOC
 

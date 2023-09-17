@@ -1,7 +1,7 @@
 #+TITLE: 如何在Django中更好的使用React
 #+DESCRIPTION: 在Django中使用React的方法实践
 #+KEYWORDS: Django, React, Vite
-#+HTML_LINK_HOME: /blog
+
 
 Django是一个非常成熟稳定的web开发框架, 可以快速搭建产品逻辑, 但是当页面非常复杂,
 使用基础的javascript无法满足需要时, 就会考虑使用React, Vue等前端开发框架

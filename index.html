@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- 2022-10-14 五 16:23 -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ChanMo's blog</title>
     <meta name="author" content="ChanMo" />
     <meta name="description" content="chanmo's development blog" />
     <meta name="keywords" content="dsoou, chanmo, blockchain, linux, opensource, python, javascript, react" />
-    <meta name="generator" content="Org Mode" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <style>
      h2.title a {
+       font-size: 1.75rem;
        border-bottom: 2px solid black;
      }
      h2.title:hover a{
@@ -38,7 +37,44 @@
      #scrollToTop:hover {
        transform: scale(1.1);
      }
+     #toggle + label {
+       cursor: pointer;
+       vertical-align: middle;
+       display: inline-block;
+       width: 24px;
+       height: 24px;
+       background-image: url(moon.svg);
+       background-size: 100% 100%;
+     }
+     .dark-theme .hero-body {
+       background: rgba(0,0,0,0.8);
+     }
+     .dark-theme #scrollToTop {
+       background: #eee;
+       color: #333;
+       box-shadow: unset;
+     }
+     .dark-theme {
+       background: black;
+     }
+     .dark-theme .title a {
+       color: white !important;
+       border-color: #eee !important;
+     }
+     .dark-theme .content {
+       color: #eee;
+     }
+     .dark-theme .footer {
+       background: black;
+     }
+     .dark-theme .footer a {
+       color: #ccc !important;
+     }
+     .dark-theme .footer a:hover {
+       color: #eee !important;
+     }
     </style>
+
     <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106" crossorigin="anonymous"></script>
 
@@ -52,6 +88,8 @@
 	    <a href="https://github.com/ChanMo" target="_blank" class="mr-2">Github</a>
 	    <a href="./about.html" class="mr-2">About</a>
 	    <a target="_blank" href="https://github.com/ChanMo/blog/issues" class="mr-2">Comment</a>
+	    <input class="is-hidden" type="checkbox" id="toggle" />
+	    <label for="toggle"></label>
 	  </p>
 	</div>
       </div>
@@ -212,6 +250,7 @@
 	</div>
       </div>
     </section>
+    <!--
     <section class="section mt-5">
       <div class="container">
 	<h2 class="title is-size-3">
@@ -224,7 +263,8 @@
 	  <p><i class="is-underlined">2023-03-14</i></p>
 	</div>
       </div>
-    </section>    
+    </section>
+    -->
     <section class="section mt-5">
       <div class="container">
 	<h2 class="title is-size-3">
@@ -440,5 +480,5 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </a>
   </body>
-  <!-- <script type="module" src="/src/comment.jsx"></script> -->
+  <script src="app.js"></script>
 </html>

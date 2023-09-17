@@ -44,4 +44,3 @@ You can use the ~--latest~ flag to specify the number of mirrors you want to kee
 You can use the ~--sort~ flag to specify how you want the mirrors to be sorted. The default is by rate. You can also sort by latency or last update.
 You can use the ~--save~ flag to specify the file where you want the new mirrorlist to be saved. The default is /etc/pacman.d/mirrorlist.
 
-#+HTML: <div id="comments"></div>

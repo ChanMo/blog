@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-05 二 17:42 -->
+<!-- 2023-09-17 日 17:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Webdav</title>
@@ -197,12 +197,8 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script><script type='module' crossorigin src='index.min.js'></script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
- |
- <a accesskey="H" href="/blog"> HOME </a>
-</div><div id="preamble" class="status">
-<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+<div id="preamble" class="status">
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
 <header>
@@ -211,10 +207,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf4f34dc">1. Webdav在软件系统中的应用</a></li>
-<li><a href="#orge8b3d49">2. Webdav相较于FTP, SAMBA等的优势</a></li>
-<li><a href="#org713b6a9">3. Webdav VS Amazone S3</a></li>
-<li><a href="#org5fc6aaf">4. LINKS</a></li>
+<li><a href="#org9f91928">1. Webdav在软件系统中的应用</a></li>
+<li><a href="#orgdc35238">2. Webdav相较于FTP, SAMBA等的优势</a></li>
+<li><a href="#orgf983f52">3. Webdav VS Amazone S3</a></li>
+<li><a href="#org86cb1d1">4. LINKS</a></li>
 </ul>
 </div>
 </nav>
@@ -236,8 +232,8 @@ WebDAV协议最重要的功能包括维护作者或修改日期的属性、名�
 许多现代操作系统为WebDAV提供了内置的客户端支持。
 </p>
 
-<div id="outline-container-orgf4f34dc" class="outline-2">
-<h2 id="orgf4f34dc"><span class="section-number-2">1.</span> Webdav在软件系统中的应用</h2>
+<div id="outline-container-org9f91928" class="outline-2">
+<h2 id="org9f91928"><span class="section-number-2">1.</span> Webdav在软件系统中的应用</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Webdav可以作为文档管理应用的底层技术支持, 比如存储各种文档, 图片.
@@ -247,8 +243,8 @@ Webdav可以作为文档管理应用的底层技术支持, 比如存储各种文
 </div>
 </div>
 
-<div id="outline-container-orge8b3d49" class="outline-2">
-<h2 id="orge8b3d49"><span class="section-number-2">2.</span> Webdav相较于FTP, SAMBA等的优势</h2>
+<div id="outline-container-orgdc35238" class="outline-2">
+<h2 id="orgdc35238"><span class="section-number-2">2.</span> Webdav相较于FTP, SAMBA等的优势</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Webdav提供HTTP协议的接口, 可以使用Python, Nodejs等语言创建目录, 上传文件等
@@ -261,8 +257,8 @@ Webdav提供HTTP协议的接口, 可以使用Python, Nodejs等语言创建目录
 </div>
 
 
-<div id="outline-container-org713b6a9" class="outline-2">
-<h2 id="org713b6a9"><span class="section-number-2">3.</span> Webdav VS Amazone S3</h2>
+<div id="outline-container-orgf983f52" class="outline-2">
+<h2 id="orgf983f52"><span class="section-number-2">3.</span> Webdav VS Amazone S3</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 s3的接口要比Webdav易用和现代化, 而且有大量的SDK来协助开发,
@@ -271,8 +267,8 @@ Webdav的优势可能就是可以挂载到本地, 更易维护
 </div>
 </div>
 
-<div id="outline-container-org5fc6aaf" class="outline-2">
-<h2 id="org5fc6aaf"><span class="section-number-2">4.</span> LINKS</h2>
+<div id="outline-container-org86cb1d1" class="outline-2">
+<h2 id="org86cb1d1"><span class="section-number-2">4.</span> LINKS</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><a href="https://en.wikipedia.org/wiki/WebDAV">https://en.wikipedia.org/wiki/WebDAV</a></li>
@@ -280,15 +276,11 @@ Webdav的优势可能就是可以挂载到本地, 更易维护
 <li><a href="https://httpd.apache.org/docs/2.4/mod/mod_dav.html">https://httpd.apache.org/docs/2.4/mod/mod_dav.html</a></li>
 <li><a href="https://github.com/BytemarkHosting/docker-webdav">https://github.com/BytemarkHosting/docker-webdav</a></li>
 </ul>
-
-<div id="comments"></div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-05 二 17:42</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>

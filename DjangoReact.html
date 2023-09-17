@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-05 二 17:44 -->
+<!-- 2023-09-17 日 17:48 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何在Django中更好的使用React</title>
@@ -197,12 +197,8 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script><script type='module' crossorigin src='index.min.js'></script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
- |
- <a accesskey="H" href="/blog"> HOME </a>
-</div><div id="preamble" class="status">
-<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+<div id="preamble" class="status">
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
 <header>
@@ -211,17 +207,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4731148">1. 原理介绍</a></li>
-<li><a href="#orgab928c0">2. 什么是Vite</a></li>
-<li><a href="#orgf91bf9d">3. 开始使用</a>
+<li><a href="#orgf06ba97">1. 原理介绍</a></li>
+<li><a href="#orgb9739d7">2. 什么是Vite</a></li>
+<li><a href="#orgd8bf73b">3. 开始使用</a>
 <ul>
-<li><a href="#org73ed962">3.1. 下载django-react</a></li>
-<li><a href="#org6b88190">3.2. Update Settings.py</a></li>
-<li><a href="#org6f7d7e5">3.3. Setup Vite</a></li>
-<li><a href="#org2e0b1e6">3.4. Create your jsx file</a></li>
-<li><a href="#orgfb9b0e2">3.5. Use ReactMixin in your ClassView</a></li>
-<li><a href="#org98fea6b">3.6. Visit url in your brower</a></li>
-<li><a href="#org4a11f2d">3.7. Build JS</a></li>
+<li><a href="#org1d19fed">3.1. 下载django-react</a></li>
+<li><a href="#org9d3ff19">3.2. Update Settings.py</a></li>
+<li><a href="#org2c24ed1">3.3. Setup Vite</a></li>
+<li><a href="#orgd30f061">3.4. Create your jsx file</a></li>
+<li><a href="#orge7f11f6">3.5. Use ReactMixin in your ClassView</a></li>
+<li><a href="#org4ea67f7">3.6. Visit url in your brower</a></li>
+<li><a href="#orgb7698dd">3.7. Build JS</a></li>
 </ul>
 </li>
 </ul>
@@ -251,8 +247,8 @@ Django是一个非常成熟稳定的web开发框架, 可以快速搭建产品逻
 本文将提供一种可行的参考方案
 </p>
 
-<div id="outline-container-org4731148" class="outline-2">
-<h2 id="org4731148"><span class="section-number-2">1.</span> 原理介绍</h2>
+<div id="outline-container-orgf06ba97" class="outline-2">
+<h2 id="orgf06ba97"><span class="section-number-2">1.</span> 原理介绍</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 使用django自定义模板标签, 在HTML中渲染Vite的代码
@@ -295,8 +291,8 @@ window.__vite_plugin_react_preamble_installed__ = true
 </div>
 </div>
 
-<div id="outline-container-orgab928c0" class="outline-2">
-<h2 id="orgab928c0"><span class="section-number-2">2.</span> 什么是Vite</h2>
+<div id="outline-container-orgb9739d7" class="outline-2">
+<h2 id="orgb9739d7"><span class="section-number-2">2.</span> 什么是Vite</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -311,12 +307,12 @@ Vite（法语意为 "快速的"，发音 /vit/，发音同 "veet"）是一种新
 </div>
 </div>
 
-<div id="outline-container-orgf91bf9d" class="outline-2">
-<h2 id="orgf91bf9d"><span class="section-number-2">3.</span> 开始使用</h2>
+<div id="outline-container-orgd8bf73b" class="outline-2">
+<h2 id="orgd8bf73b"><span class="section-number-2">3.</span> 开始使用</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org73ed962" class="outline-3">
-<h3 id="org73ed962"><span class="section-number-3">3.1.</span> 下载django-react</h3>
+<div id="outline-container-org1d19fed" class="outline-3">
+<h3 id="org1d19fed"><span class="section-number-3">3.1.</span> 下载django-react</h3>
 <div class="outline-text-3" id="text-3-1">
 <pre class="example">
 $ git clone https://github.com/ChanMo/django-react react
@@ -324,8 +320,8 @@ $ git clone https://github.com/ChanMo/django-react react
 </div>
 </div>
 
-<div id="outline-container-org6b88190" class="outline-3">
-<h3 id="org6b88190"><span class="section-number-3">3.2.</span> Update Settings.py</h3>
+<div id="outline-container-org9d3ff19" class="outline-3">
+<h3 id="org9d3ff19"><span class="section-number-3">3.2.</span> Update Settings.py</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
 INSTALLED_APPS = [
@@ -337,8 +333,8 @@ INSTALLED_APPS = [
 </div>
 </div>
 
-<div id="outline-container-org6f7d7e5" class="outline-3">
-<h3 id="org6f7d7e5"><span class="section-number-3">3.3.</span> Setup Vite</h3>
+<div id="outline-container-org2c24ed1" class="outline-3">
+<h3 id="org2c24ed1"><span class="section-number-3">3.3.</span> Setup Vite</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Create file package.json
@@ -405,8 +401,8 @@ $ npm run dev
 </div>
 </div>
 
-<div id="outline-container-org2e0b1e6" class="outline-3">
-<h3 id="org2e0b1e6"><span class="section-number-3">3.4.</span> Create your jsx file</h3>
+<div id="outline-container-orgd30f061" class="outline-3">
+<h3 id="orgd30f061"><span class="section-number-3">3.4.</span> Create your jsx file</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Example <code>backend/components/app.jsx</code>
@@ -435,8 +431,8 @@ ReactDOM.render(
 </div>
 
 
-<div id="outline-container-orgfb9b0e2" class="outline-3">
-<h3 id="orgfb9b0e2"><span class="section-number-3">3.5.</span> Use ReactMixin in your ClassView</h3>
+<div id="outline-container-orge7f11f6" class="outline-3">
+<h3 id="orge7f11f6"><span class="section-number-3">3.5.</span> Use ReactMixin in your ClassView</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="org-src-container">
 <pre class="src src-python">from django.views.generic import TemplateView
@@ -455,12 +451,12 @@ class IndexView(ReactMixin, TemplateView):
 </div>
 
 
-<div id="outline-container-org98fea6b" class="outline-3">
-<h3 id="org98fea6b"><span class="section-number-3">3.6.</span> Visit url in your brower</h3>
+<div id="outline-container-org4ea67f7" class="outline-3">
+<h3 id="org4ea67f7"><span class="section-number-3">3.6.</span> Visit url in your brower</h3>
 </div>
 
-<div id="outline-container-org4a11f2d" class="outline-3">
-<h3 id="org4a11f2d"><span class="section-number-3">3.7.</span> Build JS</h3>
+<div id="outline-container-orgb7698dd" class="outline-3">
+<h3 id="orgb7698dd"><span class="section-number-3">3.7.</span> Build JS</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 Before prepare to deploy, run <code>yarn dev</code>
@@ -473,9 +469,7 @@ Before prepare to deploy, run <code>yarn dev</code>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-05 二 17:44</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>

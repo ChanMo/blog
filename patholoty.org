@@ -1,7 +1,6 @@
 #+TITLE: 数字病理, 医学影像相关开源技术框架
 #+DESCRIPTION: 数字病理, 医学影像相关开源技术框架
 #+KEYWORDS: 数字病理, 医学影像, patholoty
-#+HTML_LINK_HOME: /blog
 
 
 ** OME开放显微镜环境
@@ -65,4 +64,3 @@ PACS一词由Andre Duerinckx博士提出。
 
 [[https://zh.wikipedia.org/zh-cn/%E9%86%AB%E7%99%82%E5%BD%B1%E5%83%8F%E5%84%B2%E5%82%B3%E7%B3%BB%E7%B5%B1][wikipedia]]
 
-#+HTML: <div id="comments"></div>

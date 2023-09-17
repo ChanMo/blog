@@ -21,7 +21,6 @@ In ~demo.html~
 </form>
 #+END_SRC
 
-#+HTML: <div id="comments"></div>
 In ~demo.html~
 #+BEGIN_SRC html
   <form method="post">

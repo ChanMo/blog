@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-05 二 17:05 -->
+<!-- 2023-09-17 日 17:43 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Render csrftoken when using rendertostring in Django</title>
@@ -198,11 +198,12 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
+<header>
 <h1 class="title">Render csrftoken when using rendertostring in Django</h1>
-<p>
+</header><p>
 In <code>views.py</code>
 </p>
 <div class="org-src-container">
@@ -227,12 +228,19 @@ In <code>demo.html</code>
 </pre>
 </div>
 
-<div id="comments"></div>
+<p>
+In <code>demo.html</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;form method="post"&gt;
+  &lt;input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}" /&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-05 二 17:05</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>

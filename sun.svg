@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="none"
+   stroke="grey"
+   stroke-width="2"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   class="feather feather-sun"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="sun.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="11.949153"
+     inkscape:cy="11.949153"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <circle
+     cx="12"
+     cy="12"
+     id="circle1"
+     style="fill:#e1e1e1;fill-opacity:1;stroke:#e1e1e1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     r="5.9999995" />
+  <line
+     x1="12"
+     y1="1"
+     x2="12"
+     y2="3"
+     id="line1"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#e1e1e1;stroke-opacity:1" />
+  <line
+     x1="12"
+     y1="21"
+     x2="12"
+     y2="23"
+     id="line2"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#e1e1e1;stroke-opacity:1" />
+  <line
+     x1="4.22"
+     y1="4.22"
+     x2="5.64"
+     y2="5.64"
+     id="line3"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#e1e1e1;stroke-opacity:1" />
+  <line
+     x1="18.36"
+     y1="18.36"
+     x2="19.78"
+     y2="19.78"
+     id="line4"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#e1e1e1;stroke-opacity:1" />
+  <line
+     x1="1"
+     y1="12"
+     x2="3"
+     y2="12"
+     id="line5"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#e1e1e1;stroke-opacity:1" />
+  <line
+     x1="21"
+     y1="12"
+     x2="23"
+     y2="12"
+     id="line6"
+     style="fill:#c8c8c8;fill-opacity:1;stroke-width:2;stroke-dasharray:none;stroke:#e1e1e1;stroke-opacity:1" />
+  <line
+     x1="4.22"
+     y1="19.78"
+     x2="5.64"
+     y2="18.36"
+     id="line7"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#e1e1e1;stroke-opacity:1" />
+  <line
+     x1="18.36"
+     y1="5.64"
+     x2="19.78"
+     y2="4.22"
+     id="line8"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#e1e1e1;stroke-opacity:1" />
+</svg>

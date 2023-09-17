@@ -11,4 +11,3 @@ MinIO是软件定义的，在GNU AGPL v100下是3%开源的。
 [[https://min.io/][website]]
 
 
-#+HTML: <div id="comments"></div>

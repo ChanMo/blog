@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-05 二 17:47 -->
+<!-- 2023-09-17 日 17:48 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何使用Python在DOCX中插入TOC</title>
@@ -197,12 +197,8 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script><script type='module' crossorigin src='index.min.js'></script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
- |
- <a accesskey="H" href="/blog"> HOME </a>
-</div><div id="preamble" class="status">
-<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+<div id="preamble" class="status">
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
 <header>
@@ -211,20 +207,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org24c614a">1. 什么是TOC</a></li>
-<li><a href="#org32ef16d">2. 如何在word中插入toc</a>
+<li><a href="#org6978421">1. 什么是TOC</a></li>
+<li><a href="#org0d970b7">2. 如何在word中插入toc</a>
 <ul>
-<li><a href="#orgb7a0d75">2.1. 安装PythonDocx</a></li>
-<li><a href="#org5cf8352">2.2. 获取~insert<sub>toc</sub>~函数</a></li>
-<li><a href="#org07f2543">2.3. 在文档中插入Toc</a></li>
+<li><a href="#org29d9be0">2.1. 安装PythonDocx</a></li>
+<li><a href="#orgf2b222a">2.2. 获取~insert<sub>toc</sub>~函数</a></li>
+<li><a href="#orgc7b40b0">2.3. 在文档中插入Toc</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org24c614a" class="outline-2">
-<h2 id="org24c614a"><span class="section-number-2">1.</span> 什么是TOC</h2>
+
+<div id="outline-container-org6978421" class="outline-2">
+<h2 id="org6978421"><span class="section-number-2">1.</span> 什么是TOC</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 TOC(Table of Contents), 是文档(docx, odt)中的目录
@@ -237,12 +234,12 @@ TOC(Table of Contents), 是文档(docx, odt)中的目录
 </div>
 
 
-<div id="outline-container-org32ef16d" class="outline-2">
-<h2 id="org32ef16d"><span class="section-number-2">2.</span> 如何在word中插入toc</h2>
+<div id="outline-container-org0d970b7" class="outline-2">
+<h2 id="org0d970b7"><span class="section-number-2">2.</span> 如何在word中插入toc</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb7a0d75" class="outline-3">
-<h3 id="orgb7a0d75"><span class="section-number-3">2.1.</span> 安装PythonDocx</h3>
+<div id="outline-container-org29d9be0" class="outline-3">
+<h3 id="org29d9be0"><span class="section-number-3">2.1.</span> 安装PythonDocx</h3>
 <div class="outline-text-3" id="text-2-1">
 <pre class="example">
 pip install python-docx
@@ -250,8 +247,8 @@ pip install python-docx
 </div>
 </div>
 
-<div id="outline-container-org5cf8352" class="outline-3">
-<h3 id="org5cf8352"><span class="section-number-3">2.2.</span> 获取~insert<sub>toc</sub>~函数</h3>
+<div id="outline-container-orgf2b222a" class="outline-3">
+<h3 id="orgf2b222a"><span class="section-number-3">2.2.</span> 获取~insert<sub>toc</sub>~函数</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 github 地址: <a href="https://github.com/ChanMo/python-toc">https://github.com/ChanMo/python-toc</a>
@@ -259,8 +256,8 @@ github 地址: <a href="https://github.com/ChanMo/python-toc">https://github.com
 </div>
 </div>
 
-<div id="outline-container-org07f2543" class="outline-3">
-<h3 id="org07f2543"><span class="section-number-3">2.3.</span> 在文档中插入Toc</h3>
+<div id="outline-container-orgc7b40b0" class="outline-3">
+<h3 id="orgc7b40b0"><span class="section-number-3">2.3.</span> 在文档中插入Toc</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-python">from docx import Document
@@ -279,9 +276,7 @@ d.save('test.docx')
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-05 二 17:47</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>

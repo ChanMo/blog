@@ -1,0 +1,42 @@
+#+TITLE: How to Integrate Crypto Payments into a Classic Website
+#+DESCRIPTION: 
+#+KEYWORDS: 
+
+** Way 1: Use Smart Contract
+
+** Way 2: Create a Account for a order
+
+** Way 3: Create a account for a user
+
+When a new user is sign up, auto create a wallet address for it.
+This way is offten been used to exchange website.
+
+Advantages:
+- It is easier to set up and use than a smart contract
+
+Disadvantages:
+- It will generate a lot of wallet account
+- It will lose many small balance account  
+
+
+** Method 4: One receiver account, duplicate amount in all orders.
+
+The site only needs a single main account(ether, or tron), and the private key
+does not need to be stored in code. This makes it much safer.
+
+when a user checks out an order, the system automatically sets an expireation
+time of 10 minites. The system also generates a unique amount value for all
+pending orders.
+
+For example, customer A wants to buy a book priced 20 USDT. However, the
+database already haves an order for the same amount. To uniquely identify the
+order, we add 0.01 USDT to the amount, resulting in a final amount of 20.01
+USDT.
+
+When customer transfer 20.01 usdt to the receiver account, we will check the
+receiver account and the amount value, if is the same, the order will be set to
+paid.
+
+
+
+#+HTML: <div id="comments"></div>

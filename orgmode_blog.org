@@ -88,4 +88,4 @@ You can create a beautiful index.html file by using HTML, CSS, and Javascript.
 - [[https://orgmode.org/manual/][The Org Manual]]
 
 
-#+HTML: <div id="comments"></div>
+

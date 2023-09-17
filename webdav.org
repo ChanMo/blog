@@ -1,7 +1,7 @@
 #+TITLE: Webdav
 #+DESCRIPTION: Webdav是一种古老的文件传输协议
 #+KEYWORDS: webdav, ftp, samba, nfs
-#+HTML_LINK_HOME: /blog
+
 
 基于Web的分布式编写和版本控制（WebDAV）是超文本传输协议（HTTP）的扩展，
 有利于用户间协同编辑和管理存储在万维网服务器文档。
@@ -39,4 +39,4 @@ Webdav的优势可能就是可以挂载到本地, 更易维护
 - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
 - https://github.com/BytemarkHosting/docker-webdav
 
-#+HTML: <div id="comments"></div>  
+

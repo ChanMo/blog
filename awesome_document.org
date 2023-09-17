@@ -96,4 +96,3 @@ perform a variety of document processing tasks,
 including converting documents between different formats,
 refresh the TOC in LibreOffice, and extracting text from PDF files.
 
-#+HTML: <div id="comments"></div>

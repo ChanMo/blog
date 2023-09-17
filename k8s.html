@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-05 二 17:44 -->
+<!-- 2023-09-17 日 17:48 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kubernetes Cookbook</title>
@@ -197,12 +197,8 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script><script type='module' crossorigin src='index.min.js'></script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
- |
- <a accesskey="H" href="/blog"> HOME </a>
-</div><div id="preamble" class="status">
-<nav class='navbar is-warning'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a></div><div class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a></div></div></div></nav>
+<div id="preamble" class="status">
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
 <header>
@@ -211,40 +207,41 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8e84db5">1. Kubectl</a>
+<li><a href="#org2f6e357">1. Kubectl</a>
 <ul>
-<li><a href="#orga559c2b">1.1. Change current cluster</a></li>
+<li><a href="#org42794ea">1.1. Change current cluster</a></li>
 </ul>
 </li>
-<li><a href="#org9cd4f24">2. Dashboard</a>
+<li><a href="#org30f138e">2. Dashboard</a>
 <ul>
-<li><a href="#org7929bb6">2.1. Deploy</a></li>
-<li><a href="#org52a49ec">2.2. Usage</a></li>
-<li><a href="#orgd79548e">2.3. Create Sample User</a></li>
+<li><a href="#orgccf6521">2.1. Deploy</a></li>
+<li><a href="#org49ab8b4">2.2. Usage</a></li>
+<li><a href="#org0309b69">2.3. Create Sample User</a></li>
 </ul>
 </li>
-<li><a href="#orgce0b224">3. Kind</a>
+<li><a href="#org3fee511">3. Kind</a>
 <ul>
-<li><a href="#orgb45ebcb">3.1. Configuring Your Kind Cluster</a></li>
+<li><a href="#org95d0235">3.1. Configuring Your Kind Cluster</a></li>
 </ul>
 </li>
-<li><a href="#orgb89ecb0">4. Minio</a>
+<li><a href="#orga5fd111">4. Minio</a>
 <ul>
-<li><a href="#org1fef7a6">4.1. Install</a></li>
-<li><a href="#org6a53400">4.2. Open the Operator Console</a></li>
+<li><a href="#org19666ef">4.1. Install</a></li>
+<li><a href="#orga8807d6">4.2. Open the Operator Console</a></li>
 </ul>
 </li>
-<li><a href="#org0bfbf28">5. Helm</a></li>
-<li><a href="#org23f6dae">6. Krew</a></li>
+<li><a href="#org1bb791c">5. Helm</a></li>
+<li><a href="#orgb14bbf7">6. Krew</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org8e84db5" class="outline-2">
-<h2 id="org8e84db5"><span class="section-number-2">1.</span> Kubectl</h2>
+
+<div id="outline-container-org2f6e357" class="outline-2">
+<h2 id="org2f6e357"><span class="section-number-2">1.</span> Kubectl</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orga559c2b" class="outline-3">
-<h3 id="orga559c2b"><span class="section-number-3">1.1.</span> Change current cluster</h3>
+<div id="outline-container-org42794ea" class="outline-3">
+<h3 id="org42794ea"><span class="section-number-3">1.1.</span> Change current cluster</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-sh">kubectl config get-contexts
@@ -254,8 +251,8 @@ kubectl cnofig use-context CONTEXT_NAME
 </div>
 </div>
 </div>
-<div id="outline-container-org9cd4f24" class="outline-2">
-<h2 id="org9cd4f24"><span class="section-number-2">2.</span> Dashboard</h2>
+<div id="outline-container-org30f138e" class="outline-2">
+<h2 id="org30f138e"><span class="section-number-2">2.</span> Dashboard</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Dashboard 是基于网页的 Kubernetes 用户界面。
@@ -273,8 +270,8 @@ Dashboard 同时展示了 Kubernetes 集群中的资源状态信息和所有报�
 <a href="https://kubernetes.io/zh-cn/docs/tasks/access-application-cluster/web-ui-dashboard/">DOCS</a>
 </p>
 </div>
-<div id="outline-container-org7929bb6" class="outline-3">
-<h3 id="org7929bb6"><span class="section-number-3">2.1.</span> Deploy</h3>
+<div id="outline-container-orgccf6521" class="outline-3">
+<h3 id="orgccf6521"><span class="section-number-3">2.1.</span> Deploy</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-sh">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
@@ -283,8 +280,8 @@ Dashboard 同时展示了 Kubernetes 集群中的资源状态信息和所有报�
 </div>
 </div>
 
-<div id="outline-container-org52a49ec" class="outline-3">
-<h3 id="org52a49ec"><span class="section-number-3">2.2.</span> Usage</h3>
+<div id="outline-container-org49ab8b4" class="outline-3">
+<h3 id="org49ab8b4"><span class="section-number-3">2.2.</span> Usage</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-sh">kubectl proxy
@@ -295,8 +292,8 @@ Visit by <a href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/s
 </p>
 </div>
 </div>
-<div id="outline-container-orgd79548e" class="outline-3">
-<h3 id="orgd79548e"><span class="section-number-3">2.3.</span> Create Sample User</h3>
+<div id="outline-container-org0309b69" class="outline-3">
+<h3 id="org0309b69"><span class="section-number-3">2.3.</span> Create Sample User</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <a href="https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md">link</a>
@@ -309,15 +306,15 @@ Visit by <a href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/s
 </div>
 </div>
 
-<div id="outline-container-orgce0b224" class="outline-2">
-<h2 id="orgce0b224"><span class="section-number-2">3.</span> Kind</h2>
+<div id="outline-container-org3fee511" class="outline-2">
+<h2 id="org3fee511"><span class="section-number-2">3.</span> Kind</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="https://kind.sigs.k8s.io/docs/user/quick-start#creating-a-cluster">DOC</a>,
 </p>
 </div>
-<div id="outline-container-orgb45ebcb" class="outline-3">
-<h3 id="orgb45ebcb"><span class="section-number-3">3.1.</span> Configuring Your Kind Cluster</h3>
+<div id="outline-container-org95d0235" class="outline-3">
+<h3 id="org95d0235"><span class="section-number-3">3.1.</span> Configuring Your Kind Cluster</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-sh">kind create cluster --config kind-example-config.yaml
@@ -340,8 +337,8 @@ nodes:
 </div>
 </div>
 </div>
-<div id="outline-container-orgb89ecb0" class="outline-2">
-<h2 id="orgb89ecb0"><span class="section-number-2">4.</span> Minio</h2>
+<div id="outline-container-orga5fd111" class="outline-2">
+<h2 id="orga5fd111"><span class="section-number-2">4.</span> Minio</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Multi-Cloud Object Storage
@@ -355,8 +352,8 @@ is software-defined and is 100% open source under GNU AGPL v3.
 <a href="https://min.io/download#/kubernetes">QuickStart</a>
 </p>
 </div>
-<div id="outline-container-org1fef7a6" class="outline-3">
-<h3 id="org1fef7a6"><span class="section-number-3">4.1.</span> Install</h3>
+<div id="outline-container-org19666ef" class="outline-3">
+<h3 id="org19666ef"><span class="section-number-3">4.1.</span> Install</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-bash">kubectl krew update
@@ -373,8 +370,8 @@ kubectl get all --namespace minio-operator
 </div>
 </div>
 </div>
-<div id="outline-container-org6a53400" class="outline-3">
-<h3 id="org6a53400"><span class="section-number-3">4.2.</span> Open the Operator Console</h3>
+<div id="outline-container-orga8807d6" class="outline-3">
+<h3 id="orga8807d6"><span class="section-number-3">4.2.</span> Open the Operator Console</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-sh">kubectl minio proxy
@@ -384,8 +381,8 @@ kubectl get all --namespace minio-operator
 </div>
 </div>
 
-<div id="outline-container-org0bfbf28" class="outline-2">
-<h2 id="org0bfbf28"><span class="section-number-2">5.</span> Helm</h2>
+<div id="outline-container-org1bb791c" class="outline-2">
+<h2 id="org1bb791c"><span class="section-number-2">5.</span> Helm</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="https://helm.sh/zh/docs/intro/quickstart/">QuickStart</a>
@@ -401,8 +398,8 @@ helm list
 </div>
 </div>
 
-<div id="outline-container-org23f6dae" class="outline-2">
-<h2 id="org23f6dae"><span class="section-number-2">6.</span> Krew</h2>
+<div id="outline-container-orgb14bbf7" class="outline-2">
+<h2 id="orgb14bbf7"><span class="section-number-2">6.</span> Krew</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Krew helps you discover and install kubectl plugins on your machine.
@@ -416,15 +413,11 @@ kubectl krew install access-matrix
 kubectl krew uninstall access-matrix
 </pre>
 </div>
-
-<div id="comments"></div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2023-09-05 二 17:44</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>
