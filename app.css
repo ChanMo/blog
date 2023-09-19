@@ -1,4 +1,8 @@
+::selection {
+  background-color: orange;
+}
 .content {
+  font-size: 1.25rem;
     margin-top: 3.25rem !important;
     position: relative !important;
     width: 768px !important;
@@ -7,7 +11,7 @@
     box-sizing: border-box;
 }
 .content h2 {
-    font-size: 1.45rem !important;
+    font-size: 1.75rem !important;
     margin: 2rem 0 1rem !important;
 }
 .content pre {
@@ -15,7 +19,7 @@
 }
 .title {
     text-align: left;
-    font-size: 2rem !important;
+    font-size: 2.25rem !important;
     line-height: 1.2 !important;
     margin-bottom: 3rem !important;
 }
@@ -93,6 +97,14 @@ body {
 }
 .dark-theme .title {
     color: white;
+}
+.dark-theme .content pre {
+  background: #333;
+  color: #ccc;
+  border-color: #666;
+}
+.dark-theme .content code {
+  background: #333;
 }
 #toggle + label {
     cursor: pointer;
