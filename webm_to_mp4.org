@@ -1,0 +1,44 @@
+#+TITLE: How to convert a WebM video to MP4 in GNOME correctly
+#+DESCRIPTION: This article describes how to convert a WebM video to MP4 format in GNOME correctly. This is useful if you need to share your video with someone who does not have a WebM player.
+#+KEYWORDS: WebM, MP4, GNOME, ffmpeg, video conversion
+
+
+When you record a video in GNOME, the video will be aved in WebM format.
+WebM is a good format for video compression, but is not as widely supported as MP4.
+If you need to share your video with someone who does not have a WebM player,
+you may need to convert it to MP4 format.
+
+The following command will convert a WebM video to MP4 format:
+#+BEGIN_SRC bash
+  ffmpeg -i input.webm output.mp4
+#+END_SRC
+
+However, this command will create a file that is larger and slower than the
+original WebM file.
+
+To fix this, you can use the following command:
+#+BEGIN_SRC bash
+  ffmpeg -i input.webm -vf mpdecimate -c:a copy -vsync vfr ouput.mp4
+#+END_SRC
+
+This command will use the ~mpdecimate~ filter to reduce the frame rate of the
+video. This will make the file smaller without sacrificing too much quality.
+
+The ~-c:a copy~ option tells ffmpeg to copy the audio stream from the input file
+to the output file without re-encoding it. This will save time and ensure that
+the audio quality is not lost.
+
+The ~-vsync vfr~ option tells ffmpeg to use variable frame rate encoding. This
+will ensure that the video plays smoothly on all devices.
+
+To use this command, simply replace ~input.webm~ with the path to your input
+video file and ~output.mp4~ with the path to the output video file.
+
+For example, to convert the video ~my_video.webm~ to MP4 format, you would use
+the following command:
+#+BEGIN_SRC bash
+  ffmpeg -i my_video.webm -vf mpdecimate -c:a copy -vsync vfr my_video.mp4
+#+END_SRC
+
+This will create a new video file called ~my_video.mp4~ that is smaller and
+faster.
