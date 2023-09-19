@@ -1,6 +1,16 @@
 ::selection {
   background-color: orange;
 }
+::-webkit-scrollbar {
+  background: initial;
+}
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 8px;
+}
 .content {
   font-size: 1.25rem;
     margin-top: 3.25rem !important;
@@ -106,6 +116,13 @@ body {
 .dark-theme .content code {
   background: #333;
 }
+.dark-theme::-webkit-scrollbar-track {
+  background-color: #363636;
+}
+.dark-theme::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+}
+
 #toggle + label {
     cursor: pointer;
     vertical-align: middle;
