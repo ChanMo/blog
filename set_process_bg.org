@@ -1,0 +1,93 @@
+#+TITLE: How to set a shell process to background
+#+DESCRIPTION: Learn how to set a shell process to background in Linux and Unix. This is useful for running long-running commands without blocking the shell. You can also disown background processes so that they continue to run even after you exit the shell.
+#+KEYWORDS: shell process, background process, disown, jobs
+
+Sometimes you need to run a long-running command in a shell,
+but you also need to be able to exit the shell without canceling the command.
+This is where backgrounding processes comes in.
+
+Backgrounding a process means that the process will continue to run even
+after you exit the shell. This can be useful for tasks such as running a web
+server or downloading a large file.
+
+To background a process, simply append an ampersand (&) to the end of the
+command. For example, to run the Python HTTP server in the background,
+you would use the following command:
+
+#+BEGIN_SRC bash
+python -m http.server &
+#+END_SRC
+
+This will start the HTTP server, but the shell will not wait for it to finish
+running.
+You can then exit the shell without affecting the server.
+
+** Viewing background processes
+
+To view a list of all the background processes that are currently running,
+you can use the ~jobs~ command. This will display a list of process IDs (PIDs)
+and command names.
+
+** Disowning background processes
+
+By default, background processes are associated with the current shell session.
+This means that if you exit the shell, the background processes will be terminated.
+
+To prevent this, you can use the ~disown~ command to disown a background process.
+This will remove the process from the current shell session,
+so it will continue to run even if you exit the shell.
+
+To disown a background process, simply use the disown command followed by the
+PID of the process. For example, to disown the Python HTTP server that we
+started earlier, we would use the following command:
+
+#+BEGIN_SRC bash
+disown %1
+#+END_SRC
+
+This will disown the process with the PID 1.
+
+** Example
+
+Here is an example of how to use backgrounding and disowning to run a
+long-running command in a shell:
+
+#+BEGIN_SRC bash
+  # Start the Python HTTP server
+  python -m http.server
+
+  # Ctrl+z
+
+  # View a list of all background processes
+  jobs
+
+  # Disown the Python HTTP server
+  disown %1
+
+  # Exit the shell
+  exit
+#+END_SRC
+
+Now, even though we have exited the shell, the Python HTTP server will
+continue to run in the background. We can check this by running the ps command:
+
+#+BEGIN_SRC bash
+ps aux | grep python
+#+END_SRC
+
+This will show us a list of all Python processes that are currently running.
+We should see the Python HTTP server process listed here.
+
+We can now stop the Python HTTP server at any time by running the following command:
+
+#+BEGIN_SRC bash
+killall python
+#+END_SRC
+
+This will kill all Python processes that are currently running.
+
+** Conclusion
+Backgrounding and disowning processes are powerful tools that can be used to
+run long-running commands in a shell without blocking the shell.
+This can be useful for a variety of tasks, such as running web servers,
+downloading large files, and processing data.
