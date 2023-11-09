@@ -20,8 +20,8 @@ server {
 }
 #+END_SRC
 
-The auth_basic directive sets the authentication realm.
-The auth_basic_user_file directive specifies the location of the htpasswd file,
+The ~auth_basic~ directive sets the authentication realm.
+The ~auth_basic_user_file~ directive specifies the location of the htpasswd file,
 which contains the usernames and passwords for authorized users.
 
 The htpasswd file is a simple text file that contains two fields for each user:
