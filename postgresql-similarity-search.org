@@ -31,11 +31,11 @@ This is to ensure that the results set contains two different web pages for a.id
 To enable similarity search in PostgreSQL, you need to install the pg_trgm extension.
 This extension provides a number of functions for calculating the similarity between strings using trigram matching.
 
-To install the pg_trgm extension, run the following command:
+To install the ~pg_trgm~ extension, run the following command:
 #+BEGIN_SRC
 CREATE EXTENSION pg_trgm;
 #+END_SRC
 
-Once the pg_trgm extension is installed, you can use the similarity() function to calculate the similarity between two strings.
+Once the ~pg_trgm~ extension is installed, you can use the similarity() function to calculate the similarity between two strings.
 
 In conclusion, the PostgreSQL similarity() function provides an efficient way to find similar data in the same table.
