@@ -1,0 +1,41 @@
+#+TITLE: Similarity Search in PostgreSQL
+#+DESCRIPTION: This article explains how to use the PostgreSQL similarity() function to find similar data in the same table.
+#+KEYWORDS: PostgreSQL, similarity, similarity search
+
+PostgreSQL provides the similarity() function to calculate the similarity between two strings.
+This function can be used to find similar data in the same table.
+
+For example, let's say we have a table that stores information about web pages,
+with a column called title that represents the web page's title.
+We can use the following SQL query to find web pages with titles that are more than 0.9 similar:
+
+#+BEGIN_SRC SQL
+SELECT a.id, b.id, similarity(a.title, b.title) as similarity FROM page AS a
+JOIN page as b ON similarity(a.title, b.title) > 0.9
+WHERE a.id <> b.id ORDER BY similarity desc;
+#+END_SRC
+
+This query will return all rows from the two tables page,
+where a.id and b.id represent two different web pages.
+The ~similarity(a.title, b.title)~ function will return the similarity
+between the two strings a.title and b.title.
+
+The return value of the ~similarity()~ function is a floating-point number
+between 0 and 1. A higher value indicates that the two strings are more similar.
+
+In the above query, we use the JOIN statement to join the two tables page.
+This is to ensure that the results set contains two different web pages for a.id and b.id.
+
+** How to Enable Similarity Search in PostgreSQL
+
+To enable similarity search in PostgreSQL, you need to install the pg_trgm extension.
+This extension provides a number of functions for calculating the similarity between strings using trigram matching.
+
+To install the pg_trgm extension, run the following command:
+#+BEGIN_SRC
+CREATE EXTENSION pg_trgm;
+#+END_SRC
+
+Once the pg_trgm extension is installed, you can use the similarity() function to calculate the similarity between two strings.
+
+In conclusion, the PostgreSQL similarity() function provides an efficient way to find similar data in the same table.
