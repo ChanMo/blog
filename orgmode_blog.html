@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-17 日 17:44 -->
+<!-- 2023-11-25 六 10:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to use org mode to write a blog website</title>
@@ -193,8 +193,8 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'><link rel='stylesheet' href='app.css'>
-<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script><script type='module' crossorigin src='index.min.js'></script>
+<link rel='stylesheet' href='bulma.min.css'><link rel='stylesheet' href='app.css'>
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -202,7 +202,7 @@
  |
  <a accesskey="H" href="/blog"> HOME </a>
 </div><div id="preamble" class="status">
-<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
 <header>
@@ -211,31 +211,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org83b65c9">1. Introduction</a></li>
-<li><a href="#orgfe6e544">2. What is Org Mode</a></li>
-<li><a href="#org06ff1bb">3. Why Use Org Mode for a Blog Website?</a></li>
-<li><a href="#org22c9a4a">4. How to Use Org Mode for a Blog Website</a>
+<li><a href="#org88965dd">1. Introduction</a></li>
+<li><a href="#org58d8e6b">2. What is Org Mode</a></li>
+<li><a href="#org1e28654">3. Why Use Org Mode for a Blog Website?</a></li>
+<li><a href="#org0d6c616">4. How to Use Org Mode for a Blog Website</a>
 <ul>
-<li><a href="#org5fc10e8">4.1. Write an article</a></li>
-<li><a href="#orgb4e2e3b">4.2. Export your Org file to HTML</a></li>
-<li><a href="#org9c08291">4.3. Publish to the web</a></li>
+<li><a href="#orgdd181eb">4.1. Write an article</a></li>
+<li><a href="#org41218b3">4.2. Export your Org file to HTML</a></li>
+<li><a href="#org4ec16c9">4.3. Publish to the web</a></li>
 </ul>
 </li>
-<li><a href="#orgf3a5b53">5. SEO Tips for Org Mode Blog Posts</a></li>
-<li><a href="#org865f387">6. Make your blog more modern and mobile-friendly</a>
+<li><a href="#org7865ff2">5. SEO Tips for Org Mode Blog Posts</a>
 <ul>
-<li><a href="#orgab53c3c">6.1. Add a css file</a></li>
-<li><a href="#org555dba6">6.2. Create a beautiful home page</a></li>
+<li><a href="#org1f248a1">5.1. [Optional] create the sitemap.xml file</a></li>
 </ul>
 </li>
-<li><a href="#org1507e01">7. Links</a></li>
+<li><a href="#orgbf1e54d">6. Make your blog more modern and mobile-friendly</a>
+<ul>
+<li><a href="#org433ab32">6.1. Add a css file</a></li>
+<li><a href="#orgaf7d019">6.2. Create a beautiful home page</a></li>
+</ul>
+</li>
+<li><a href="#org6980564">7. Links</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org83b65c9" class="outline-2">
-<h2 id="org83b65c9"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org88965dd" class="outline-2">
+<h2 id="org88965dd"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Org Mode is a powerful tool that can be used to write blog posts,
@@ -246,8 +250,8 @@ I will show you how to use Org Mode to create a blog website that is both readab
 </div>
 
 
-<div id="outline-container-orgfe6e544" class="outline-2">
-<h2 id="orgfe6e544"><span class="section-number-2">2.</span> What is Org Mode</h2>
+<div id="outline-container-org58d8e6b" class="outline-2">
+<h2 id="org58d8e6b"><span class="section-number-2">2.</span> What is Org Mode</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Org Mode is a mode for Emacs that allows you to create structured notes.
@@ -258,8 +262,8 @@ You can also use Org Mode to track tasks, set deadlines, and attach files.
 </div>
 
 
-<div id="outline-container-org06ff1bb" class="outline-2">
-<h2 id="org06ff1bb"><span class="section-number-2">3.</span> Why Use Org Mode for a Blog Website?</h2>
+<div id="outline-container-org1e28654" class="outline-2">
+<h2 id="org1e28654"><span class="section-number-2">3.</span> Why Use Org Mode for a Blog Website?</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 There are many reasons why you might want to use Org Mode for a blog website.
@@ -280,12 +284,12 @@ This is because Org Mode allows you to easily add keywords and other metadata to
 </div>
 
 
-<div id="outline-container-org22c9a4a" class="outline-2">
-<h2 id="org22c9a4a"><span class="section-number-2">4.</span> How to Use Org Mode for a Blog Website</h2>
+<div id="outline-container-org0d6c616" class="outline-2">
+<h2 id="org0d6c616"><span class="section-number-2">4.</span> How to Use Org Mode for a Blog Website</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org5fc10e8" class="outline-3">
-<h3 id="org5fc10e8"><span class="section-number-3">4.1.</span> Write an article</h3>
+<div id="outline-container-orgdd181eb" class="outline-3">
+<h3 id="orgdd181eb"><span class="section-number-3">4.1.</span> Write an article</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Create a new Org file and set the properties for your blog.
@@ -296,8 +300,8 @@ and the base directory for your blog posts.
 </div>
 
 
-<div id="outline-container-orgb4e2e3b" class="outline-3">
-<h3 id="orgb4e2e3b"><span class="section-number-3">4.2.</span> Export your Org file to HTML</h3>
+<div id="outline-container-org41218b3" class="outline-3">
+<h3 id="org41218b3"><span class="section-number-3">4.2.</span> Export your Org file to HTML</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Use <code>C-c C-e h h</code> to generate a html file, 
@@ -306,8 +310,8 @@ that you can host on your own server or on a service like GitHub Pages.
 </div>
 </div>
 
-<div id="outline-container-org9c08291" class="outline-3">
-<h3 id="org9c08291"><span class="section-number-3">4.3.</span> Publish to the web</h3>
+<div id="outline-container-org4ec16c9" class="outline-3">
+<h3 id="org4ec16c9"><span class="section-number-3">4.3.</span> Publish to the web</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 create a public repository in github,
@@ -319,8 +323,8 @@ and your articles are published.
 </div>
 </div>
 
-<div id="outline-container-orgf3a5b53" class="outline-2">
-<h2 id="orgf3a5b53"><span class="section-number-2">5.</span> SEO Tips for Org Mode Blog Posts</h2>
+<div id="outline-container-org7865ff2" class="outline-2">
+<h2 id="org7865ff2"><span class="section-number-2">5.</span> SEO Tips for Org Mode Blog Posts</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Here are some additional tips to make your Org Mode blog posts more SEO-friendly:
@@ -333,15 +337,63 @@ Here are some additional tips to make your Org Mode blog posts more SEO-friendly
 <li>Promote your blog website on social media and other channels.</li>
 </ul>
 </div>
+
+
+<div id="outline-container-org1f248a1" class="outline-3">
+<h3 id="org1f248a1"><span class="section-number-3">5.1.</span> [Optional] create the sitemap.xml file</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+A sitemap is a file that provides a map of a website's pages to search engines.
+It helps search engines crawl and index your website more efficiently,
+which can improve your website's search engine ranking.
+</p>
+
+<p>
+You can use this script to generate the file sitemap.xml
+</p>
+<div class="org-src-container">
+<pre class="src src-python">@click.command
+def generate_sitemap():
+    " Generate sitemap.xml"
+    root = ET.Element('urlset')
+    root.attrib['xmlns'] = 'http://www.sitemaps.org/schemas/sitemap/0.9'
+    timezone = pytz.timezone('Asia/Shanghai')
+    for f in os.listdir("."):
+        if not f.endswith(".html"):
+            continue
+        url = ET.SubElement(root, "url")
+        loc = ET.SubElement(url, "loc")
+        loc.text = f'https://www.chanmo.me/{f}'
+        lastmod = ET.SubElement(url, "lastmod")
+        lastmod.text = timezone.localize(datetime.datetime.fromtimestamp(os.path.getmtime(f))).isoformat(timespec='seconds')
+
+    with open('sitemap.xml', 'wb') as f:
+        f.write(b'&lt;?xml version="1.0" encoding="utf-8"?&gt;\n')
+        f.write(ET.tostring(root, encoding='utf-8'))
+
+    click.echo('done')
+</pre>
+</div>
+
+<p>
+You can download this script directly from <a href="https://github.com/ChanMo/blog/blob/main/cli.py">cli.py</a> on Github.
+Remember to replace <code>https://www.chanmo.me/</code> with your domain.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">python cli.py generate-sitemap
+</pre>
+</div>
+</div>
+</div>
 </div>
 
 
-<div id="outline-container-org865f387" class="outline-2">
-<h2 id="org865f387"><span class="section-number-2">6.</span> Make your blog more modern and mobile-friendly</h2>
+<div id="outline-container-orgbf1e54d" class="outline-2">
+<h2 id="orgbf1e54d"><span class="section-number-2">6.</span> Make your blog more modern and mobile-friendly</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgab53c3c" class="outline-3">
-<h3 id="orgab53c3c"><span class="section-number-3">6.1.</span> Add a css file</h3>
+<div id="outline-container-org433ab32" class="outline-3">
+<h3 id="org433ab32"><span class="section-number-3">6.1.</span> Add a css file</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 you can use <a href="https://bulma.io/documentation/">Bulma.css</a>, a simple and great CSS framework.
@@ -356,8 +408,8 @@ Edit <code>init.el</code>, add this
 </div>
 </div>
 
-<div id="outline-container-org555dba6" class="outline-3">
-<h3 id="org555dba6"><span class="section-number-3">6.2.</span> Create a beautiful home page</h3>
+<div id="outline-container-orgaf7d019" class="outline-3">
+<h3 id="orgaf7d019"><span class="section-number-3">6.2.</span> Create a beautiful home page</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 You can use orgmode to generate an index.html file to list your articles.
@@ -372,11 +424,12 @@ You can create a beautiful index.html file by using HTML, CSS, and Javascript.
 </div>
 
 
-<div id="outline-container-org1507e01" class="outline-2">
-<h2 id="org1507e01"><span class="section-number-2">7.</span> Links</h2>
+<div id="outline-container-org6980564" class="outline-2">
+<h2 id="org6980564"><span class="section-number-2">7.</span> Links</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><a href="https://orgmode.org/manual/">The Org Manual</a></li>
+<li><a href="https://github.com/ChanMo/blog/blob/main/cli.py">cli.py</a></li>
 </ul>
 </div>
 </div>
