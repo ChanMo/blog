@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-14 五 14:47 -->
+<!-- 2023-11-25 六 09:49 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TEX导出为PNG</title>
@@ -194,28 +194,32 @@
   .org-svg { }
 </style>
 <link rel='stylesheet' href='bulma.min.css'><link rel='stylesheet' href='app.css'>
-<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script>
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href=""> UP </a>
  |
  <a accesskey="H" href="/blog"> HOME </a>
-</div><div id="content" class="content">
+</div><div id="preamble" class="status">
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
+</div>
+<div id="content" class="content">
+<header>
 <h1 class="title">TEX导出为PNG</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9264f75">1. 安装TexLive</a></li>
-<li><a href="#orga7055aa">2. 方式一: TEX -&gt; PDF -&gt; PPM -&gt; PNG</a></li>
-<li><a href="#org1375c57">3. 方式二: TEX -&gt; DVI -&gt; SVG &#x2013;&gt; PNG</a></li>
+<li><a href="#orgf4d663d">1. 安装TexLive</a></li>
+<li><a href="#org7d6ae82">2. 方式一: TEX -&gt; PDF -&gt; PPM -&gt; PNG</a></li>
+<li><a href="#orgc2e028d">3. 方式二: TEX -&gt; DVI -&gt; SVG &#x2013;&gt; PNG</a></li>
 </ul>
 </div>
-</div>
+</nav>
 
-<div id="outline-container-org9264f75" class="outline-2">
-<h2 id="org9264f75"><span class="section-number-2">1.</span> 安装TexLive</h2>
+<div id="outline-container-orgf4d663d" class="outline-2">
+<h2 id="orgf4d663d"><span class="section-number-2">1.</span> 安装TexLive</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://tug.org/texlive/doc.html">https://tug.org/texlive/doc.html</a>
@@ -243,8 +247,8 @@ $ sudo apt-get install texlive
 </div>
 </div>
 
-<div id="outline-container-orga7055aa" class="outline-2">
-<h2 id="orga7055aa"><span class="section-number-2">2.</span> 方式一: TEX -&gt; PDF -&gt; PPM -&gt; PNG</h2>
+<div id="outline-container-org7d6ae82" class="outline-2">
+<h2 id="org7d6ae82"><span class="section-number-2">2.</span> 方式一: TEX -&gt; PDF -&gt; PPM -&gt; PNG</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Tex转换为PDF
@@ -280,8 +284,8 @@ $ pnm2png output.ppm ouput.png
 </div>
 </div>
 
-<div id="outline-container-org1375c57" class="outline-2">
-<h2 id="org1375c57"><span class="section-number-2">3.</span> 方式二: TEX -&gt; DVI -&gt; SVG &#x2013;&gt; PNG</h2>
+<div id="outline-container-orgc2e028d" class="outline-2">
+<h2 id="orgc2e028d"><span class="section-number-2">3.</span> 方式二: TEX -&gt; DVI -&gt; SVG &#x2013;&gt; PNG</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Tex导出为dvi
@@ -316,9 +320,7 @@ Command: Inscape
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: ChanMo</p>
-<p class="date">Created: 2022-10-14 五 14:47</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<script src='app.js'></script>
 </div>
 </body>
 </html>

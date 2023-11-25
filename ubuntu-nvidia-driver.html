@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-09-17 日 17:45 -->
+<!-- 2023-11-25 六 09:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Install Nvidia Driver On Ubuntu22.04 (Lenovo)</title>
@@ -193,12 +193,12 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'><link rel='stylesheet' href='app.css'>
-<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script><script type='module' crossorigin src='index.min.js'></script>
+<link rel='stylesheet' href='bulma.min.css'><link rel='stylesheet' href='app.css'>
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XFRJ9KBERX');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><a href='https://github.com/ChanMo/blog/issues' target='_blank' class='navbar-item'>Comment</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
+<nav class='navbar is-dark is-fixed-top'><div class='container' style='max-width:768px;padding:0 1.5rem;'><div class='navbar-brand'><a href='/' class='navbar-item'>CHANMO</a><a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='main-nav'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div id='main-nav' class='navbar-menu'><div class='navbar-end'><a href='https://github.com/ChanMo' class='navbar-item' target='_blank'>Github</a><a href='./about.html' class='navbar-item'>About</a><div class='navbar-item'><input type='checkbox' class='is-hidden' id='toggle' /><label for='toggle'></label></div></div></div></div></nav>
 </div>
 <div id="content" class="content">
 <header>
@@ -207,17 +207,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9a31448">1. Enable SGX</a></li>
-<li><a href="#org518f428">2. Install Nvidia Driver</a></li>
-<li><a href="#org79383a9">3. First Reboot</a></li>
-<li><a href="#orgbc33f91">4. Check Driver</a></li>
-<li><a href="#org490b85a">5. References</a></li>
+<li><a href="#orgfb05a70">1. Enable SGX</a></li>
+<li><a href="#org2f722b6">2. Install Nvidia Driver</a></li>
+<li><a href="#org8398860">3. First Reboot</a></li>
+<li><a href="#org0d25115">4. Check Driver</a></li>
+<li><a href="#orgfc3840c">5. References</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org9a31448" class="outline-2">
-<h2 id="org9a31448"><span class="section-number-2">1.</span> Enable SGX</h2>
+<div id="outline-container-orgfb05a70" class="outline-2">
+<h2 id="orgfb05a70"><span class="section-number-2">1.</span> Enable SGX</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In BIOS, set SGX to Enabled.
@@ -225,8 +225,8 @@ In BIOS, set SGX to Enabled.
 </div>
 </div>
 
-<div id="outline-container-org518f428" class="outline-2">
-<h2 id="org518f428"><span class="section-number-2">2.</span> Install Nvidia Driver</h2>
+<div id="outline-container-org2f722b6" class="outline-2">
+<h2 id="org2f722b6"><span class="section-number-2">2.</span> Install Nvidia Driver</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Remove Nvidia Packages
@@ -269,8 +269,8 @@ If there is a dialog about "secure boot", remember your password
 </div>
 </div>
 
-<div id="outline-container-org79383a9" class="outline-2">
-<h2 id="org79383a9"><span class="section-number-2">3.</span> First Reboot</h2>
+<div id="outline-container-org8398860" class="outline-2">
+<h2 id="org8398860"><span class="section-number-2">3.</span> First Reboot</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Select "Perform MOK Management",
@@ -281,8 +281,8 @@ Select "Ok"
 </div>
 </div>
 
-<div id="outline-container-orgbc33f91" class="outline-2">
-<h2 id="orgbc33f91"><span class="section-number-2">4.</span> Check Driver</h2>
+<div id="outline-container-org0d25115" class="outline-2">
+<h2 id="org0d25115"><span class="section-number-2">4.</span> Check Driver</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-bash">nvidia-smi
@@ -292,8 +292,8 @@ Select "Ok"
 </div>
 
 
-<div id="outline-container-org490b85a" class="outline-2">
-<h2 id="org490b85a"><span class="section-number-2">5.</span> References</h2>
+<div id="outline-container-orgfc3840c" class="outline-2">
+<h2 id="orgfc3840c"><span class="section-number-2">5.</span> References</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><a href="https://gist.github.com/bitsurgeon/b0f4440984c9e60dcd8fe8bbc346c029">https://gist.github.com/bitsurgeon/b0f4440984c9e60dcd8fe8bbc346c029</a></li>

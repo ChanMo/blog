@@ -24,6 +24,10 @@
     font-size: 1.75rem !important;
     margin: 2rem 0 1rem !important;
 }
+.content h3 {
+    font-size: 1.5rem !important;
+    margin: 1rem 0 1rem !important;
+}
 .content pre {
     margin-bottom: 1rem !important;
 }
@@ -141,4 +145,8 @@ body {
     .navbar-menu .navbar-item {
 	color: #ccc !important;
     }
+}
+
+.section-number-2, .section-number-3 {
+    display: none;
 }
