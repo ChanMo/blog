@@ -1,25 +1,44 @@
-#+TITLE: About Me
-#+DESCRIPTION: ChanMo is a software enginner.
-#+KEYWORDS: chanmo, dsoou, 大发明家
+#+TITLE: About ChanMo
+#+DESCRIPTION: I am a programming inventor. I am passionate about using technology to solve problems and create new things, and I am always looking for new opportunities to use open source software to improve people's lives.
+#+KEYWORDS: chanmo, dsoou, 大发明家, programming inventor
 
-Hi, my nickname is ChanMo and I am a software engineer. I am passionate about programming and I enjoy writing about my experiences with various programming languages and technologies.
+Welcome to ChanMo's blog! I am a programming inventor.
+I am passionate about using technology to solve problems and create new things,
+and I am always looking for new opportunities to use open source software to improve people's lives.
 
-I started this blog to share my knowledge and experiences with others. I hope that my blog will help people learn more about programming and that it will inspire them to explore these technologies on their own.
+I like to learn new programming languages and technologies,
+and apply them to practical problems.
+I am always looking for new ways to use technology to improve people's lives.
 
-In my spare time, I enjoy hiking, biking, and spending time with my family and friends. I am also an avid reader and I love to learn new things.
+In this blog, I will share my thoughts and insights on technology, and my outlook on the future.
+I will discuss various technology topics, including programming, artificial intelligence,
+virtual reality, photography, and architectural design.
+I will also share my own inventions, and how I use technology to solve practical problems.
 
-I am excited to share my journey with you and I hope that you will join me on this adventure.
+This blog is written in Emacs OrgMode and the source code is hosted on GitHub.
+You can access the source code by following this link:
 
-Here are some of my favorite programming languages and technologies:
+#+BEGIN_SRC
+https://github.com/ChanMo/blog
+#+END_SRC
 
-- Python: A general-purpose programming language that is easy to learn and use.
-- Emacs: A text editor that is highly customizable and extensible.
-- ReactJS: A JavaScript library for building user interfaces.
+I hope you enjoy my blog!
+
+** My Interests
+
+My interests are mainly focused on the following areas:
+
+- Programming: I like to learn new programming languages and technologies, and apply them to practical problems. I am currently learning Python, JavaScript, Go, and Rust.
+- Artificial Intelligence: I am passionate about the potential of artificial intelligence. I hope to use artificial intelligence to solve real-world problems, such as healthcare, transportation, and education.
+- Virtual Reality: I believe that virtual reality has tremendous potential. I hope to use virtual reality to create new experiences and learning methods.
+- Photography: I like to use a camera to capture the world and capture beautiful moments.
+- Architectural Design: I am interested in the design and structure of buildings. I hope to use technology to improve the comfort and sustainability of buildings.
+
+I believe that technology can change the world. I hope that through my blog,
+I can communicate with other technology enthusiasts, share my ideas,
+and work together to promote the development of technology.
+
   
-I am a strong believer in open source software and I contribute to open source projects in my spare time.
-I am always looking for new challenges and I am excited to see what the future holds for me. I hope that you will follow along on my journey and that I can inspire you to pursue your own dreams.
-
-
 
 # ** SHOWCASES
 
