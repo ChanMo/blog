@@ -12,7 +12,7 @@
   border-radius: 8px;
 }
 .content {
-  font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-top: 3.25rem !important;
     position: relative !important;
     width: 768px !important;
@@ -21,13 +21,12 @@
     box-sizing: border-box;
 }
 .content h2 {
-    font-size: 1.75rem !important;
+    font-size: 1.6rem !important;
     margin: 2rem 0 1rem !important;
 }
 .content h3 {
-    font-size: 1.5rem !important;
-    margin: 1rem 0 1rem !important;
-    font-weight: normal !important;
+    font-size: 1.35rem !important;
+    margin: 1.5rem 0 1rem !important;
 }
 .content pre {
     margin-bottom: 1rem !important;
