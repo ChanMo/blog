@@ -1,0 +1,66 @@
+#+TITLE: Django development good helper: 8 recommended plugins
+#+DESCRIPTION: 8 Django plugins to help you build better websites faster and easier
+#+KEYWORDS: django, django-mptt, sorl-thumbnail, juss, restframework, django-filters
+
+Django is a powerful Python framework for developing web applications.
+Plugins can provide us with additional features and functionalities in Django development,
+simplifying our development work.
+This article recommends some must-have Django plugins and provides a brief introduction to these plugins.
+
+Here are some recommendations for must-have Django plugins:
+
+*** django-allauth
+
+django-allauth is a user authentication and authorization plugin.
+It provides various authentication methods,
+including username and password, email, and OAuth.
+It also provides fine-grained permission control to meet complex permission requirements.
+
+[[https://docs.allauth.org/en/latest/][Document]]
+
+*** django-mptt
+
+django-mptt is a reusable Django app which aims to make it easy for you to use MPTT with your own Django models.
+It takes care of the details of managing a database table as a tree structure and provides tools for working with trees of model instances.
+
+[[https://django-mptt.readthedocs.io/en/latest/][Document]]
+
+*** django-tags
+
+django-taggit is a reusable Django application designed to make adding tagging to your project easy and fun.
+
+[[https://django-taggit.readthedocs.io/en/latest/][Document]]
+
+*** sorl-thumbnail
+
+sorl-thumbnail is a thumbnail plugin. It can help us quickly generate thumbnails and provide flexible thumbnail configuration options.
+
+[[https://sorl-thumbnail.readthedocs.io/en/latest/][Document]], [[https://github.com/jazzband/sorl-thumbnail][Github]]
+
+*** django_filters
+
+Django-filter is a generic, reusable application to alleviate writing some of the more mundane bits of view code.
+Specifically, it allows users to filter down a queryset based on a model’s fields,
+displaying the form to let them do this.
+
+[[https://django-filter.readthedocs.io/en/main/][Document]]
+
+*** djangorestframework
+
+Django REST framework is a powerful and flexible toolkit for building Web APIs.
+
+[[https://www.django-rest-framework.org/][Document]]
+
+*** django-bulma
+
+Django Bulma is a simple and elegant Django template based on Bulma CSS framework.
+It is designed to be easy to understand and use, with a modern and stylish design.
+
+[[https://github.com/ChanMo/django-bulma][Github]]
+
+*** django-juss2
+
+Django Juss2 is a simple, beautiful, and easy-to-use Django admin template based on the Bulma CSS framework.
+It is designed to be easy to understand and use, with a modern and stylish design.
+
+[[https://github.com/ChanMo/django-juss2][Github]]
