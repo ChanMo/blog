@@ -1,7 +1,6 @@
-#+TITLE: How to use org mode to write a blog website
+#+TITLE: Write Your Blog Faster and Smarter with Org Mode
 #+KEYWORDS: org mode, blog website, seo, blogging, emacs, writing, readability, keywords, metadata, search engines
 #+DESCRIPTION: How to use Org Mode to write a blog website that is both readable and SEO-friendly. Learn how to create a blog website with Org Mode, including tips on how to optimize your posts for search engines.
-#+HTML_LINK_HOME: /blog
 
 
 ** Introduction
