@@ -1,0 +1,11 @@
+<nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">{{site.title}}</a>
+    <div style="flex-grow:1;"></div>
+    {% for item in site.data.navigation %}
+      <a href="{{item.link}}" class=" {% if page.url == item.link %}is-active{% endif %}">{{item.name}}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+

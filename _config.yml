@@ -1,0 +1,16 @@
+url: "https://chanmo.github.io"
+baseurl: "/blog/"
+title: ChanMo's Life Hacks
+destination: docs
+exclude:
+  - ".#*"
+  - "*.org"
+  - "*.py"
+  - .git/
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  
+plugins:
+  - jekyll-seo-tag

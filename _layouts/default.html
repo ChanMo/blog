@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page.title}}</title>
+    <link rel="stylesheet" href="{{'/assets/css/styles.css'|relative_url}}">
+    {% seo %}
+  </head>
+  <body>
+    {{content}}
+    {% include footer.html %}
+    {% if jekyll.environment == "production" %}
+    <script async src='https://www.googletagmanager.com/gtag/js?id=G-XFRJ9KBERX'></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XFRJ9KBERX');
+    </script>
+    <script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4854025028662106' crossorigin='anonymous'></script>
+    {% endif %}
+  </body>
+</html>

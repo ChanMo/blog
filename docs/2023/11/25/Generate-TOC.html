@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Generate a Table of Contents in Docx with Python</title>
+    <link rel="stylesheet" href="/blog/assets/css/styles.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to Generate a Table of Contents in Docx with Python | ChanMo’s Life Hacks</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="How to Generate a Table of Contents in Docx with Python" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This tutorial will show you how to generate and refresh a table of contents (TOC) in a Docx document using Python" />
+<meta property="og:description" content="This tutorial will show you how to generate and refresh a table of contents (TOC) in a Docx document using Python" />
+<link rel="canonical" href="https://chanmo.github.io/blog/2023/11/25/Generate-TOC.html" />
+<meta property="og:url" content="https://chanmo.github.io/blog/2023/11/25/Generate-TOC.html" />
+<meta property="og:site_name" content="ChanMo’s Life Hacks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-25T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Generate a Table of Contents in Docx with Python" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-25T00:00:00+08:00","datePublished":"2023-11-25T00:00:00+08:00","description":"This tutorial will show you how to generate and refresh a table of contents (TOC) in a Docx document using Python","headline":"How to Generate a Table of Contents in Docx with Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanmo.github.io/blog/2023/11/25/Generate-TOC.html"},"url":"https://chanmo.github.io/blog/2023/11/25/Generate-TOC.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">ChanMo's Life Hacks</a>
+    <div style="flex-grow:1;"></div>
+    
+      <a href="/about.html" class=" ">About</a>
+    
+      <a href="https://github.com/ChanMo/" class=" ">Github</a>
+    
+  </div>
+</nav>
+
+
+
+<section class="section page" style="margin-top:4.5rem;">
+  <article class="container">
+    <h1 class="title">How to Generate a Table of Contents in Docx with Python</h1>
+    <p class="date-span">25 Nov 2023</p>
+    <p class="tags is-centered"><span class="tag">libreoffice,</span><span class="tag">toc,</span><span class="tag">unoserver,</span><span class="tag">macro</span></p>
+    <div class="content mt-5 has-text-left">
+      <p>Tables of contents (TOCs) are an essential part of long documents,
+providing a quick overview of the document's structure and enabling
+easy navigation. While most Office software packages offer built-in TOC
+generation mechanisms, they can be difficult to call from code.</p>
+
+<p>This blog post will show you how to generate a TOC in Docx with Python.
+We will use the following steps:</p>
+
+<ol>
+  <li>Create a TOC placeholder in the Docx document.</li>
+  <li>Refresh the TOC.</li>
+</ol>
+
+<h2 id="create-a-toc-placeholder-in-the-docx-document">Create a TOC placeholder in the Docx document</h2>
+
+<p>The first step is to create a TOC placeholder in the Docx document. This
+can be done using the following Python code:</p>
+
+<p>We will use the <code class="language-plaintext highlighter-rouge">python-docx</code> package.</p>
+
+<pre><code class="language-{.bash}">pip install python-docx
+</code></pre>
+
+<pre><code class="language-{.python}">from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
+
+def insert_toc(d, levels="1-3"):
+  """
+  Insert "Table of Contents" to Document
+
+  Parameters:
+  ------------
+
+  d: Document Object
+     文档对象
+
+  levels: string
+      default "1-3"
+  根据 addheading 更新目录
+  """
+  sdt = OxmlElement('w:sdt')
+  sdtpr = OxmlElement('w:sdtPr')
+  docpartobj = OxmlElement('w:docPartObj')
+  docpartgallery = OxmlElement('w:docPartGallery')
+  docpartgallery.set(qn('w:val'), 'Table of Contents')
+  docpartunique = OxmlElement('w:docPartUnique')
+  docpartunique.set(qn('w:val'), 'true')
+  docpartobj.append(docpartgallery)
+  docpartobj.append(docpartunique)
+  sdtpr.append(docpartobj)
+  sdt.append(sdtpr)
+
+  sdtcontent = OxmlElement('w:sdtContent')
+
+  p = OxmlElement('w:p')
+  r = OxmlElement('w:r')
+  t = OxmlElement('w:t')
+  t.text = 'Contents'
+  r.append(t)
+  p.append(r)
+  sdtcontent.append(p)
+
+  fldChar = OxmlElement('w:fldChar')  # creates a new element
+  fldChar.set(qn('w:fldCharType'), 'begin')  # sets attribute on element
+  instrText = OxmlElement('w:instrText')
+  instrText.set(qn('xml:space'), 'preserve')  # sets attribute on element
+  instrText.text = f'TOC \\o "{levels}" \\h \\z \\u'   # change 1-3 depending on heading levels you need
+
+  fldChar2 = OxmlElement('w:fldChar')
+  fldChar2.set(qn('w:fldCharType'), 'separate')
+  # fldChar3 = OxmlElement('w:t')
+  # fldChar3.text = "Right-click to update field."
+  fldChar3 = OxmlElement('w:updateFields')
+  fldChar3.set(qn('w:val'), 'true')
+  fldChar2.append(fldChar3)
+
+  fldChar4 = OxmlElement('w:fldChar')
+  fldChar4.set(qn('w:fldCharType'), 'end')
+
+  p2 = OxmlElement('w:p')
+  r2 = OxmlElement('w:r')
+  r2.append(fldChar)
+  r2.append(instrText)
+  r2.append(fldChar2)
+  r2.append(fldChar4)
+  p2.append(r2)
+
+  sdtcontent.append(p2)
+  sdt.append(sdtcontent)
+  d._element.body.insert_element_before(sdt, *('w:sectPr',))
+
+  return d  
+</code></pre>
+
+<p><a href="https://github.com/ChanMo/python-toc/blob/main/toc.py">Github</a></p>
+
+<h2 id="generate-the-toc">Generate the TOC</h2>
+
+<p>We now have a TOC section in our document, but it's empty. How do we
+refresh the TOC? There are two ways to do this:</p>
+
+<h3 id="method-1-using-a-libreoffice-macro">Method 1: Using a LibreOffice macro</h3>
+
+<ol>
+  <li>Create Macro Module</li>
+</ol>
+
+<pre><code class="language-{.basic}">REM  *****  BASIC  *****
+
+ Option Explicit
+
+ Sub UpdateIndexes(path As String)
+     '''Update indexes, such as for the table of contents''' 
+     Dim doc As Object
+     Dim args()
+
+     doc = StarDesktop.loadComponentFromUrl(convertToUrl(path), "_default", 0, args())
+
+     Dim i As Integer
+
+     With doc ' Only process Writer documents
+         If .supportsService("com.sun.star.text.GenericTextDocument") Then
+             For i = 0 To .getDocumentIndexes().count - 1
+                 .getDocumentIndexes().getByIndex(i).update()
+             Next i
+         End If
+     End With ' ThisComponent
+
+     doc.store()
+     doc.close(True)
+
+ End Sub ' UpdateIndexes  
+</code></pre>
+
+<p><a href="https://github.com/ChanMo/python-toc/blob/main/basic/Mdian/AutoToc.xba">Github</a></p>
+
+<ol>
+  <li>Import the Macro Module</li>
+</ol>
+
+<pre><code class="language-{=html}">&lt;!-- --&gt;
+</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mv ~/.config/libreoffice/4/user/basic ~/basic_backup
+$ cp basic ~/.config/libreoffice/4/user/ -r  
+</code></pre></div></div>
+
+<ol>
+  <li>Run the Command</li>
+</ol>
+
+<pre><code class="language-{.bash}">$ soffice --headless "macro:///Standard.YourModuleName.UpdateIndex(/path/to/file.odt)"
+</code></pre>
+
+<h3 id="method-2-using-unoserver">Method 2: Using Unoserver</h3>
+
+<ol>
+  <li>Pull the Unoserver Docker Image</li>
+</ol>
+
+<pre><code class="language-{.bash}">docker pull chanmo/unoserver
+</code></pre>
+
+<ol>
+  <li>Run the Unoserver container</li>
+</ol>
+
+<pre><code class="language-{.bash}">docker run -p 5000:5000 chanmo/unoserver
+</code></pre>
+
+<ol>
+  <li>Update the TOC Using HTTPie</li>
+</ol>
+
+<pre><code class="language-{.bash}">http -f POST :5000/convert/docx file@/path/to/demo.docx -o demo.docx
+</code></pre>
+
+<p>The disadvantage of using a LibreOffice macro is that the server needs
+to have LibreOffice installed. If you don't want to install
+LibreOffice, you can use the Unoserver method instead.</p>
+
+    </div>
+  </article>
+</section>
+
+    <footer class="footer has-text-centered">
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">Copyright &copy; 2023 DSOOU All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>

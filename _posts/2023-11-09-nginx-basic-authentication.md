@@ -1,0 +1,49 @@
+---
+layout: post
+title: How to Add Basic Authentication to a Nginx Website
+description: This article explains how to add basic authentication to a Nginx website.
+keywords: Nginx, basic authentication, security
+tags: nginx, web
+---
+
+Basic authentication is a simple but effective way to protect a website
+from unauthorized access. It works by requiring users to provide a
+username and password before they can access the website.
+
+To add basic authentication to a Nginx website, you need to add the
+following lines to your Nginx configuration file:
+
+    server {
+      listen 80;
+      server_name example.com;
+      auth_basic "Protected Area";
+      auth_basic_user_file /etc/nginx/.htpasswd;
+      location / {
+        ...
+      }
+    }
+
+The `auth_basic` directive sets the authentication realm. The
+`auth_basic_user_file` directive specifies the location of the htpasswd
+file, which contains the usernames and passwords for authorized users.
+
+The htpasswd file is a simple text file that contains two fields for
+each user: the username and the password, which is encoded using base64.
+To create an htpasswd file, you can use the following command:
+
+    htpasswd -c /etc/nginx/.htpasswd username
+
+This command will create a new htpasswd file with the specified username
+and a randomly generated password.
+
+Once you have added the basic authentication directives to your Nginx
+configuration file, you need to restart Nginx for the changes to take
+effect.
+
+Once basic authentication is enabled, users will be prompted to enter a
+username and password before they can access the protected area of your
+website.
+
+Basic authentication is a simple but effective way to protect your
+website from unauthorized access. you can add basic authentication to
+your Nginx website in a matter of minutes.

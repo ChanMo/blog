@@ -1,0 +1,244 @@
+<p>
+Django是一个非常成熟稳定的web开发框架, 可以快速搭建产品逻辑, 但是当页面非常复杂,
+使用基础的javascript无法满足需要时, 就会考虑使用React, Vue等前端开发框架
+</p>
+
+<p>
+如果只是使用CreateReactApp, 或者Next.js时, 开发体验会很好,
+但是可能部署起来会比较麻烦, 一般只能完全做成前后端分离的两套代码,
+</p>
+
+<p>
+前后端分离的代码自然是很好, 但是在一些情况下, 会增加开发成本
+</p>
+
+<p>
+所以能不能像写django模板那样写react代码?
+使用后端框架强大稳定的路由处理能力, 以及基础的数据渲染能力,
+再加上前端框架的强大的页面交互能力
+</p>
+
+<p>
+本文将提供一种可行的参考方案
+</p>
+
+<div id="outline-container-orgaaf61f8" class="outline-2">
+<h2 id="orgaaf61f8">原理介绍</h2>
+<div class="outline-text-2" id="text-orgaaf61f8">
+<p>
+使用django自定义模板标签, 在HTML中渲染Vite的代码
+</p>
+
+<pre class="example">
+{% load react_tags %}
+
+{% react_static paper %}
+</pre>
+
+<p>
+渲染后的结果为
+</p>
+<pre class="example">
+&lt;script type="module"&gt;
+import RefreshRuntime from "http://localhost:3000/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () =&gt; {}
+window.$RefreshSig$ = () =&gt; (type) =&gt; type
+window.__vite_plugin_react_preamble_installed__ = true
+&lt;/script&gt;
+&lt;script type="module" src="http://localhost:3000/@vite/client"&gt;&lt;/script&gt;
+&lt;script type="module" src="http://localhost:3000/backend/lexical/components/paper.jsx"&gt;&lt;/script&gt;
+</pre>
+
+<p>
+如此以来, 便可在修改paper.jsx文件时, 页面实现实时刷新, 达到create-react-app的开发效果
+部署的时候, 配置Vite打包路径在static目录下, 打包后会生成manifest.json,
+里面包含了打包后的文件路径信息
+</p>
+
+<p>
+在生产环境下, 使用Python读取manifest.json, 并转换为最终的静态文件引入HTML模板
+</p>
+
+<p>
+源码地址: <a href="https://github.com/ChanMo/django-react">https://github.com/ChanMo/django-react</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c4cd20" class="outline-2">
+<h2 id="org4c4cd20">什么是Vite</h2>
+<div class="outline-text-2" id="text-org4c4cd20">
+<blockquote>
+<p>
+Vite（法语意为 "快速的"，发音 /vit/，发音同 "veet"）是一种新型前端构建工具，
+能够显著提升前端开发体验。它主要由两部分组成：一个开发服务器，
+它基于 原生 ES 模块 提供了 丰富的内建功能，如速度快到惊人的 模块热更新（HMR）。
+一套构建指令，它使用 Rollup 打包你的代码，并且它是预配置的，
+可输出用于生产环境的高度优化过的静态资源。Vite 意在提供开箱即用的配置，
+同时它的 插件 API 和 JavaScript API 带来了高度的可扩展性，并有完整的类型支持。
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org4d0a2bc" class="outline-2">
+<h2 id="org4d0a2bc">开始使用</h2>
+<div class="outline-text-2" id="text-org4d0a2bc">
+</div>
+<div id="outline-container-org3b00160" class="outline-3">
+<h3 id="org3b00160">下载django-react</h3>
+<div class="outline-text-3" id="text-org3b00160">
+<pre class="example">
+$ git clone https://github.com/ChanMo/django-react react
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0b6246e" class="outline-3">
+<h3 id="org0b6246e">Update Settings.py</h3>
+<div class="outline-text-3" id="text-org0b6246e">
+<pre class="example">
+INSTALLED_APPS = [
+...
+'react',
+...
+]  
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org51a908e" class="outline-3">
+<h3 id="org51a908e">Setup Vite</h3>
+<div class="outline-text-3" id="text-org51a908e">
+<p>
+Create file package.json
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+  "name": "django-react",
+  "version": "1.0.0",
+  "description": "use react.js in django templates",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "ChanMo",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.2.0",
+    "vite": "^2.8.6"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}  
+</pre>
+</div>
+
+<p>
+Create file vite.config.js
+</p>
+
+<div class="org-src-container">
+<pre class="src src-javascript">import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: 'backend/static/backend/dist/',
+    manifest: true,
+    rollupOptions: {
+      input: [
+        'yourreactfile.jsx',
+      ]
+    }
+  }
+})  
+</pre>
+</div>
+
+<p>
+Install npm package
+</p>
+
+<pre class="example">
+$ npm install
+$ npm run dev
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org32df0a3" class="outline-3">
+<h3 id="org32df0a3">Create your jsx file</h3>
+<div class="outline-text-3" id="text-org32df0a3">
+<p>
+Example <code>backend/components/app.jsx</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-javascript">import React from 'react'
+import ReactDOM from 'react-dom'
+
+
+function App(props) {
+  return (
+    &lt;h1&gt;{props.title}&lt;/h1&gt;
+  )
+}
+
+ReactDOM.render(
+  &lt;React.StrictMode&gt;
+    &lt;App {...window.props} /&gt;
+  &lt;/React.StrictMode&gt;,
+  document.getElementById("app")
+)  
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd744845" class="outline-3">
+<h3 id="orgd744845">Use ReactMixin in your ClassView</h3>
+<div class="outline-text-3" id="text-orgd744845">
+<div class="org-src-container">
+<pre class="src src-python">from django.views.generic import TemplateView
+from react.mixins import ReactMixin
+
+
+class IndexView(ReactMixin, TemplateView):
+    app_root = '/backend/components/app.jsx'
+    def get_props_data(self):
+        return {
+            'title': 'Hello'
+        }
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgabc0800" class="outline-3">
+<h3 id="orgabc0800">Visit url in your brower</h3>
+</div>
+
+<div id="outline-container-org69a7f14" class="outline-3">
+<h3 id="org69a7f14">Build JS</h3>
+<div class="outline-text-3" id="text-org69a7f14">
+<p>
+Before prepare to deploy, run <code>yarn dev</code>
+</p>
+
+
+<div id="comments"></div>
+</div>
+</div>
+</div>

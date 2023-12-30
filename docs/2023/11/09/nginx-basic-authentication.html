@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add Basic Authentication to a Nginx Website</title>
+    <link rel="stylesheet" href="/blog/assets/css/styles.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to Add Basic Authentication to a Nginx Website | ChanMo’s Life Hacks</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="How to Add Basic Authentication to a Nginx Website" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This article explains how to add basic authentication to a Nginx website." />
+<meta property="og:description" content="This article explains how to add basic authentication to a Nginx website." />
+<link rel="canonical" href="https://chanmo.github.io/blog/2023/11/09/nginx-basic-authentication.html" />
+<meta property="og:url" content="https://chanmo.github.io/blog/2023/11/09/nginx-basic-authentication.html" />
+<meta property="og:site_name" content="ChanMo’s Life Hacks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-09T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Add Basic Authentication to a Nginx Website" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-09T00:00:00+08:00","datePublished":"2023-11-09T00:00:00+08:00","description":"This article explains how to add basic authentication to a Nginx website.","headline":"How to Add Basic Authentication to a Nginx Website","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanmo.github.io/blog/2023/11/09/nginx-basic-authentication.html"},"url":"https://chanmo.github.io/blog/2023/11/09/nginx-basic-authentication.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">ChanMo's Life Hacks</a>
+    <div style="flex-grow:1;"></div>
+    
+      <a href="/about.html" class=" ">About</a>
+    
+      <a href="https://github.com/ChanMo/" class=" ">Github</a>
+    
+  </div>
+</nav>
+
+
+
+<section class="section page" style="margin-top:4.5rem;">
+  <article class="container">
+    <h1 class="title">How to Add Basic Authentication to a Nginx Website</h1>
+    <p class="date-span">09 Nov 2023</p>
+    <p class="tags is-centered"><span class="tag">nginx,</span><span class="tag">web</span></p>
+    <div class="content mt-5 has-text-left">
+      <p>Basic authentication is a simple but effective way to protect a website
+from unauthorized access. It works by requiring users to provide a
+username and password before they can access the website.</p>
+
+<p>To add basic authentication to a Nginx website, you need to add the
+following lines to your Nginx configuration file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+  listen 80;
+  server_name example.com;
+  auth_basic "Protected Area";
+  auth_basic_user_file /etc/nginx/.htpasswd;
+  location / {
+    ...
+  }
+}
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">auth_basic</code> directive sets the authentication realm. The
+<code class="language-plaintext highlighter-rouge">auth_basic_user_file</code> directive specifies the location of the htpasswd
+file, which contains the usernames and passwords for authorized users.</p>
+
+<p>The htpasswd file is a simple text file that contains two fields for
+each user: the username and the password, which is encoded using base64.
+To create an htpasswd file, you can use the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>htpasswd -c /etc/nginx/.htpasswd username
+</code></pre></div></div>
+
+<p>This command will create a new htpasswd file with the specified username
+and a randomly generated password.</p>
+
+<p>Once you have added the basic authentication directives to your Nginx
+configuration file, you need to restart Nginx for the changes to take
+effect.</p>
+
+<p>Once basic authentication is enabled, users will be prompted to enter a
+username and password before they can access the protected area of your
+website.</p>
+
+<p>Basic authentication is a simple but effective way to protect your
+website from unauthorized access. you can add basic authentication to
+your Nginx website in a matter of minutes.</p>
+
+    </div>
+  </article>
+</section>
+
+    <footer class="footer has-text-centered">
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">Copyright &copy; 2023 DSOOU All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>

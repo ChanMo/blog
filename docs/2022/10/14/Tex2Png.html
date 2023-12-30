@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEX导出为PNG</title>
+    <link rel="stylesheet" href="/blog/assets/css/styles.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>TEX导出为PNG | ChanMo’s Life Hacks</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="TEX导出为PNG" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="如何在Linux中把TEX代码导出为PNG图片" />
+<meta property="og:description" content="如何在Linux中把TEX代码导出为PNG图片" />
+<link rel="canonical" href="https://chanmo.github.io/blog/2022/10/14/Tex2Png.html" />
+<meta property="og:url" content="https://chanmo.github.io/blog/2022/10/14/Tex2Png.html" />
+<meta property="og:site_name" content="ChanMo’s Life Hacks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-14T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="TEX导出为PNG" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-14T00:00:00+08:00","datePublished":"2022-10-14T00:00:00+08:00","description":"如何在Linux中把TEX代码导出为PNG图片","headline":"TEX导出为PNG","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanmo.github.io/blog/2022/10/14/Tex2Png.html"},"url":"https://chanmo.github.io/blog/2022/10/14/Tex2Png.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">ChanMo's Life Hacks</a>
+    <div style="flex-grow:1;"></div>
+    
+      <a href="/about.html" class=" ">About</a>
+    
+      <a href="https://github.com/ChanMo/" class=" ">Github</a>
+    
+  </div>
+</nav>
+
+
+
+<section class="section page" style="margin-top:4.5rem;">
+  <article class="container">
+    <h1 class="title">TEX导出为PNG</h1>
+    <p class="date-span">14 Oct 2022</p>
+    <p class="tags is-centered"><span class="tag">tex</span><span class="tag">linux</span><span class="tag">katex</span><span class="tag">texlive</span></p>
+    <div class="content mt-5 has-text-left">
+      <h2 id="安装texlive">安装TexLive</h2>
+
+<p><a href="https://tug.org/texlive/doc.html">https://tug.org/texlive/doc.html</a></p>
+
+<p>ArchLinux:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S texlive-core
+</code></pre></div></div>
+
+<p><a href="https://wiki.archlinux.org/title/TeX_Live">https://wiki.archlinux.org/title/TeX_Live</a></p>
+
+<p>Ubuntu:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install texlive
+</code></pre></div></div>
+
+<h2 id="方式一-tex---pdf---ppm---png">方式一: TEX -&gt; PDF -&gt; PPM -&gt; PNG</h2>
+
+<p>Tex转换为PDF</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pdflatex input.tex ouput.pdf
+</code></pre></div></div>
+
+<p>PDF裁剪为实际大小</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pdfcrop ouput.pdf ouput_croped.pdf
+</code></pre></div></div>
+
+<p>PDF转换为PPM</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pdftoppm output_croped.pdf output.ppm
+</code></pre></div></div>
+
+<p>PPM转换为PNG</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pnm2png output.ppm ouput.png
+</code></pre></div></div>
+
+<p>参考链接: <a href="https://pypi.org/project/pnglatex/">https://pypi.org/project/pnglatex/</a></p>
+
+<h2 id="方式二-tex---dvi---svg--png">方式二: TEX -&gt; DVI -&gt; SVG –&gt; PNG</h2>
+
+<p>Tex导出为dvi</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ latex -no-shell-escape -interaction=nonstopmode -halt-on-error input.tex
+</code></pre></div></div>
+
+<p>DVI转换为SVG</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dvisvgm --no-fonts input.dvi
+</code></pre></div></div>
+
+<p>SVG转换为PNG(可选)</p>
+
+<p>python: CairoSVG</p>
+
+<p>Command: Inscape</p>
+
+<p>参考链接:
+<a href="https://github.com/joeraut/latex2image-web/blob/f077a800f9ae89ee21d2421872344c5723fabd02/app.js#L152">https://github.com/joeraut/latex2image-web/blob/f077a800f9ae89ee21d2421872344c5723fabd02/app.js#L152</a></p>
+
+    </div>
+  </article>
+</section>
+
+    <footer class="footer has-text-centered">
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">Copyright &copy; 2023 DSOOU All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>

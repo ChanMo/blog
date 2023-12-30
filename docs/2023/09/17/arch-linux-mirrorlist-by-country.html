@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Update Arch Linux Mirrorlist by Country</title>
+    <link rel="stylesheet" href="/blog/assets/css/styles.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to Update Arch Linux Mirrorlist by Country | ChanMo’s Life Hacks</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="How to Update Arch Linux Mirrorlist by Country" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This article provides instructions on how to update the Arch Linux mirrorlist by country. The mirrorlist is a list of servers that Arch Linux uses to download packages. By updating the mirrorlist, you can ensure that you are using the most up-to-date and reliable mirrors for your country." />
+<meta property="og:description" content="This article provides instructions on how to update the Arch Linux mirrorlist by country. The mirrorlist is a list of servers that Arch Linux uses to download packages. By updating the mirrorlist, you can ensure that you are using the most up-to-date and reliable mirrors for your country." />
+<link rel="canonical" href="https://chanmo.github.io/blog/2023/09/17/arch-linux-mirrorlist-by-country.html" />
+<meta property="og:url" content="https://chanmo.github.io/blog/2023/09/17/arch-linux-mirrorlist-by-country.html" />
+<meta property="og:site_name" content="ChanMo’s Life Hacks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-17T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Update Arch Linux Mirrorlist by Country" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-17T00:00:00+08:00","datePublished":"2023-09-17T00:00:00+08:00","description":"This article provides instructions on how to update the Arch Linux mirrorlist by country. The mirrorlist is a list of servers that Arch Linux uses to download packages. By updating the mirrorlist, you can ensure that you are using the most up-to-date and reliable mirrors for your country.","headline":"How to Update Arch Linux Mirrorlist by Country","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanmo.github.io/blog/2023/09/17/arch-linux-mirrorlist-by-country.html"},"url":"https://chanmo.github.io/blog/2023/09/17/arch-linux-mirrorlist-by-country.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">ChanMo's Life Hacks</a>
+    <div style="flex-grow:1;"></div>
+    
+      <a href="/about.html" class=" ">About</a>
+    
+      <a href="https://github.com/ChanMo/" class=" ">Github</a>
+    
+  </div>
+</nav>
+
+
+
+<section class="section page" style="margin-top:4.5rem;">
+  <article class="container">
+    <h1 class="title">How to Update Arch Linux Mirrorlist by Country</h1>
+    <p class="date-span">17 Sep 2023</p>
+    <p class="tags is-centered"><span class="tag">linux</span><span class="tag">archlinux</span></p>
+    <div class="content mt-5 has-text-left">
+      <p>This article provides instructions on how to update the Arch Linux mirrorlist by country. The mirrorlist is a list of servers that Arch Linux uses to download packages. By updating the mirrorlist, you can ensure that you are using the most up-to-date and reliable mirrors for your country.</p>
+
+<h2 id="install-reflector">Install reflector</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S reflector
+</code></pre></div></div>
+
+<h2 id="generate-a-new-mirrorlist-for-your-country">Generate a new mirrorlist for your country</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflector --country &lt;country code&gt; --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre></div></div>
+
+<p>Replace <code class="language-plaintext highlighter-rouge">&lt;country code&gt;</code> with the two-letter country code for the
+country you want to refresh. For example, to refresh the mirrorlist for
+the United States, you would run the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflector --country US --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre></div></div>
+
+<p>Once the new mirrorlist has been generated, you can force pacman to
+refresh the package lists by running the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Syyu --refresh
+</code></pre></div></div>
+
+<p>This will ensure that you are using the latest mirrors for your country.</p>
+
+<h2 id="here-are-some-additional-tips-for-refreshing-your-mirrorlist">Here are some additional tips for refreshing your mirrorlist:</h2>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">--country</code> flag to specify multiple countries. For
+example, to refresh the mirrorlist for the United States and Canada, you
+would run the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflector --country US,CA --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre></div></div>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">--latest</code> flag to specify the number of mirrors you
+want to keep. The default is 5. You can use the <code class="language-plaintext highlighter-rouge">--sort</code> flag to specify
+how you want the mirrors to be sorted. The default is by rate. You can
+also sort by latency or last update. You can use the <code class="language-plaintext highlighter-rouge">--save</code> flag to
+specify the file where you want the new mirrorlist to be saved. The
+default is /etc/pacman.d/mirrorlist.</p>
+
+    </div>
+  </article>
+</section>
+
+    <footer class="footer has-text-centered">
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">Copyright &copy; 2023 DSOOU All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>

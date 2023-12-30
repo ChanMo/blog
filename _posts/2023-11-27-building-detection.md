@@ -1,0 +1,153 @@
+---
+layout: post
+title: 遥感图像建筑物检测AI模型制作教程
+tags: building detection, remote sensing, pytorch, maskrcnn, tif, gda2tiles
+---
+
+遥感图像中的建筑物检测是一项具有重要应用价值的研究课题。现有的图像特征识别模型在一般的图像检测方面取得了较好的效果，但在遥感图像中存在一定的局限性。
+
+GeoTIFF
+是一种常用的遥感图像格式，它以像素为单位存储地表的图像数据。GeoTIFF
+图像通常具有较高的分辨率，这使得检测其中的建筑物具有一定的挑战性。
+
+本文将介绍如何做出一个可用于检测 GeoTIFF 中所有建筑物的 AI 模型。
+
+## 数据集准备
+
+训练模型的第一步需要准备训练和测试用的数据集。在图像特征检测领域中，比较常用的数据集是
+Coco 数据集，所以我们也将使用 Coco 这种格式的数据集。
+
+有两种方法可以准备数据集：
+
+### 1. 使用现有的数据集
+
+一个可用的现有数据集是 AiCrowd 的 Mapping Challenge 中提供的数据集。
+该数据集包含了该数据集包含了 280741 张训练图像和 60317 张验证图像。
+
+下载地址:
+<https://www.aicrowd.com/challenges/mapping-challenge/dataset_files>
+
+### 2. 使用 GeoTIFF 文件制作数据集
+
+如果您想使用自己的 GeoTIFF 文件制作数据集，可以使用 gdal2tiles 工具将
+GeoTIFF 文件分割成小图片。
+
+步骤 1：安装 gdal
+
+在 Linux 中，您可以使用以下命令安装 gdal2tiles：
+
+    sudo apt-get install gdal-bin
+
+步骤 2：将 GeoTIFF 文件分割成小图片
+
+使用以下命令将 GeoTIFF 文件分割成小图片：
+
+    gdal2tiles demo.tif
+
+这将生成一个名为 demo 的目录，其中包含了分割后的图片。
+
+    ├── 17
+    ├── 18
+    │   ├── 216364
+    │   │   ├── 159390.png
+    │   │   ├── 159394.png
+    │   │   └── 159405.png
+    ├── 19
+    ├── googlemaps.html
+    ├── leaflet.html
+    ├── openlayers.html
+    └── tilemapresource.xml
+
+我们将使用ZOOM为18的图片
+
+步骤 3：使用 coco-annotator 标注图片
+
+下载 coco-annotator 并启动, <https://github.com/jsbroks/coco-annotator>
+
+然后，创建一个名为 Buildings 的数据集。将 demo/18/下所有图片复制到
+Buildings 数据集的目录中。
+
+在 coco-annotator 中，打开 Buildings
+数据集。然后，使用鼠标标注每个建筑物的位置。
+
+步骤 4：下载 annotation 文件
+
+标注完图片后，可以使用 coco-annotator 下载 annotation 文件。
+
+## 模型选择
+
+我们将使用 Mask R-CNN 模型进行训练。 Mask R-CNN
+是一种用于目标检测和分割的卷积神经网络。
+它具有较好的检测性能，并且可以生成建筑物的边界框和掩码。
+
+## 模型训练
+
+在本文中，我们使用 PyTorch 框架进行训练
+
+训练过程部分代码如下：
+
+加载数据集
+
+``` {.python}
+dataset = datasets.CocoDetection(
+    '/path/to/coco-annotator/datasets/Buildings/',
+    '/path/to/Buildings-1.json',
+    transforms=get_transform(True)
+)
+dataset = datasets.wrap_dataset_for_transforms_v2(
+    dataset,
+    target_keys=("boxes", "labels", "masks","image_id", "area", "iscrowd")
+)
+```
+
+选择优化器和学习率
+
+``` {.python}
+ params = [p for p in model.parameters() if p.requires_grad]
+ optimizer = torch.optim.SGD(
+     params,
+     lr=1e-3,
+     momentum=0.9,
+     weight_decay=0.0005
+ )  
+lr_scheduler = torch.optim.lr_scheduler.LinearLR(
+    optimizer,
+    start_factor = 1e-3,
+    total_iters = len(dataset_train) - 1,
+    verbose=False
+)
+```
+
+## 模型评估
+
+模型训练完成后，需要对模型进行评估。我们将使用 CocoEval 工具进行评估。
+
+## 未来工作
+
+在本文中，我们介绍了如何训练一个用于检测 GeoTIFF 中所有建筑物的 AI
+模型。但是，该模型仍有一定的改进空间。
+
+## 附录
+
+### 合并Tiles结果为一张图片
+
+如果想要把一个GEOTIF文件的所有TILES图合并为一张图片, 可以参考以下代码:
+
+``` {.python}
+grid = torchvision.utils.make_grid(res, cols, 0)
+torchvision.utils.save_image(grid, 'output.png')  
+```
+
+### 在两张GeoTIFF中寻找不同的建筑物
+
+如何在两张TIF中寻找不同的建筑物, 如新建的房屋, 已经拆除的房屋等
+
+1.  先找出图片中建筑物
+2.  使用IOU算法排除同一个位置的建筑物
+3.  标记出剩下的建筑物
+
+## 参考
+
+-   <https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html>
+-   <https://github.com/crowdAI/crowdai-mapping-challenge-mask-rcnn>
+-   <https://www.aicrowd.com/challenges/mapping-challenge/dataset_files>

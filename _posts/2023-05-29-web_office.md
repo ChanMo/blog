@@ -1,0 +1,31 @@
+---
+layout: post
+title: Use office in your web site
+excerpt: introduce Onlyoffice, CollaboraOnline
+tags: onlyoffice collaboraonline libreoffice wopi
+---
+
+## OnlyOffice
+
+[url](https://www.onlyoffice.com/)
+
+是由俄罗斯公司"新通信技术"的子公司Ascensio System
+SIA开发的免费软件办公套件
+和协作应用程序生态系统，总部位于拉脱维亚的里加。
+它具有在线文档编辑器，文档管理平台，企业沟通，邮件和项目管理工具。
+
+<https://onlyoffice.com/images/solutions/docs/en/create@2x.png>
+
+支持Docker本地部署
+
+## CollaboraOnline
+
+[url](https://www.collaboraoffice.com/collabora-online/)
+
+Collabora Online是一个基于LibreOffice技术的开源在线办公套件，
+支持基于Web的文字处理文档，电子表格，演示文稿和矢量图形的实时协作编辑。
+可选应用适用于台式机，笔记本电脑，平板电脑，智能手机和Chromebook。
+
+<https://nextcloud.com/wp-content/webp-express/webp-images/uploads/2022/09/Nextcloud-Files-Under-your-control.jpg.webp>
+
+支持Docker本地部署

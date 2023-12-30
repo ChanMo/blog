@@ -1,0 +1,208 @@
+
+<div id="outline-container-org905a64a" class="outline-2">
+<h2 id="org905a64a">什么是Django和Brownie</h2>
+<div class="outline-text-2" id="text-org905a64a">
+<p>
+Django是基于Python的一个流行的web开发框架
+</p>
+
+<p>
+Brownie是基于Python的一个以太坊合约开发框架
+</p>
+
+<p>
+本文将介绍如何在Django中集成Brownie, 搭建基础的web3项目
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5450fc1" class="outline-2">
+<h2 id="org5450fc1">Create New Django Project</h2>
+<div class="outline-text-2" id="text-org5450fc1">
+<pre class="example">
+$ mkdir demo_site
+$ virtualenv env
+$ source env/bin/activate
+$ pip install Django
+$ django-admin startproject server
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgc99f303" class="outline-2">
+<h2 id="orgc99f303">Create Brownie Directory</h2>
+<div class="outline-text-2" id="text-orgc99f303">
+<pre class="example">
+$ cd server
+$ pip install eth-brownie
+$ brownie bake token
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org83ec192" class="outline-2">
+<h2 id="org83ec192">Config Network</h2>
+<div class="outline-text-2" id="text-org83ec192">
+</div>
+<div id="outline-container-org811d27f" class="outline-3">
+<h3 id="org811d27f">Use Default Development Network</h3>
+<div class="outline-text-3" id="text-org811d27f">
+<pre class="example">
+$ ganache-cli -d
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3861372" class="outline-3">
+<h3 id="org3861372">Use Infura</h3>
+<div class="outline-text-3" id="text-org3861372">
+<pre class="example">
+$ export WEB3_INFURA_PROJECT_ID=YourProjectID
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf61383e" class="outline-2">
+<h2 id="orgf61383e">Import Account</h2>
+<div class="outline-text-2" id="text-orgf61383e">
+<p>
+If use development network, can skip this step.
+</p>
+
+<pre class="example">
+$ brownie accounts new master # master is your account nickname
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org66ceed0" class="outline-2">
+<h2 id="org66ceed0">Update Django</h2>
+<div class="outline-text-2" id="text-org66ceed0">
+<p>
+open file <code>server/__init__.py</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">from brownie import project, network
+
+p = project.load('token', name='MyProject')
+p.load_config()
+
+# if use live network
+network.connect('rinkeby')
+network.accounts.load('master', 'ACCOUNT_PASSWORD') # account nickname and password
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfcaa6a8" class="outline-2">
+<h2 id="orgfcaa6a8">Run Django</h2>
+<div class="outline-text-2" id="text-orgfcaa6a8">
+<pre class="example">
+$ ./manage.py runserver
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org4dc7d66" class="outline-2">
+<h2 id="org4dc7d66">Integrate With Contract</h2>
+<div class="outline-text-2" id="text-org4dc7d66">
+<p>
+You do do this by `./manage.py shell` or in python file
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">from brownie import project, accounts
+
+erc721 = project.MyProject.ERC721 # Your contract name
+tx = erc721.deploy({'from':accounts[0]})
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b13c90" class="outline-2">
+<h2 id="org2b13c90">Use Celery</h2>
+<div class="outline-text-2" id="text-org2b13c90">
+<p>
+Because blockchain has high network delay, you should use celery do some longtime tasks
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd286b97" class="outline-2">
+<h2 id="orgd286b97">Use Next.js</h2>
+<div class="outline-text-2" id="text-orgd286b97">
+<p>
+Next.js is a very popular js framework.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged9553d" class="outline-2">
+<h2 id="orged9553d">Use Docker</h2>
+<div class="outline-text-2" id="text-orged9553d">
+<div class="org-src-container">
+<pre class="src src-yaml">version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000" 
+
+  server: &amp;base
+    build: ./server
+    volumes:
+      - ./server:/app
+      - ./server/static:/app/static
+      - ./server/media:/app/media
+      - ./.brownie:/root/.brownie
+      - ./.solcx/:/root/.solcx
+      - ./.vvm:/root/.vvm
+    depends_on:
+      - rabbitmq
+      - postgres
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: "server.production"
+      WEB3_INFURA_PROJECT_ID: ""
+    command: gunicorn server.wsgi:application -w 2 -b :8000
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ""
+
+  celery:
+    &lt;&lt;: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server worker -l INFO
+
+  celery_beat:
+    &lt;&lt;: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server beat -l INFO
+
+
+  rabbitmq:
+    image: rabbitmq
+    restart: always
+    volumes:
+      - ./mq:/var/lib/rabbitmq
+
+</pre>
+</div>
+</div>
+</div>

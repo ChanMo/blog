@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to convert a WebM video to MP4 in GNOME correctly</title>
+    <link rel="stylesheet" href="/blog/assets/css/styles.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to convert a WebM video to MP4 in GNOME correctly | ChanMo’s Life Hacks</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="How to convert a WebM video to MP4 in GNOME correctly" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This article describes how to convert a WebM video to MP4 format in GNOME correctly. This is useful if you need to share your video with someone who does not have a WebM player." />
+<meta property="og:description" content="This article describes how to convert a WebM video to MP4 format in GNOME correctly. This is useful if you need to share your video with someone who does not have a WebM player." />
+<link rel="canonical" href="https://chanmo.github.io/blog/2023/09/19/webm_to_mp4.html" />
+<meta property="og:url" content="https://chanmo.github.io/blog/2023/09/19/webm_to_mp4.html" />
+<meta property="og:site_name" content="ChanMo’s Life Hacks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-19T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to convert a WebM video to MP4 in GNOME correctly" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-19T00:00:00+08:00","datePublished":"2023-09-19T00:00:00+08:00","description":"This article describes how to convert a WebM video to MP4 format in GNOME correctly. This is useful if you need to share your video with someone who does not have a WebM player.","headline":"How to convert a WebM video to MP4 in GNOME correctly","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanmo.github.io/blog/2023/09/19/webm_to_mp4.html"},"url":"https://chanmo.github.io/blog/2023/09/19/webm_to_mp4.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">ChanMo's Life Hacks</a>
+    <div style="flex-grow:1;"></div>
+    
+      <a href="/about.html" class=" ">About</a>
+    
+      <a href="https://github.com/ChanMo/" class=" ">Github</a>
+    
+  </div>
+</nav>
+
+
+
+<section class="section page" style="margin-top:4.5rem;">
+  <article class="container">
+    <h1 class="title">How to convert a WebM video to MP4 in GNOME correctly</h1>
+    <p class="date-span">19 Sep 2023</p>
+    <p class="tags is-centered"><span class="tag">ffmpeg</span></p>
+    <div class="content mt-5 has-text-left">
+      <p>When you record a video in GNOME, the video will be aved in WebM format.
+WebM is a good format for video compression, but is not as widely
+supported as MP4. If you need to share your video with someone who does
+not have a WebM player, you may need to convert it to MP4 format.</p>
+
+<p>The following command will convert a WebM video to MP4 format:</p>
+
+<pre><code class="language-{.bash}">ffmpeg -i input.webm output.mp4
+</code></pre>
+
+<p>However, this command will create a file that is larger and slower than
+the original WebM file.</p>
+
+<p>To fix this, you can use the following command:</p>
+
+<pre><code class="language-{.bash}">ffmpeg -i input.webm -vf mpdecimate -c:a copy -vsync vfr ouput.mp4
+</code></pre>
+
+<p>This command will use the <code class="language-plaintext highlighter-rouge">mpdecimate</code> filter to reduce the frame rate
+of the video. This will make the file smaller without sacrificing too
+much quality.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">-c:a copy</code> option tells ffmpeg to copy the audio stream from the
+input file to the output file without re-encoding it. This will save
+time and ensure that the audio quality is not lost.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">-vsync vfr</code> option tells ffmpeg to use variable frame rate
+encoding. This will ensure that the video plays smoothly on all devices.</p>
+
+<p>To use this command, simply replace <code class="language-plaintext highlighter-rouge">input.webm</code> with the path to your
+input video file and <code class="language-plaintext highlighter-rouge">output.mp4</code> with the path to the output video
+file.</p>
+
+<p>For example, to convert the video <code class="language-plaintext highlighter-rouge">my_video.webm</code> to MP4 format, you
+would use the following command:</p>
+
+<pre><code class="language-{.bash}">ffmpeg -i my_video.webm -vf mpdecimate -c:a copy -vsync vfr my_video.mp4
+</code></pre>
+
+<p>This will create a new video file called <code class="language-plaintext highlighter-rouge">my_video.mp4</code> that is smaller
+and faster.</p>
+
+    </div>
+  </article>
+</section>
+
+    <footer class="footer has-text-centered">
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">Copyright &copy; 2023 DSOOU All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>

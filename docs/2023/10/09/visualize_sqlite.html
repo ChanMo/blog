@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Visualize a SQLite Database using SchemaCralwer</title>
+    <link rel="stylesheet" href="/blog/assets/css/styles.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to Visualize a SQLite Database using SchemaCralwer | ChanMo’s Life Hacks</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="How to Visualize a SQLite Database using SchemaCralwer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This article provides a comprehensive guide on how to visualize a SQLite database using SchemaCrawler with Docker. SchemaCrawler is a powerful database schema discovery and comprehension tool that can be used to generate ER diagrams, database documentation, and other reports for a variety of databases, including SQLite." />
+<meta property="og:description" content="This article provides a comprehensive guide on how to visualize a SQLite database using SchemaCrawler with Docker. SchemaCrawler is a powerful database schema discovery and comprehension tool that can be used to generate ER diagrams, database documentation, and other reports for a variety of databases, including SQLite." />
+<link rel="canonical" href="https://chanmo.github.io/blog/2023/10/09/visualize_sqlite.html" />
+<meta property="og:url" content="https://chanmo.github.io/blog/2023/10/09/visualize_sqlite.html" />
+<meta property="og:site_name" content="ChanMo’s Life Hacks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-09T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Visualize a SQLite Database using SchemaCralwer" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-09T00:00:00+08:00","datePublished":"2023-10-09T00:00:00+08:00","description":"This article provides a comprehensive guide on how to visualize a SQLite database using SchemaCrawler with Docker. SchemaCrawler is a powerful database schema discovery and comprehension tool that can be used to generate ER diagrams, database documentation, and other reports for a variety of databases, including SQLite.","headline":"How to Visualize a SQLite Database using SchemaCralwer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanmo.github.io/blog/2023/10/09/visualize_sqlite.html"},"url":"https://chanmo.github.io/blog/2023/10/09/visualize_sqlite.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">ChanMo's Life Hacks</a>
+    <div style="flex-grow:1;"></div>
+    
+      <a href="/about.html" class=" ">About</a>
+    
+      <a href="https://github.com/ChanMo/" class=" ">Github</a>
+    
+  </div>
+</nav>
+
+
+
+<section class="section page" style="margin-top:4.5rem;">
+  <article class="container">
+    <h1 class="title">How to Visualize a SQLite Database using SchemaCralwer</h1>
+    <p class="date-span">09 Oct 2023</p>
+    <p class="tags is-centered"><span class="tag">database,</span><span class="tag">docker</span></p>
+    <div class="content mt-5 has-text-left">
+      <p>Visualizing a SQLite database can be helpful for understanding the
+design of the database, for identifying potential problems, and for
+communicating the database design to others. There are a number of ways
+to visualize a SQLite database, but one of the most convenient ways is
+to use SchemaCrawler with Docker.</p>
+
+<p><a href="https://www.schemacrawler.com/index.html">SchemaCrawler</a> is a free and
+open-source database schema discovery and comprehension tool. It can be
+used to generate ER diagrams, database documentation, and other reports
+for a variety of databases, including SQLite.</p>
+
+<p>To visualize a SQLite database using SchemaCrawler with Docker, you can
+run this:</p>
+
+<pre><code class="language-{.bash}">docker run \      
+--mount type=bind,source="$(pwd)",target=/home/schcrwlr \
+--rm -it \
+schemacrawler/schemacrawler \
+/opt/schemacrawler/bin/schemacrawler.sh \
+--info-level=standard \   
+--server=sqlite \
+--database=db.sqlite3 \
+--command=schema \
+--output-format=png \
+--output-file=graph.png \
+</code></pre>
+
+<p>This will generate an ER graph in PNG format, which will be saved to the
+current directory.</p>
+
+<p>You can also use the SchemaCrawler command-line interface to generate ER
+graphs in other formats, such as SVG and PDF. To do this, simply change
+the -outputformat argument to the desired format.</p>
+
+<p>Here are some additional options that you can use with the SchemaCrawler
+command-line interface:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--infolevel=maximum: This will generate the most detailed ER graph.
+--showRelationships=true: This will show the relationships between the tables in the ER graph.
+--hideColumnDetails=true: This will hide the column details in the ER graph.
+</code></pre></div></div>
+
+<p>Once you have generated an ER graph, you can use it to visualize the
+structure of your database and to identify any potential problems.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Using SchemaCrawler with Docker is a convenient and reliable way to
+visualize SQLite databases. SchemaCrawler is a powerful tool that can be
+used to generate ER diagrams, database documentation, and other reports
+for a variety of databases. Docker is a containerization platform that
+allows you to package and deploy applications in isolated containers.</p>
+
+<p>By combining SchemaCrawler with Docker, you can easily visualize your
+SQLite databases on any system, regardless of the operating system or
+the software that is installed on the system.</p>
+
+    </div>
+  </article>
+</section>
+
+    <footer class="footer has-text-centered">
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">Copyright &copy; 2023 DSOOU All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在Django中使用Brownie</title>
+    <link rel="stylesheet" href="/blog/assets/css/styles.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>在Django中使用Brownie | ChanMo’s Life Hacks</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="在Django中使用Brownie" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="how to integrate eth-brownie with django" />
+<meta property="og:description" content="how to integrate eth-brownie with django" />
+<link rel="canonical" href="https://chanmo.github.io/blog/2022/10/14/BrownieWithDjango.html" />
+<meta property="og:url" content="https://chanmo.github.io/blog/2022/10/14/BrownieWithDjango.html" />
+<meta property="og:site_name" content="ChanMo’s Life Hacks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-14T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="在Django中使用Brownie" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-14T00:00:00+08:00","datePublished":"2022-10-14T00:00:00+08:00","description":"how to integrate eth-brownie with django","headline":"在Django中使用Brownie","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanmo.github.io/blog/2022/10/14/BrownieWithDjango.html"},"url":"https://chanmo.github.io/blog/2022/10/14/BrownieWithDjango.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav class="top-nav">
+  <div class="container">
+    <a href="/" class="top-nav__title">ChanMo's Life Hacks</a>
+    <div style="flex-grow:1;"></div>
+    
+      <a href="/about.html" class=" ">About</a>
+    
+      <a href="https://github.com/ChanMo/" class=" ">Github</a>
+    
+  </div>
+</nav>
+
+
+
+<section class="section page" style="margin-top:4.5rem;">
+  <article class="container">
+    <h1 class="title">在Django中使用Brownie</h1>
+    <p class="date-span">14 Oct 2022</p>
+    <p class="tags is-centered"><span class="tag">eth</span><span class="tag">brownie</span><span class="tag">django</span><span class="tag">python</span><span class="tag">web3</span><span class="tag">vyper</span><span class="tag">solidity</span><span class="tag">nft</span></p>
+    <div class="content mt-5 has-text-left">
+      <h2 id="什么是django和brownie">什么是Django和Brownie</h2>
+
+<p>Django是基于Python的一个流行的web开发框架</p>
+
+<p>Brownie是基于Python的一个以太坊合约开发框架</p>
+
+<p>本文将介绍如何在Django中集成Brownie, 搭建基础的web3项目</p>
+
+<h2 id="create-new-django-project">Create New Django Project</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir demo_site
+$ virtualenv env
+$ source env/bin/activate
+$ pip install Django
+$ django-admin startproject server
+</code></pre></div></div>
+
+<h2 id="create-brownie-directory">Create Brownie Directory</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd server
+$ pip install eth-brownie
+$ brownie bake token
+</code></pre></div></div>
+
+<h2 id="config-network">Config Network</h2>
+
+<h3 id="use-default-development-network">Use Default Development Network</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ganache-cli -d
+</code></pre></div></div>
+
+<h3 id="use-infura">Use Infura</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ export WEB3_INFURA_PROJECT_ID=YourProjectID
+</code></pre></div></div>
+
+<h2 id="import-account">Import Account</h2>
+
+<p>If use development network, can skip this step.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brownie accounts new master # master is your account nickname
+</code></pre></div></div>
+
+<h2 id="update-django">Update Django</h2>
+
+<p>open file <code class="language-plaintext highlighter-rouge">server/__init__.py</code></p>
+
+<pre><code class="language-{.python}">from brownie import project, network
+
+p = project.load('token', name='MyProject')
+p.load_config()
+
+# if use live network
+network.connect('rinkeby')
+network.accounts.load('master', 'ACCOUNT_PASSWORD') # account nickname and password
+</code></pre>
+
+<h2 id="run-django">Run Django</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./manage.py runserver
+</code></pre></div></div>
+
+<h2 id="integrate-with-contract">Integrate With Contract</h2>
+
+<p>You do do this by `./manage.py shell` or in python file</p>
+
+<pre><code class="language-{.python}">from brownie import project, accounts
+
+erc721 = project.MyProject.ERC721 # Your contract name
+tx = erc721.deploy({'from':accounts[0]})
+</code></pre>
+
+<h2 id="use-celery">Use Celery</h2>
+
+<p>Because blockchain has high network delay, you should use celery do some
+longtime tasks</p>
+
+<h2 id="use-nextjs">Use Next.js</h2>
+
+<p>Next.js is a very popular js framework.</p>
+
+<h2 id="use-docker">Use Docker</h2>
+
+<pre><code class="language-{.yaml}">version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000" 
+
+  server: &amp;base
+    build: ./server
+    volumes:
+      - ./server:/app
+      - ./server/static:/app/static
+      - ./server/media:/app/media
+      - ./.brownie:/root/.brownie
+      - ./.solcx/:/root/.solcx
+      - ./.vvm:/root/.vvm
+    depends_on:
+      - rabbitmq
+      - postgres
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: "server.production"
+      WEB3_INFURA_PROJECT_ID: ""
+    command: gunicorn server.wsgi:application -w 2 -b :8000
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ""
+
+  celery:
+    &lt;&lt;: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server worker -l INFO
+
+  celery_beat:
+    &lt;&lt;: *base
+    depends_on:
+      - rabbitmq
+    ports: []
+    command: celery -A server beat -l INFO
+
+
+  rabbitmq:
+    image: rabbitmq
+    restart: always
+    volumes:
+      - ./mq:/var/lib/rabbitmq
+
+</code></pre>
+
+    </div>
+  </article>
+</section>
+
+    <footer class="footer has-text-centered">
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">Copyright &copy; 2023 DSOOU All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>
