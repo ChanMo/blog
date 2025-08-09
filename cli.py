@@ -3,11 +3,15 @@ import re
 import datetime
 from pathlib import Path
 import subprocess as sp
-import pytz
+from zoneinfo import ZoneInfo
 import xml.etree.ElementTree as ET
 import click
 import shutil
-from tqdm import tqdm
+try:
+    from tqdm import tqdm
+except ImportError:  # pragma: no cover - optional dependency
+    def tqdm(iterable):
+        return iterable
 
 
 @click.group
@@ -64,7 +68,7 @@ def generate_sitemap():
     " Generate sitemap.xml"
     root = ET.Element('urlset')
     root.attrib['xmlns'] = 'http://www.sitemaps.org/schemas/sitemap/0.9'
-    timezone = pytz.timezone('Asia/Shanghai')
+    timezone = ZoneInfo('Asia/Shanghai')
     for f in os.listdir("."):
         if not f.endswith(".html"):
             continue
@@ -72,7 +76,9 @@ def generate_sitemap():
         loc = ET.SubElement(url, "loc")
         loc.text = f'https://www.chanmo.me/{f}'
         lastmod = ET.SubElement(url, "lastmod")
-        lastmod.text = timezone.localize(datetime.datetime.fromtimestamp(os.path.getmtime(f))).isoformat(timespec='seconds')
+        lastmod.text = datetime.datetime.fromtimestamp(
+            os.path.getmtime(f), tz=timezone
+        ).isoformat(timespec='seconds')
 
     with open('sitemap.xml', 'wb') as f:
         f.write(b'<?xml version="1.0" encoding="utf-8"?>\n')
