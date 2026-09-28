@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not here — ChanMo</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/blog/favicon.svg" type="image/svg+xml">
+<style>
+  /* Served for any missing path, so every URL here is absolute. */
+  @font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url(/blog/fonts/inter-500.woff2) format("woff2"); }
+  :root {
+    --bg: #fafaf9; --ink: #17171a; --muted: #77777d; --line: #c9c9cc; --accent: #e5402a;
+    --sans: "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111113; --ink: #ecebe8; --muted: #88888e; --line: #46464b; --accent: #f26a52; }
+  }
+  body {
+    margin: 0; min-height: 100svh; display: grid; place-content: center; padding: 1.5rem;
+    background: var(--bg); color: var(--ink); font: 12.5px/1.6 var(--mono); -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+  h1 { margin: .75rem 0 1.75rem; font: 500 clamp(1.75rem, 5vw, 2.5rem)/1.1 var(--sans); letter-spacing: -0.035em; }
+  p { margin: 0; color: var(--muted); }
+  a { color: var(--ink); text-decoration: none; background: linear-gradient(var(--line), var(--line)) 0 100% / 100% 1px no-repeat;
+      transition: background-size .3s ease, color .15s; }
+  a:hover { color: var(--accent); background-size: 0 1px; background-position: 100% 100%; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) { a { transition: none; } }
+</style>
+</head>
+<body>
+  <main>
+    <p>404</p>
+    <h1>Nothing lives here anymore.</h1>
+    <p>The old blog is gone. <a href="/blog/">Start over</a></p>
+  </main>
+</body>
+</html>
