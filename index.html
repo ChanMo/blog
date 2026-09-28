@@ -1,40 +1,175 @@
----
-layout: default
-title: ChanMo's Life Hacks
-description: The Creativity Lab for Programming Inventors.
----
-<section class="section" style="background-image:url(https://images.unsplash.com/photo-1551626187-3734b29464ff?q=80&w=1440&auto=format&fit=crop&ixlib=rb-4.0.3);background-size:cover;background-position:center top;height:80px;">
-</section>
-<section class="hero">
-  <div class="hero-body">
-  <div class="container">
-    <h1 class="title is-size-2">{{site.title}}</h1>
-    <h3 class="subtitle is-5">The Creativity Lab for Programming Inventors.</h3>
-    <p>
-      <a href="https://github.com/ChanMo" target="_blank" class="mr-2">Github</a>
-      <a href="./about.html" class="mr-2">About</a>
-    </p>
-  </div>
-  </div>
-</section>
+<!doctype html>
+<!--
+  Hello, fellow reader of source.
 
-{% for post in site.posts %}
-<section class="section mt-5">
-  <article class="container">
-    <h2 class="title is-size-3">
-      <a href="{{post.url|relative_url}}">
-        {{post.title}}
-      </a>
-    </h2>
-    <div class="content">
-      <div class="excerpt">{{post.excerpt}}</div>
-      <p class="tags">
-      {% for tag in post.tags %}
-      <span class="tag">{{tag}}</span>
-      {% endfor %}
-      </p>
-      <p><i class="is-underlined">{{post.date|date_to_string}}</i></p>
-    </div>
-  </article>
-</section>
-{% endfor %}
+  One file. No build step. No framework. No trackers.
+  Edit it on GitHub, commit, and it is live.
+
+  Try the console, too.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChanMo</title>
+<meta name="description" content="Builds products from zero, alone, fast.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://chanmo.github.io/blog/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chanmo.github.io/blog/">
+<meta property="og:title" content="ChanMo">
+<meta property="og:description" content="Builds products from zero, alone, fast.">
+<meta property="og:image" content="https://chanmo.github.io/blog/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format("woff2"); }
+
+  :root {
+    --bg: #fafaf9; --ink: #17171a; --muted: #77777d; --line: #c9c9cc; --rule: #e6e6e3; --accent: #e5402a;
+    --sans: "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111113; --ink: #ecebe8; --muted: #88888e; --line: #46464b; --rule: #242428; --accent: #f26a52; color-scheme: dark; }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 var(--sans); letter-spacing: -0.006em;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+
+  .page {
+    max-width: 60rem; margin: 0 auto; padding: 2rem clamp(1.25rem, 5vw, 3rem) 2.25rem;
+    min-height: 100svh; display: flex; flex-direction: column;
+  }
+  .meta { font: 12.5px/1.6 var(--mono); letter-spacing: 0; color: var(--muted); }
+
+  header { display: flex; justify-content: space-between; align-items: baseline; }
+  header b { font-weight: 500; font-size: 15px; letter-spacing: -0.01em; }
+  #now { display: inline-flex; align-items: center; gap: .55rem; font-variant-numeric: tabular-nums; }
+  #now::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  h1 {
+    margin: clamp(5rem, 17vh, 10rem) 0 clamp(3.5rem, 10vh, 6rem);
+    font-size: clamp(2.3rem, 6.4vw, 4.4rem); line-height: 1.04; font-weight: 500;
+    letter-spacing: -0.04em; text-wrap: balance; max-width: 12em;
+  }
+  h1 span { color: var(--muted); }
+
+  section {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 0 1.5rem;
+    border-top: 1px solid var(--rule); padding: 1.25rem 0 2.5rem;
+  }
+  h2 { grid-column: 1 / 4; margin: 0; padding-top: .15rem; font-weight: 400; }
+  section > :not(h2) { grid-column: 4 / 11; }
+  p { margin: 0 0 1em; max-width: 34em; text-wrap: pretty; }
+  p:last-child { margin: 0; }
+
+  ol { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+  li { counter-increment: n; display: grid; grid-template-columns: 2.25rem 1fr; padding: .1rem 0; }
+  li::before { content: counter(n, decimal-leading-zero); font: 12.5px/1.6 var(--mono); color: var(--muted); padding-top: .15rem; }
+  li b { font-weight: 500; }
+  li span { color: var(--muted); }
+
+  .links { display: flex; flex-wrap: wrap; gap: .5rem 2rem; }
+  a {
+    color: inherit; text-decoration: none;
+    background: linear-gradient(var(--line), var(--line)) 0 100% / 100% 1px no-repeat;
+    transition: background-size .3s ease, color .15s;
+  }
+  a:hover { color: var(--accent); background-size: 0 1px; background-position: 100% 100%; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+  a svg { width: .7em; height: .7em; margin-left: .3em; vertical-align: .05em; transition: transform .2s ease; }
+  a:hover svg { transform: translate(2px, -2px); }
+
+  footer { margin-top: auto; padding-top: 3rem; }
+
+  @media (max-width: 40rem) {
+    section { grid-template-columns: 1fr; padding-bottom: 2rem; }
+    h2, section > :not(h2) { grid-column: 1; }
+    h2 { margin-bottom: .75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { a, a svg { transition: none; } }
+  @media print {
+    @page { margin: 20mm; }
+    :root { --bg: #fff; --ink: #000; --muted: #555; --rule: #ccc; }
+    .page { min-height: 0; padding: 0; }
+    h1 { margin: 2.5rem 0 2rem; font-size: 30pt; }
+    #now, footer, a svg { display: none; }
+    a { background: none; }
+    a[href^="http"]::after { content: "  " attr(href); font: 9pt var(--mono); color: var(--muted); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <b>ChanMo</b>
+    <span class="meta" id="now">UTC+8</span>
+  </header>
+
+  <main>
+    <h1>Builds products from zero, <span>alone, fast.</span></h1>
+
+    <section>
+      <h2 class="meta">about</h2>
+      <div>
+        <p>A full-stack developer who takes an idea from a blank page to a working pre-release product — single-handed, in about two weeks. Then a team joins, and the product keeps shipping in two-week cycles.</p>
+        <p>Creativity under constraint. Simple, stable, well-understood tools. Code that is quietly well made, including the parts nobody asked to see.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="meta">method</h2>
+      <ol>
+        <li><div><b>Alone.</b> <span>One person, from first sketch to production.</span></div></li>
+        <li><div><b>Two weeks.</b> <span>A usable pre-release in fourteen days.</span></div></li>
+        <li><div><b>Quiet.</b> <span>Nothing clever for its own sake.</span></div></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="meta">elsewhere</h2>
+      <div class="links">
+        <a href="https://github.com/ChanMo">GitHub<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8 8 2M3.5 2H8v4.5"/></svg></a>
+        <a href="mailto:chan.mo@outlook.com">chan.mo@outlook.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="meta">chanmo.github.io/blog</footer>
+</div>
+<script>
+  // The only script: local time in UTC+8, and a note for whoever opens the console.
+  // Without it the header simply reads "UTC+8".
+  (function tick() {
+    var t = new Date(Date.now() + 8 * 3600e3);
+    var hh = String(t.getUTCHours()).padStart(2, "0"), mm = String(t.getUTCMinutes()).padStart(2, "0");
+    document.getElementById("now").textContent = hh + ":" + mm + " · UTC+8";
+    setTimeout(tick, 60e3 - Date.now() % 60e3);
+  })();
+  console.log([
+    "CHANMO(1)                    Personal Manual                    CHANMO(1)",
+    "",
+    "NAME",
+    "     chanmo — builds products from zero, alone, fast",
+    "",
+    "SYNOPSIS",
+    "     chanmo [--alone] [--two-weeks] idea",
+    "",
+    "SEE ALSO",
+    "     github.com/ChanMo, chan.mo@outlook.com"
+  ].join("\n"));
+</script>
+</body>
+</html>
