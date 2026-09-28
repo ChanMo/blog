@@ -12,26 +12,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ChanMo</title>
-<meta name="description" content="Builds products from zero, alone, fast.">
+<meta name="description" content="Builds products from zero, alone, fast. Full-stack developer in Jinan.">
+<meta name="author" content="ChanMo">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://chanmo.github.io/blog/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/inter-display-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-<meta property="og:type" content="website">
+<meta property="og:type" content="profile">
 <meta property="og:url" content="https://chanmo.github.io/blog/">
 <meta property="og:title" content="ChanMo">
 <meta property="og:description" content="Builds products from zero, alone, fast.">
 <meta property="og:image" content="https://chanmo.github.io/blog/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "ChanMo",
+  "url": "https://chanmo.github.io/blog/",
+  "email": "mailto:chan.mo@outlook.com",
+  "jobTitle": "Full-stack developer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Jinan", "addressCountry": "CN" },
+  "sameAs": ["https://github.com/ChanMo"]
+}
+</script>
 <style>
   @font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format("woff2"); }
   @font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format("woff2"); }
+  @font-face { font-family: "Inter Display"; font-weight: 500; font-display: swap; src: url(fonts/inter-display-500.woff2) format("woff2"); }
+  /* Arial scaled to Inter's metrics, so the swap to Inter does not shift the layout. */
+  @font-face { font-family: "Inter Fallback"; src: local("Arial"); size-adjust: 107.12%; ascent-override: 90.44%; descent-override: 22.52%; line-gap-override: 0%; }
 
   :root {
-    --bg: #fafaf9; --ink: #17171a; --muted: #77777d; --line: #c9c9cc; --rule: #e6e6e3; --accent: #e5402a;
-    --sans: "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Arial, sans-serif;
+    --bg: #fafaf9; --ink: #17171a; --muted: #6e6e74; --line: #c9c9cc; --rule: #e6e6e3; --accent: #e5402a;
+    --sans: "Inter", "Inter Fallback", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --display: "Inter Display", "Inter Fallback", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
     color-scheme: light;
   }
@@ -53,18 +72,20 @@
     min-height: 100svh; display: flex; flex-direction: column;
   }
   .meta { font: 12.5px/1.6 var(--mono); letter-spacing: 0; color: var(--muted); }
+  .nb { white-space: nowrap; }
 
-  header { display: flex; justify-content: space-between; align-items: baseline; }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
   header b { font-weight: 500; font-size: 15px; letter-spacing: -0.01em; }
   #now { display: inline-flex; align-items: center; gap: .55rem; font-variant-numeric: tabular-nums; }
   #now::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  #now.asleep::before { background: none; box-shadow: inset 0 0 0 1px var(--muted); }
 
   h1 {
-    margin: clamp(5rem, 17vh, 10rem) 0 clamp(3.5rem, 10vh, 6rem);
-    font-size: clamp(2.3rem, 6.4vw, 4.4rem); line-height: 1.04; font-weight: 500;
-    letter-spacing: -0.04em; text-wrap: balance; max-width: 12em;
+    margin: clamp(5rem, 17vh, 10rem) 0 clamp(3.5rem, 10vh, 6rem) -0.05em;
+    font: 500 clamp(2.3rem, 6.4vw, 4.4rem)/1.04 var(--display);
+    letter-spacing: -0.035em; text-wrap: balance; max-width: 12em; color: var(--muted);
   }
-  h1 span { color: var(--muted); }
+  h1 em { font-style: normal; color: var(--ink); }
 
   section {
     display: grid; grid-template-columns: repeat(12, 1fr); gap: 0 1.5rem;
@@ -72,16 +93,10 @@
   }
   h2 { grid-column: 1 / 4; margin: 0; padding-top: .15rem; font-weight: 400; }
   section > :not(h2) { grid-column: 4 / 11; }
+  section > ul { grid-column: 4 / 13; }
   p { margin: 0 0 1em; max-width: 34em; text-wrap: pretty; }
   p:last-child { margin: 0; }
 
-  ol { list-style: none; margin: 0; padding: 0; counter-reset: n; }
-  li { counter-increment: n; display: grid; grid-template-columns: 2.25rem 1fr; padding: .1rem 0; }
-  li::before { content: counter(n, decimal-leading-zero); font: 12.5px/1.6 var(--mono); color: var(--muted); padding-top: .15rem; }
-  li b { font-weight: 500; }
-  li span { color: var(--muted); }
-
-  .links { display: flex; flex-wrap: wrap; gap: .5rem 2rem; }
   a {
     color: inherit; text-decoration: none;
     background: linear-gradient(var(--line), var(--line)) 0 100% / 100% 1px no-repeat;
@@ -92,22 +107,38 @@
   a svg { width: .7em; height: .7em; margin-left: .3em; vertical-align: .05em; transition: transform .2s ease; }
   a:hover svg { transform: translate(2px, -2px); }
 
+  ul { list-style: none; margin: 0; padding: 0; }
+  .work a { display: grid; grid-template-columns: 9rem 1fr auto; gap: 0 1.5rem; align-items: baseline;
+            padding: .15rem 0; background: none; }
+  .work b { font-weight: 500; justify-self: start;
+            background: linear-gradient(var(--line), var(--line)) 0 100% / 100% 1px no-repeat;
+            transition: background-size .3s ease, color .15s; }
+  .work span { color: var(--muted); transition: color .15s; }
+  .work a:hover { color: inherit; }
+  .work a:hover b { color: var(--accent); background-size: 0 1px; background-position: 100% 100%; }
+  .work a:hover svg { color: var(--accent); }
+  .work a:hover span { color: inherit; }
+
+  .links { display: flex; flex-wrap: wrap; gap: .5rem 2rem; }
+
   footer { margin-top: auto; padding-top: 3rem; }
 
   @media (max-width: 40rem) {
     section { grid-template-columns: 1fr; padding-bottom: 2rem; }
-    h2, section > :not(h2) { grid-column: 1; }
+    h2, section > :not(h2), section > ul { grid-column: 1; }
     h2 { margin-bottom: .75rem; }
+    .work a { grid-template-columns: 1fr auto; padding: .35rem 0; }
+    .work span { grid-column: 1 / -1; grid-row: 2; }
   }
-  @media (prefers-reduced-motion: reduce) { a, a svg { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { a, a svg, .work b, .work span { transition: none; } }
   @media print {
     @page { margin: 20mm; }
     :root { --bg: #fff; --ink: #000; --muted: #555; --rule: #ccc; }
     .page { min-height: 0; padding: 0; }
     h1 { margin: 2.5rem 0 2rem; font-size: 30pt; }
     #now, footer, a svg { display: none; }
-    a { background: none; }
-    a[href^="http"]::after { content: "  " attr(href); font: 9pt var(--mono); color: var(--muted); }
+    a, .work b { background: none; }
+    .links a[href^="http"]::after { content: "  " attr(href); font: 9pt var(--mono); color: var(--muted); }
   }
 </style>
 </head>
@@ -115,47 +146,50 @@
 <div class="page">
   <header>
     <b>ChanMo</b>
-    <span class="meta" id="now">UTC+8</span>
+    <span class="meta" id="now">Jinan, UTC+8</span>
   </header>
 
   <main>
-    <h1>Builds products from zero, <span>alone, fast.</span></h1>
+    <h1>Builds products from zero, <em>alone, fast.</em></h1>
 
     <section>
       <h2 class="meta">about</h2>
       <div>
-        <p>A full-stack developer who takes an idea from a blank page to a working pre-release product — single-handed, in about two weeks. Then a team joins, and the product keeps shipping in two-week cycles.</p>
-        <p>Creativity under constraint. Simple, stable, well-understood tools. Code that is quietly well made, including the parts nobody asked to see.</p>
+        <p>A <span class="nb">full-stack</span> developer who takes an idea from a blank page to a working <span class="nb">pre-release</span>, <span class="nb">single-handed</span>, in about two weeks. Then a team joins, and the product keeps shipping in <span class="nb">two-week</span> cycles.</p>
+        <p>Creativity under constraint. Boring tools, chosen on purpose. Software simple enough to understand in one sitting, and quietly well made, including the parts nobody asked to see.</p>
       </div>
     </section>
 
     <section>
-      <h2 class="meta">method</h2>
-      <ol>
-        <li><div><b>Alone.</b> <span>One person, from first sketch to production.</span></div></li>
-        <li><div><b>Two weeks.</b> <span>A usable pre-release in fourteen days.</span></div></li>
-        <li><div><b>Quiet.</b> <span>Nothing clever for its own sake.</span></div></li>
-      </ol>
+      <h2 class="meta">work</h2>
+      <ul class="work">
+        <li><a href="https://www.dsoou.com/"><b>DSOOU</b><span>Small tools, no detours. Free, on your device.</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8 8 2M3.5 2H8v4.5"/></svg></a></li>
+        <li><a href="https://nativediagram.com/"><b>NativeDiagram</b><span>Editable Office SmartArt, drawn by AI assistants.</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8 8 2M3.5 2H8v4.5"/></svg></a></li>
+        <li><a href="https://liveleaf.app/"><b>LiveLeaf</b><span>Read what AI made, on iPhone and iPad.</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8 8 2M3.5 2H8v4.5"/></svg></a></li>
+      </ul>
     </section>
 
     <section>
       <h2 class="meta">elsewhere</h2>
       <div class="links">
-        <a href="https://github.com/ChanMo">GitHub<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8 8 2M3.5 2H8v4.5"/></svg></a>
-        <a href="mailto:chan.mo@outlook.com">chan.mo@outlook.com</a>
+        <a href="https://github.com/ChanMo" rel="me">GitHub<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8 8 2M3.5 2H8v4.5"/></svg></a>
+        <a href="mailto:chan.mo@outlook.com" rel="me">chan.mo@outlook.com</a>
       </div>
     </section>
   </main>
 
-  <footer class="meta">chanmo.github.io/blog</footer>
+  <footer class="meta">Set in Inter. One HTML file, no trackers.</footer>
 </div>
 <script>
-  // The only script: local time in UTC+8, and a note for whoever opens the console.
-  // Without it the header simply reads "UTC+8".
+  // The only script: local time in Jinan, and a note for whoever opens the console.
+  // Without it the header simply reads "Jinan, UTC+8".
   (function tick() {
-    var t = new Date(Date.now() + 8 * 3600e3);
-    var hh = String(t.getUTCHours()).padStart(2, "0"), mm = String(t.getUTCMinutes()).padStart(2, "0");
-    document.getElementById("now").textContent = hh + ":" + mm + " · UTC+8";
+    var t = new Date(Date.now() + 8 * 3600e3), h = t.getUTCHours();
+    var hhmm = String(h).padStart(2, "0") + ":" + String(t.getUTCMinutes()).padStart(2, "0");
+    var asleep = h >= 23 || h < 7;
+    var now = document.getElementById("now");
+    now.textContent = hhmm + " in Jinan" + (asleep ? " · asleep" : "");
+    now.classList.toggle("asleep", asleep);
     setTimeout(tick, 60e3 - Date.now() % 60e3);
   })();
   console.log([
@@ -168,6 +202,7 @@
     "     chanmo [--alone] [--two-weeks] idea",
     "",
     "SEE ALSO",
+    "     dsoou.com, nativediagram.com, liveleaf.app",
     "     github.com/ChanMo, chan.mo@outlook.com"
   ].join("\n"));
 </script>
